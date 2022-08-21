@@ -3,11 +3,11 @@ toc: true
 layout: post
 description: A test of the markdown posts in fastpages.
 categories: [markdown]
-title: Fastpages Progress
+title: Fastpages Post with Markdown
 ---
-# Fastpages Markdown
+# My First Post!
 
-This post explores my journey through markdown syntax.
+This post explores my (Andrew's) journey through markdown syntax.
 
 ## Basic 
 
@@ -31,3 +31,14 @@ that is multiline
 ```python
 print("hello world!")
 ```
+
+## Tables
+
+|Type of text  | examples |
+|--|--|
+| strikethrough text | ~~example~~ |
+|hyperlink|[google](https://www.google.com/)|
+
+## Hi
+![Programmer in sadness](https://images.techhive.com/images/article/2014/10/shutterstock_103782935-100527393-large.jpg)
+Now that the introduction is done, it's time to code!!!
