@@ -24,8 +24,8 @@
   
     
         ,"post2": {
-            "title": "My First Post",
-            "content": "work in progress .",
+            "title": "Fastpages Progress",
+            "content": "Fastpages Markdown . This post explores my journey through markdown syntax. . Basic . This section shows usage of markdown, with italics and bold text. . this is a quote block . List . this is a numbered list | this is the second item | this is an unordered list | this is the second item | . Code . this is a code block that is multiline . print(&quot;hello world!&quot;) .",
             "url": "https://supermengman.github.io/blog/markdown/2022/08/18/My-First-Post.html",
             "relUrl": "/markdown/2022/08/18/My-First-Post.html",
             "date": " • Aug 18, 2022"
