@@ -18,6 +18,6 @@ Capture image/screen capture of Fastpages project showing use of an Integrated D
 
 # Hacks Part 2: Java Project
 ![image](https://user-images.githubusercontent.com/73082021/185813355-f47ed86c-d221-460f-bc91-b6c5b71f7fa5.png)
-- [Link to GitHub code commit for minor change](https://github.com/supermengman/java-project/commit/dc999f8c098761346587f64d9b678b6b62e912db)
+- [Link to GitHub code commit for minor change](https://github.com/supermengman/java-project/commit/28c9c3b224f7323d8d1227fb4a97da897f11b589)
 - Seed: [Fix for the dropdown menu in Birds page](https://github.com/supermengman/java-project/commit/8ebb8e343bbac33d6dc78db2822110f5f239ed32) 
 - Seed: [Java 17 working](https://github.com/supermengman/java-project/commit/88a93640d046794f65ade8ea0df1a071fe62855c)
