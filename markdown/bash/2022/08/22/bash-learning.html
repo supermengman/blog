@@ -99,23 +99,22 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h1"><a href="#bash-learning">Bash Learning</a></li>
 <li class="toc-entry toc-h1"><a href="#bash-script-to-verify-project-directories-and-projects">Bash script to verify project directories and projects</a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#initial-setup-to-clone">Initial setup to clone</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h1"><a href="#variable-section">Variable section</a></li>
-<li class="toc-entry toc-h1"><a href="#conditional-block-to-make-a-project-directory">Conditional block to make a project directory</a></li>
-<li class="toc-entry toc-h1"><a href="#conditional-block-to-git-clone-a-project-from-project_repo">Conditional block to git clone a project from project_repo</a>
+<li class="toc-entry toc-h2"><a href="#filesystem-management-in-bash">Filesystem Management in Bash</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#cd-pwd-echo-ls">cd, pwd, echo, ls</a></li>
 <li class="toc-entry toc-h3"><a href="#moving-through-linux-directories">Moving through Linux Directories</a></li>
 <li class="toc-entry toc-h3"><a href="#show-contents-of-files">Show contents of files</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#other-additional-bash-commands">Other additional bash commands</a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#commands-for-permissions">Commands for Permissions</a></li>
+<li class="toc-entry toc-h2"><a href="#filtering-commands">Filtering Commands</a></li>
 <li class="toc-entry toc-h2"><a href="#miscellaneous-commands">Miscellaneous Commands</a></li>
 </ul>
 </li>
@@ -126,82 +125,76 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#updating-repositories">Updating Repositories</a></li>
 </ul>
 </li>
-</ul><h1 id="bash-learning">
-<a class="anchor" href="#bash-learning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bash Learning</h1>
-<blockquote>
-  <p>Learning how to use bash</p>
-</blockquote>
+</ul><h1 id="bash-script-to-verify-project-directories-and-projects">
+<a class="anchor" href="#bash-script-to-verify-project-directories-and-projects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bash script to verify project directories and projects</h1>
+<h2 id="initial-setup-to-clone">
+<a class="anchor" href="#initial-setup-to-clone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial setup to clone</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Using conditional statement to create a project directory and project"</span>
+
+
+<span class="c"># Variable section</span>
+<span class="nb">export </span><span class="nv">project_dir</span><span class="o">=</span><span class="nv">$HOME</span>/bash_clone_test  <span class="c"># change vscode to different name to test git clone</span>
+<span class="nb">export </span><span class="nv">project</span><span class="o">=</span><span class="nv">$testing_dir</span>/blog  <span class="c"># change APCSP to name of project from git clone</span>
+<span class="nb">export </span><span class="nv">project_repo</span><span class="o">=</span><span class="s2">"https://github.com/supermengman/blog"</span>  <span class="c"># change to project of choice</span>
+
+<span class="nb">cd</span> ~    <span class="c"># start in home directory</span>
+
+<span class="c"># Conditional block to make a project directory</span>
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> <span class="nv">$project_dir</span> <span class="o">]</span>
+<span class="k">then 
+    </span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project_dir</span><span class="s2"> does not exists... makinng directory </span><span class="nv">$project_dir</span><span class="s2">"</span>
+    <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$project_dir</span>
+<span class="k">fi
+</span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project_dir</span><span class="s2"> exists."</span> 
+
+<span class="c"># Conditional block to git clone a project from project_repo</span>
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> <span class="nv">$project</span> <span class="o">]</span>
+<span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project</span><span class="s2"> does not exists... cloning </span><span class="nv">$project_repo</span><span class="s2">"</span>
+    <span class="nb">cd</span> <span class="nv">$project_dir</span>
+    git clone <span class="nv">$project_repo</span>
+    <span class="nb">cd</span> ~
+<span class="k">fi
+</span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project</span><span class="s2"> exists."</span>
+</code></pre></div></div>
+<h2 id="filesystem-management-in-bash">
+<a class="anchor" href="#filesystem-management-in-bash" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filesystem Management in Bash</h2>
+
+<h3 id="cd-pwd-echo-ls">
+<a class="anchor" href="#cd-pwd-echo-ls" aria-hidden="true"><span class="octicon octicon-link"></span></a>cd, pwd, echo, ls</h3>
 
 <ul>
-  <li>toc: true</li>
-  <li>badges: true</li>
-  <li>comments: true</li>
-  <li>categories: [jupyter,bash]
-    <h1 id="bash-script-to-verify-project-directories-and-projects">
-<a class="anchor" href="#bash-script-to-verify-project-directories-and-projects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bash script to verify project directories and projects</h1>
-    <h2 id="initial-setup-to-clone">
-<a class="anchor" href="#initial-setup-to-clone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial setup to clone</h2>
-    <p>```bash
-echo “Using conditional statement to create a project directory and project”</p>
-  </li>
+  <li>cd changes directory</li>
+  <li>pwd prints working directory</li>
+  <li>echo “echoes” lines into terminal</li>
+  <li>ls “lists” files in directories</li>
 </ul>
 
-<h1 id="variable-section">
-<a class="anchor" href="#variable-section" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variable section</h1>
-<p>export project_dir=$HOME/bash_clone_test  # change vscode to different name to test git clone
-export project=$testing_dir/blog  # change APCSP to name of project from git clone
-export project_repo=”https://github.com/supermengman/blog”  # change to project of choice</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Navigate to project, then navigate to area where files were cloned"</span>
+<span class="nb">cd</span> <span class="nv">$project</span> <span class="c"># Changes Directory to the project</span>
+<span class="nb">pwd</span> <span class="c"># outputs the current directory</span>
 
-<p>cd ~    # start in home directory</p>
+<span class="nb">echo</span> <span class="s2">""</span> <span class="c"># empty space</span>
+<span class="nb">echo</span> <span class="s2">"list top level or root of files with project pulled from github"</span>
+<span class="nb">ls</span> <span class="c"># list</span>
 
-<h1 id="conditional-block-to-make-a-project-directory">
-<a class="anchor" href="#conditional-block-to-make-a-project-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional block to make a project directory</h1>
-<p>if [ ! -d $project_dir ]
-then 
-    echo “Directory $project_dir does not exists… makinng directory $project_dir”
-    mkdir -p $project_dir
-fi
-echo “Directory $project_dir exists.”</p>
+<span class="nb">echo</span> <span class="s2">""</span> 
+<span class="nb">echo</span> <span class="s2">"list again with hidden files pulled from github"</span>
+<span class="nb">ls</span> <span class="nt">-a</span>   <span class="c"># hidden files flag, many shell commands have flags</span>
 
-<h1 id="conditional-block-to-git-clone-a-project-from-project_repo">
-<a class="anchor" href="#conditional-block-to-git-clone-a-project-from-project_repo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional block to git clone a project from project_repo</h1>
-<p>if [ ! -d $project ]
-then
-    echo “Directory $project does not exists… cloning $project_repo”
-    cd $project_dir
-    git clone $project_repo
-    cd ~
-fi
-echo “Directory $project exists.”</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Filesystem Management in Bash
-### cd, pwd, echo, ls
-- cd changes directory
-- pwd prints working directory
-- echo "echoes" lines into terminal
-- ls "lists" files in directories
-```bash
-echo "Navigate to project, then navigate to area where files were cloned"
-cd $project # Changes Directory to the project
-pwd # outputs the current directory
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"list all files in long format"</span>
+<span class="nb">ls</span> <span class="nt">-al</span>   <span class="c"># all files and long listing</span>
 
-echo "" # empty space
-echo "list top level or root of files with project pulled from github"
-ls # list
-
-echo "" 
-echo "list again with hidden files pulled from github"
-ls -a   # hidden files flag, many shell commands have flags
-
-echo ""
-echo "list all files in long format"
-ls -al   # all files and long listing
-
-echo ""
-echo "list all files in long format recursively"
-ls -Ral   # all files and long listing
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"list all files in long format recursively"</span>
+<span class="nb">ls</span> <span class="nt">-Ral</span>   <span class="c"># all files and long listing</span>
 </code></pre></div></div>
+
 <h3 id="moving-through-linux-directories">
 <a class="anchor" href="#moving-through-linux-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moving through Linux Directories</h3>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Look for posts"</span>
 <span class="nb">export </span><span class="nv">posts</span><span class="o">=</span><span class="nv">$project</span>/_posts  <span class="c"># _posts inside project</span>
 <span class="nb">cd</span> <span class="nv">$posts</span>  <span class="c"># this should exist per fastpages</span>
@@ -221,8 +214,10 @@ ls -Ral   # all files and long listing
 <span class="nb">pwd
 ls</span> <span class="nt">-l</span>
 </code></pre></div></div>
+
 <h3 id="show-contents-of-files">
 <a class="anchor" href="#show-contents-of-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show contents of files</h3>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Navigate to project, then navigate to area where files were cloned"</span>
 
 <span class="nb">cd</span> <span class="nv">$project</span>
@@ -233,10 +228,13 @@ ls</span> <span class="nt">-l</span>
 <span class="nb">echo</span> <span class="s2">""</span>
 <span class="nb">echo</span> <span class="s2">"end of index.html"</span>
 </code></pre></div></div>
+
 <h1 id="other-additional-bash-commands">
 <a class="anchor" href="#other-additional-bash-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other additional bash commands</h1>
+
 <h2 id="commands-for-permissions">
 <a class="anchor" href="#commands-for-permissions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands for Permissions</h2>
+
 <ul>
   <li>chmod is the command used to change access permissions of files (allowing specific people to read, write, or execute files)
     <ul>
@@ -265,25 +263,30 @@ ls</span> <span class="nt">-l</span>
   </li>
   <li>chgrp command used to change group that owns file
     <ul>
-      <li>similar syntax to chown
-```bash
-cd $project
-chmod 644 README.md # changes permissions of the README file to 644, so owner can read and write, while the group and others can only read
-chown root README.md # changes owner of README.md to root
-chgrp sudo README.md # changes group that has access to README.md to sudo</li>
+      <li>similar syntax to chown</li>
     </ul>
   </li>
 </ul>
 
-<p>chown root:sudo README.md # does both owner and group at the same time</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Filtering Commands
-grep is a very useful command in linux, used to filter content inside files to find a specific match. grep can also be used to find a match in the output of a command.
-```bash
-grep "the" README.md # searches for and prints any matches of "read" in readme file
-grep -rl "read" $project # searches recursively through project directory for "read" while only listing filenames
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nv">$project</span>
+<span class="nb">chmod </span>644 README.md <span class="c"># changes permissions of the README file to 644, so owner can read and write, while the group and others can only read</span>
+<span class="nb">chown </span>root README.md <span class="c"># changes owner of README.md to root</span>
+<span class="nb">chgrp sudo </span>README.md <span class="c"># changes group that has access to README.md to sudo</span>
+
+<span class="nb">chown </span>root:sudo README.md <span class="c"># does both owner and group at the same time</span>
+</code></pre></div></div>
+
+<h2 id="filtering-commands">
+<a class="anchor" href="#filtering-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtering Commands</h2>
+
+<p>grep is a very useful command in linux, used to filter content inside files to find a specific match. grep can also be used to find a match in the output of a command.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="s2">"the"</span> README.md <span class="c"># searches for and prints any matches of "read" in readme file</span>
+<span class="nb">grep</span> <span class="nt">-rl</span> <span class="s2">"read"</span> <span class="nv">$project</span> <span class="c"># searches recursively through project directory for "read" while only listing filenames</span>
 </code></pre></div></div>
 
 <p>find is a command similar to grep, but it matches filenames instead of the contents instead files or from outputs like grep does.</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"README files"</span>
 find <span class="nv">$project</span> <span class="nt">-iname</span> <span class="k">*</span>README<span class="k">*</span> <span class="c"># finds files in the project directory that have readme in the name</span>
 
@@ -291,8 +294,10 @@ find <span class="nv">$project</span> <span class="nt">-iname</span> <span class
 <span class="nb">echo</span> <span class="s2">"jupyter notebook files"</span>
 find <span class="nv">$project</span> <span class="nt">-iname</span> <span class="k">*</span>.ipynb <span class="c"># finds files in the project directory that have md as the file extension</span>
 </code></pre></div></div>
+
 <h2 id="miscellaneous-commands">
 <a class="anchor" href="#miscellaneous-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Miscellaneous Commands</h2>
+
 <ul>
   <li>“env” shows environmental variables set in shell</li>
   <li>“sort” sorts the output or contents of a file (can set specific flags)</li>
@@ -301,11 +306,14 @@ find <span class="nv">$project</span> <span class="nt">-iname</span> <span class
 
 <h1 id="hacks">
 <a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h1>
+
 <p>Possible bash automations:</p>
+
 <h2 id="verifying-installation-of-tools">
 <a class="anchor" href="#verifying-installation-of-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Verifying Installation of Tools</h2>
 
 <p>This is a simple bash script (a file with .sh file extension) that checks if a package is installed and installs it based on user input.</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="k">while </span><span class="nb">true</span><span class="p">;</span>
 <span class="k">do
@@ -350,10 +358,12 @@ find <span class="nv">$project</span> <span class="nt">-iname</span> <span class
     <span class="k">esac</span>
 <span class="k">done</span>
 </code></pre></div></div>
+
 <h2 id="conda-verifiying-packages-installed">
 <a class="anchor" href="#conda-verifiying-packages-installed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conda Verifiying Packages Installed</h2>
 
 <p>This code snippet checks if a package in conda is installed, and if not, installs it.</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">conda_package</span><span class="o">=</span>jupyter <span class="c"># can be any package</span>
 <span class="k">if</span> <span class="o">[[</span> <span class="si">$(</span>conda list <span class="nv">$conda_package</span><span class="si">)</span> <span class="o">=</span> <span class="k">*</span><span class="nv">$conda_package</span><span class="k">*</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="c"># matches package with list of installed</span>
     <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$conda_package</span><span class="s2"> is already installed!"</span>
@@ -362,8 +372,10 @@ find <span class="nv">$project</span> <span class="nt">-iname</span> <span class
     conda <span class="nb">install</span> <span class="nv">$conda_package</span>
 <span class="k">fi</span>
 </code></pre></div></div>
+
 <h2 id="updating-repositories">
 <a class="anchor" href="#updating-repositories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating Repositories</h2>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">repository</span><span class="o">=</span>blog <span class="c"># sets the repository to a specific one</span>
 <span class="nb">export </span><span class="nv">repo_main_folder</span><span class="o">=</span>vscode <span class="c"># where the repositories are stored</span>
 <span class="nb">cd</span> <span class="nv">$HOME</span>/<span class="nv">$repo_main_folder</span>/<span class="nv">$blog</span> <span class="c"># moves into that directory</span>
