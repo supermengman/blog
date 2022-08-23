@@ -5,15 +5,10 @@ description: Learning how to use bash.
 categories: [markdown,bash]
 title: Bash Learning
 ---
-# Bash Learning
-> Learning how to use bash
 
-- toc: true 
-- badges: true
-- comments: true
-- categories: [jupyter,bash]
 # Bash script to verify project directories and projects
 ## Initial setup to clone
+
 ```bash
 echo "Using conditional statement to create a project directory and project"
 
@@ -44,11 +39,15 @@ fi
 echo "Directory $project exists."
 ```
 ## Filesystem Management in Bash
+
 ### cd, pwd, echo, ls
+
 - cd changes directory
 - pwd prints working directory
 - echo "echoes" lines into terminal
 - ls "lists" files in directories
+
+
 ```bash
 echo "Navigate to project, then navigate to area where files were cloned"
 cd $project # Changes Directory to the project
@@ -70,7 +69,9 @@ echo ""
 echo "list all files in long format recursively"
 ls -Ral   # all files and long listing
 ```
+
 ### Moving through Linux Directories
+
 ```bash
 echo "Look for posts"
 export posts=$project/_posts  # _posts inside project
@@ -91,7 +92,9 @@ cd $notebooks/images  # this should exist per fastpages
 pwd
 ls -l
 ```
+
 ### Show contents of files
+
 ```bash
 echo "Navigate to project, then navigate to area where files were cloned"
 
@@ -103,8 +106,11 @@ cat index.html  # show contents of file, in this case markdown
 echo ""
 echo "end of index.html"
 ```
+
 # Other additional bash commands
+
 ## Commands for Permissions
+
 - chmod is the command used to change access permissions of files (allowing specific people to read, write, or execute files)
     - permissions are in octal, meaning that a number 0-7 determines the permission for each part (usually there are 3 parts)
         - part 1 (user): changes the permission for the user that owns the file
@@ -117,6 +123,8 @@ echo "end of index.html"
     - easier than chmod, just specify the user and the file
 - chgrp command used to change group that owns file
     - similar syntax to chown
+
+
 ```bash
 cd $project
 chmod 644 README.md # changes permissions of the README file to 644, so owner can read and write, while the group and others can only read
@@ -125,14 +133,19 @@ chgrp sudo README.md # changes group that has access to README.md to sudo
 
 chown root:sudo README.md # does both owner and group at the same time
 ```
+
 ## Filtering Commands
+
 grep is a very useful command in linux, used to filter content inside files to find a specific match. grep can also be used to find a match in the output of a command.
+
 ```bash
 grep "the" README.md # searches for and prints any matches of "read" in readme file
 grep -rl "read" $project # searches recursively through project directory for "read" while only listing filenames
 ```
 
+
 find is a command similar to grep, but it matches filenames instead of the contents instead files or from outputs like grep does.
+
 ```bash
 echo "README files"
 find $project -iname *README* # finds files in the project directory that have readme in the name
@@ -141,16 +154,21 @@ echo ""
 echo "jupyter notebook files"
 find $project -iname *.ipynb # finds files in the project directory that have md as the file extension
 ```
+
 ## Miscellaneous Commands
+
 - "env" shows environmental variables set in shell
 - "sort" sorts the output or contents of a file (can set specific flags)
 - "head"/"tail" outputs the first or last lines of a file
  
 # Hacks
+
 Possible bash automations:
+
 ## Verifying Installation of Tools
 
 This is a simple bash script (a file with .sh file extension) that checks if a package is installed and installs it based on user input.
+
 ```bash
 #!/bin/bash
 while true;
@@ -196,9 +214,11 @@ do
     esac
 done
 ```
+
 ## Conda Verifiying Packages Installed
 
 This code snippet checks if a package in conda is installed, and if not, installs it.
+
 ```bash
 export conda_package=jupyter # can be any package
 if [[ $(conda list $conda_package) = *$conda_package* ]]; then # matches package with list of installed
@@ -208,7 +228,9 @@ else
     conda install $conda_package
 fi
 ```
+
 ## Updating Repositories
+
 ```bash
 export repository=blog # sets the repository to a specific one
 export repo_main_folder=vscode # where the repositories are stored
