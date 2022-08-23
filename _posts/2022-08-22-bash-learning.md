@@ -178,7 +178,7 @@ do
         y) 
         read -p "Enter package to check: " tools_verify # reads input for specific package
         if [[ $(apt list --installed $tools_verify 2>/dev/null | tail -1) = *installed* ]]; then  # checks if the tool is installed
-            version_number=$(apt list --installed python3 2>/dev/null | tail -1 | cut -d " " -f 2) # finds the version number
+            version_number=$(apt list --installed $tools_verify 2>/dev/null | tail -1 | cut -d " " -f 2) # finds the version number
             echo "$tools_verify is installed! The version number is $version_number."
             echo ""
         else
@@ -188,7 +188,7 @@ do
                 case $install_option in 
                     y)
                     sudo apt-get install -y $tools_verify # installs the package
-                    version_number=$(apt list --installed python3 2>/dev/null | tail -1 | cut -d " " -f 2) # finds the version number
+                    version_number=$(apt list --installed $tools_verify 2>/dev/null | tail -1 | cut -d " " -f 2) # finds the version number
                     echo "$tools_verify is installed! The version number is $version_number."
                     echo ""
                     break # returns back to main loop of package to check
