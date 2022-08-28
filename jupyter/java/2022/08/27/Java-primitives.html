@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      7 min read
     
 </span></p>
 
@@ -336,19 +336,20 @@ window.onload = wrap_img;
 <div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="p">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnitConvertor</span> <span class="p">{</span>
-    <span class="kt">double</span><span class="o">[]</span> <span class="n">conversionFactors</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[]</span><span class="p">{</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">};</span>
-    <span class="n">String</span><span class="o">[]</span> <span class="n">unitList</span> <span class="o">=</span> <span class="p">{</span><span class="s">"millimeter"</span><span class="p">,</span> <span class="s">"centimeter"</span><span class="p">,</span> <span class="s">"decimeter"</span><span class="p">,</span> <span class="s">"meter"</span><span class="p">,</span> <span class="s">"decameter"</span><span class="p">,</span> <span class="s">"hectometer"</span><span class="p">,</span> <span class="s">"kilometer"</span><span class="p">};</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="n">inputMeasurement</span><span class="p">;</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">inputUnits</span><span class="p">;</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">unitIndex</span><span class="p">;</span>
+    <span class="kt">double</span><span class="o">[]</span> <span class="n">conversionFactors</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[]</span><span class="p">{</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">};</span> <span class="c1">// the conversion factors with meters as a reference, has decimals so double</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">unitList</span> <span class="o">=</span> <span class="p">{</span><span class="s">"millimeter"</span><span class="p">,</span> <span class="s">"centimeter"</span><span class="p">,</span> <span class="s">"decimeter"</span><span class="p">,</span> <span class="s">"meter"</span><span class="p">,</span> <span class="s">"decameter"</span><span class="p">,</span> <span class="s">"hectometer"</span><span class="p">,</span> <span class="s">"kilometer"</span><span class="p">};</span> <span class="c1">// the units themselves, so a string to match</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="n">inputMeasurement</span><span class="p">;</span> <span class="c1">// below are the global variables that get called later, double here as the measurement is going to be a number with possible decimals</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">inputUnits</span><span class="p">;</span> <span class="c1">// the unit name, so string</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">unitIndex</span><span class="p">;</span> <span class="c1">// this is used to store the index of the unit that is typed, which is an integer</span>
 
     
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">unitMessage</span> <span class="o">=</span> <span class="s">"Enter the units for that measurement (millimeter, centimeter, decimeter, meter, decameter, hectometer, kilometer), type exit to exit: "</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">firstUnitIndex</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">secondUnitIndex</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstUnit</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">secondUnit</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">unitMessage</span> <span class="o">=</span> <span class="s">"Enter the units for that measurement (millimeter, centimeter, decimeter, meter, decameter, hectometer, kilometer), type exit to exit: "</span><span class="p">;</span> <span class="c1">// message that can change</span>
+    <span class="kt">int</span> <span class="n">firstUnitIndex</span><span class="p">;</span> <span class="c1">// index is integer</span>
+    <span class="kt">int</span> <span class="n">secondUnitIndex</span><span class="p">;</span> <span class="c1">// index is integer</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstUnit</span><span class="p">;</span> <span class="c1">// the name of unit so String</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">secondUnit</span><span class="p">;</span> <span class="c1">// name of unit so string</span>
 
+    <span class="c1">// constructor, calls the functions to enter the fields of data and saves them as attributes</span>
     <span class="kd">public</span> <span class="nf">UnitConvertor</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">enterMeasurement</span><span class="p">();</span>
         <span class="k">this</span><span class="p">.</span><span class="na">enterUnits</span><span class="p">();</span>
@@ -360,43 +361,47 @@ window.onload = wrap_img;
         <span class="k">this</span><span class="p">.</span><span class="na">secondUnit</span> <span class="o">=</span> <span class="n">inputUnits</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="c1">// method to check if string matches exit, booleon because yes or no (takes string as input as it has to compare to the string)</span>
     <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isExit</span><span class="p">(</span><span class="n">String</span> <span class="n">inputMeasurement</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">inputMeasurement</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"exit"</span><span class="p">);</span> 
     <span class="p">}</span>
 
+    <span class="c1">// enterMeasurement input method, with scanner</span>
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">enterMeasurement</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">Scanner</span> <span class="n">measurement</span><span class="p">;</span>
         <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Enter the first measurement (only numbers), type exit to exit: "</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Enter the first measurement (only numbers), type any letter to exit: "</span><span class="p">);</span>
             <span class="n">measurement</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
             <span class="k">try</span> <span class="p">{</span>
                 <span class="n">inputMeasurement</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">inputMeasurement</span><span class="p">);</span>
                 <span class="n">measurement</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-                <span class="k">break</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span> <span class="c1">// breaks the loop, continues on with program</span>
             <span class="p">}</span>   <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Not a double, "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"See you later!"</span><span class="p">);</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// end program if not a number</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="c1">// enterUnits method with scanner, checks the input and matches the string</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enterUnits</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">Scanner</span> <span class="n">units</span><span class="p">;</span>
         <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">unitMessage</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">unitMessage</span><span class="p">);</span> <span class="c1">// prints the message (which changes because it has to be called twice for different purposes)</span>
             <span class="n">units</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
             <span class="k">try</span> <span class="p">{</span>
                 <span class="n">inputUnits</span> <span class="o">=</span> <span class="n">units</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">inputUnits</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">isExit</span><span class="p">(</span><span class="n">inputUnits</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">isExit</span><span class="p">(</span><span class="n">inputUnits</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// check if user wants to stop program, then exits</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"See you next time!"</span><span class="p">);</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
                 <span class="p">}</span>
-                <span class="n">unitIndex</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">unitList</span><span class="p">).</span><span class="na">indexOf</span><span class="p">(</span><span class="n">inputUnits</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">unitIndex</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> 
+                <span class="n">unitIndex</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">unitList</span><span class="p">).</span><span class="na">indexOf</span><span class="p">(</span><span class="n">inputUnits</span><span class="p">);</span> <span class="c1">// find index of the unit that the user inputted in the array, write to variable unitIndex to be stored later</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">unitIndex</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// if not found in the array, then ask user to retype</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"not a valid unit choice "</span><span class="p">);</span> 
                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="k">break</span><span class="p">;</span>
+                    <span class="k">break</span><span class="p">;</span> <span class="c1">// if is found in array, stop the loop and continue</span>
                 <span class="p">}</span>
             <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Not a valid string, "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
@@ -405,39 +410,41 @@ window.onload = wrap_img;
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="c1">// calculation of the unit change, divides the conversion factors like in dimensional analysis; returns double because the initial inputMeasurement is a double</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="nf">changeCalculation</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">inputMeasurement</span> <span class="o">*</span> <span class="n">conversionFactors</span><span class="o">[</span><span class="k">this</span><span class="p">.</span><span class="na">firstUnitIndex</span><span class="o">]/</span><span class="n">conversionFactors</span><span class="o">[</span><span class="k">this</span><span class="p">.</span><span class="na">secondUnitIndex</span><span class="o">]</span><span class="p">);</span>
     <span class="p">}</span> 
 
+    <span class="c1">// asks user if they want to add a number onto their converted measurement</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">Scanner</span> <span class="n">yesOrNo</span><span class="p">;</span>
         <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Would you like to add by another number of the same unit? (y/n) "</span><span class="p">);</span>
             <span class="n">yesOrNo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
             <span class="k">try</span> <span class="p">{</span>
-                <span class="n">String</span> <span class="n">roundYN</span> <span class="o">=</span> <span class="n">yesOrNo</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+                <span class="n">String</span> <span class="n">roundYN</span> <span class="o">=</span> <span class="n">yesOrNo</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span> <span class="c1">// asks user input for y/n</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">roundYN</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">roundYN</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"n"</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">roundYN</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"n"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if no, skip over adding</span>
                     <span class="n">yesOrNo</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
                     <span class="k">break</span><span class="p">;</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">roundYN</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"y"</span><span class="p">))</span> <span class="p">{</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">roundYN</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"y"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if yes, create another scanner to ask for the number</span>
                     <span class="n">Scanner</span> <span class="n">adding</span><span class="p">;</span>
                     <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"enter the number to add: "</span><span class="p">);</span>
                         <span class="n">adding</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
-                        <span class="k">try</span> <span class="p">{</span>
-                            <span class="kt">double</span> <span class="n">addInput</span> <span class="o">=</span> <span class="n">adding</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
+                        <span class="k">try</span> <span class="p">{</span> 
+                            <span class="kt">double</span> <span class="n">addInput</span> <span class="o">=</span> <span class="n">adding</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span> <span class="c1">// gets user input, as a double because the number inputted can have decimals as a measurement</span>
                             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">addInput</span><span class="p">);</span>
                             <span class="n">adding</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-                            <span class="kt">double</span> <span class="n">finalCalculation</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">changeCalculation</span><span class="p">();</span>
-                            <span class="n">finalCalculation</span> <span class="o">+=</span> <span class="n">addInput</span><span class="p">;</span>
-                            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">finalCalculation</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">secondUnit</span> <span class="o">+</span> <span class="s">"s."</span><span class="p">);</span>
+                            <span class="kt">double</span> <span class="n">finalCalculation</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">changeCalculation</span><span class="p">();</span> <span class="c1">// gets the value of the original converted measurement, which is a double and writes to variable</span>
+                            <span class="n">finalCalculation</span> <span class="o">+=</span> <span class="n">addInput</span><span class="p">;</span> <span class="c1">// compound assignment operator, adds the user input to the converted measurement quickly</span>
+                            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">finalCalculation</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">secondUnit</span> <span class="o">+</span> <span class="s">"s."</span><span class="p">);</span> <span class="c1">// print the added number</span>
                             <span class="k">break</span><span class="p">;</span>
                         <span class="p">}</span>   <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
                             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Not a double, "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
                         <span class="p">}</span>
                     <span class="p">}</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// if not yes or no, tells user to redo</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"not a valid input"</span><span class="p">);</span>
                 <span class="p">}</span>
             <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
@@ -447,25 +454,26 @@ window.onload = wrap_img;
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="c1">// truncate the number if user wants to (whole number)</span>
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">truncating</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">Scanner</span> <span class="n">yesOrNo</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// asks user if wants to truncate or exit</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Would you like to truncate to the nearest whole number? (y/exit) "</span><span class="p">);</span>
             <span class="n">yesOrNo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
             <span class="k">try</span> <span class="p">{</span>
                 <span class="n">String</span> <span class="n">roundYN</span> <span class="o">=</span> <span class="n">yesOrNo</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">roundYN</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">isExit</span><span class="p">(</span><span class="n">roundYN</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">isExit</span><span class="p">(</span><span class="n">roundYN</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if user types exit, the program completes</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"See you next time!"</span><span class="p">);</span>
                     <span class="n">yesOrNo</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">roundYN</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"y"</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="kt">int</span> <span class="n">truncatedConversion</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="na">changeCalculation</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">roundYN</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"y"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if user says y, truncates</span>
+                    <span class="kt">int</span> <span class="n">truncatedConversion</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="na">changeCalculation</span><span class="p">();</span> <span class="c1">// casts the calculation into an int, truncating it to whole number</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">truncatedConversion</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">secondUnit</span> <span class="o">+</span> <span class="s">"s."</span><span class="p">);</span>
                     <span class="n">yesOrNo</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
                     <span class="k">break</span><span class="p">;</span>
                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"not a valid input"</span><span class="p">);</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"not a valid input"</span><span class="p">);</span> <span class="c1">// tells user to type valid input</span>
                 <span class="p">}</span>
             <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Not a valid string, "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
@@ -474,6 +482,7 @@ window.onload = wrap_img;
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="c1">// static main method, creates object converting and outputs the conversion + calls the add or truncate methods in addition</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">UnitConvertor</span> <span class="n">converting</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UnitConvertor</span><span class="p">();</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Your measurement of "</span> <span class="o">+</span> <span class="n">inputMeasurement</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">converting</span><span class="p">.</span><span class="na">firstUnit</span> <span class="o">+</span> <span class="s">"s"</span> <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="n">converting</span><span class="p">.</span><span class="na">changeCalculation</span><span class="p">()</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">converting</span><span class="p">.</span><span class="na">secondUnit</span> <span class="o">+</span> <span class="s">"s."</span><span class="p">);</span>
@@ -483,14 +492,6 @@ window.onload = wrap_img;
 <span class="p">}</span>
 
 <span class="n">UnitConvertor</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
-<span class="cm">/*</span>
-<span class="cm"> * the plan is:</span>
-<span class="cm"> *  get input from user + see if matches in the string array (boolean)</span>
-<span class="cm"> *  find indice of the string array (int) --&gt; use that value to get the integer conversion factor</span>
-<span class="cm"> *  do that sweet sweet math with the variables to convert</span>
-<span class="cm"> *  maybe ask if want to round to nearest whole number? or truncate</span>
-<span class="cm"> *  </span>
-<span class="cm"> */</span>
 </pre></div>
 
     </div>
