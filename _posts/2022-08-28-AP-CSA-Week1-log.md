@@ -1,0 +1,22 @@
+---
+toc: true
+layout: post
+description: Week 1 of APCSA log
+categories: [markdown][logs]
+title: APCSA Week 1 Learning Log
+---
+# Weekly Activities
+
+This week in CSA, I reviewed concepts of bash as well as commands in bash that could help check versions and the installation of tools. I also refreshed my knowledge of the conditional statemens in bash, like if statements, overall helping me review programming logic.
+
+In addition to bash, I also learned basic Java syntax and programming through code.org. A class in java is like a template for objects, and there are objects that are creaetd from the class. These objects can have methods (that execute code), and attributes.
+
+This java learning was further enhanced by learning about primitive data types, and I did extra research on the wrapper classes as well. I then made a program to convert between SI units, using these primitive data types as well as utilizing the methods in OOP. 
+
+# Plans for the Future of This Class
+
+As we will be learning the 10 collegeboard units, I will capture this information by making a post for each, organizing them by the number as well as tagging them. I will put their links as I go along into the notes section of the website, so I don't lose track.
+
+I will also blog my weekly adventures in this class as to better remember the course material I have reviewed. For example, this blog itself is helping to consolidate my knowledge of java and bash already.
+
+Finally, I will tag all posts with the appropriate learning, with the collegeboard units once we start or the PBL learning.
