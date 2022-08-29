@@ -3,6 +3,7 @@ toc: true
 layout: post
 description: Submission for Tools and Equipment.
 categories: [markdown]
+comments: true
 title: TT 1.0.0 Tools and Equipment
 ---
 # Hacks Part 1: Fastpages

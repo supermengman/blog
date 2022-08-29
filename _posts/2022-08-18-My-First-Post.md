@@ -3,6 +3,7 @@ toc: true
 layout: post
 description: A test of the markdown posts in fastpages.
 categories: [markdown]
+comments: true
 title: Fastpages Post with Markdown
 ---
 # My First Post!
