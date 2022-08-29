@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -149,7 +149,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#Hacks">Hacks </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Verifying-Installation-of-Tools">Verifying Installation of Tools </a></li>
+<li class="toc-entry toc-h2"><a href="#Anaconda-Verify-Installation">Anaconda Verify Installation </a></li>
 <li class="toc-entry toc-h2"><a href="#Conda-Verifiying-Packages-Installed">Conda Verifiying Packages Installed </a></li>
+<li class="toc-entry toc-h2"><a href="#Java-Verify-Installation">Java Verify Installation </a></li>
 <li class="toc-entry toc-h2"><a href="#Updating-Repositories">Updating Repositories </a></li>
 </ul>
 </li>
@@ -672,6 +674,51 @@ find <span class="nv">$project</span> -iname *.ipynb <span class="c1"># finds fi
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Anaconda-Verify-Installation">
+<a class="anchor" href="#Anaconda-Verify-Installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Anaconda Verify Installation<a class="anchor-link" href="#Anaconda-Verify-Installation"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-bash"><pre><span></span><span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>conda --version<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">condaversion</span><span class="o">=</span><span class="k">$(</span>conda --version<span class="k">)</span>
+    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$condaversion</span><span class="s2"> is installed!"</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">"Anaconda not installed!"</span>
+<span class="k">fi</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>conda 4.14.0 is installed!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conda-Verifiying-Packages-Installed">
 <a class="anchor" href="#Conda-Verifiying-Packages-Installed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conda Verifiying Packages Installed<a class="anchor-link" href="#Conda-Verifiying-Packages-Installed"> </a>
 </h2>
@@ -688,8 +735,9 @@ find <span class="nv">$project</span> -iname *.ipynb <span class="c1"># finds fi
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-bash"><pre><span></span><span class="nb">export</span> <span class="nv">conda_package</span><span class="o">=</span>jupyter <span class="c1"># can be any package</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>conda list <span class="nv">$conda_package</span><span class="k">)</span> <span class="o">=</span> *<span class="nv">$conda_package</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="c1"># matches package with list of installed</span>
-    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$conda_package</span><span class="s2"> is already installed!"</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>conda list <span class="nv">$conda_package</span> <span class="p">|</span> grep -w jupyter<span class="k">)</span> <span class="o">=</span> *<span class="nv">$conda_package</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="c1"># matches package with list of installed</span>
+    <span class="nv">packageversion</span><span class="o">=</span><span class="k">$(</span>conda list <span class="nv">$conda_package</span> <span class="p">|</span> grep -w jupyter <span class="p">|</span> awk <span class="s1">'{print $2}'</span><span class="k">)</span>
+    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$conda_package</span><span class="s2"> is already installed! It's version is </span><span class="nv">$packageversion</span><span class="s2">."</span>
 <span class="k">else</span>
     <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$conda_package</span><span class="s2"> has not been installed, installing now."</span>
     conda install <span class="nv">$conda_package</span>
@@ -697,6 +745,74 @@ find <span class="nv">$project</span> -iname *.ipynb <span class="c1"># finds fi
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>jupyter is already installed! It's version is 1.0.0.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Java-Verify-Installation">
+<a class="anchor" href="#Java-Verify-Installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Java Verify Installation<a class="anchor-link" href="#Java-Verify-Installation"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-bash"><pre><span></span><span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>java --version<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">jdkversion</span><span class="o">=</span><span class="k">$(</span>java --version <span class="p">|</span> head -n <span class="m">1</span><span class="k">)</span>
+    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$jdkversion</span><span class="s2"> is installed!"</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">"Java not installed!"</span>
+<span class="k">fi</span>
+
+<span class="c1"># java compiler version check</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>javac --version<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">jcompilerversion</span><span class="o">=</span><span class="k">$(</span>javac --version <span class="p">|</span> head -n <span class="m">1</span><span class="k">)</span>
+    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$jcompilerversion</span><span class="s2"> is installed!"</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">"JavaC not installed!"</span>
+<span class="k">fi</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>openjdk 17.0.4 2022-07-19 is installed!
+javac 17.0.4 is installed!
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
