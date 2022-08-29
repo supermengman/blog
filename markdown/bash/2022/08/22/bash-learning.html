@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bash Learning | Andrew Meng</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Bash Learning" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning how to use bash." />
+<meta property="og:description" content="Learning how to use bash." />
+<link rel="canonical" href="https://supermengman.github.io/blog/markdown/bash/2022/08/22/bash-learning.html" />
+<meta property="og:url" content="https://supermengman.github.io/blog/markdown/bash/2022/08/22/bash-learning.html" />
+<meta property="og:site_name" content="Andrew Meng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-22T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bash Learning" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-22T00:00:00-05:00","datePublished":"2022-08-22T00:00:00-05:00","description":"Learning how to use bash.","headline":"Bash Learning","mainEntityOfPage":{"@type":"WebPage","@id":"https://supermengman.github.io/blog/markdown/bash/2022/08/22/bash-learning.html"},"url":"https://supermengman.github.io/blog/markdown/bash/2022/08/22/bash-learning.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://supermengman.github.io/blog/feed.xml" title="Andrew Meng" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Andrew Meng</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/notes/">Notes</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Bash Learning</h1><p class="page-description">Learning how to use bash.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-22T00:00:00-05:00" itemprop="datePublished">
+        Aug 22, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#markdown">markdown</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#bash">bash</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#bash-script-to-verify-project-directories-and-projects">Bash script to verify project directories and projects</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#initial-setup-to-clone">Initial setup to clone</a></li>
+<li class="toc-entry toc-h2"><a href="#filesystem-management-in-bash">Filesystem Management in Bash</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#cd-pwd-echo-ls">cd, pwd, echo, ls</a></li>
+<li class="toc-entry toc-h3"><a href="#moving-through-linux-directories">Moving through Linux Directories</a></li>
+<li class="toc-entry toc-h3"><a href="#show-contents-of-files">Show contents of files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#other-additional-bash-commands">Other additional bash commands</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#commands-for-permissions">Commands for Permissions</a></li>
+<li class="toc-entry toc-h2"><a href="#filtering-commands">Filtering Commands</a></li>
+<li class="toc-entry toc-h2"><a href="#miscellaneous-commands">Miscellaneous Commands</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#hacks">Hacks</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#verifying-installation-of-tools">Verifying Installation of Tools</a></li>
+<li class="toc-entry toc-h2"><a href="#conda-verifiying-packages-installed">Conda Verifiying Packages Installed</a></li>
+<li class="toc-entry toc-h2"><a href="#updating-repositories">Updating Repositories</a></li>
+</ul>
+</li>
+</ul><h1 id="bash-script-to-verify-project-directories-and-projects">
+<a class="anchor" href="#bash-script-to-verify-project-directories-and-projects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bash script to verify project directories and projects</h1>
+<h2 id="initial-setup-to-clone">
+<a class="anchor" href="#initial-setup-to-clone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial setup to clone</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Using conditional statement to create a project directory and project"</span>
+
+
+<span class="c"># Variable section</span>
+<span class="nb">export </span><span class="nv">project_dir</span><span class="o">=</span><span class="nv">$HOME</span>/bash_clone_test  <span class="c"># change vscode to different name to test git clone</span>
+<span class="nb">export </span><span class="nv">project</span><span class="o">=</span><span class="nv">$testing_dir</span>/blog  <span class="c"># change APCSP to name of project from git clone</span>
+<span class="nb">export </span><span class="nv">project_repo</span><span class="o">=</span><span class="s2">"https://github.com/supermengman/blog"</span>  <span class="c"># change to project of choice</span>
+
+<span class="nb">cd</span> ~    <span class="c"># start in home directory</span>
+
+<span class="c"># Conditional block to make a project directory</span>
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> <span class="nv">$project_dir</span> <span class="o">]</span>
+<span class="k">then 
+    </span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project_dir</span><span class="s2"> does not exists... makinng directory </span><span class="nv">$project_dir</span><span class="s2">"</span>
+    <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$project_dir</span>
+<span class="k">fi
+</span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project_dir</span><span class="s2"> exists."</span> 
+
+<span class="c"># Conditional block to git clone a project from project_repo</span>
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> <span class="nv">$project</span> <span class="o">]</span>
+<span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project</span><span class="s2"> does not exists... cloning </span><span class="nv">$project_repo</span><span class="s2">"</span>
+    <span class="nb">cd</span> <span class="nv">$project_dir</span>
+    git clone <span class="nv">$project_repo</span>
+    <span class="nb">cd</span> ~
+<span class="k">fi
+</span><span class="nb">echo</span> <span class="s2">"Directory </span><span class="nv">$project</span><span class="s2"> exists."</span>
+</code></pre></div></div>
+<h2 id="filesystem-management-in-bash">
+<a class="anchor" href="#filesystem-management-in-bash" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filesystem Management in Bash</h2>
+
+<h3 id="cd-pwd-echo-ls">
+<a class="anchor" href="#cd-pwd-echo-ls" aria-hidden="true"><span class="octicon octicon-link"></span></a>cd, pwd, echo, ls</h3>
+
+<ul>
+  <li>cd changes directory</li>
+  <li>pwd prints working directory</li>
+  <li>echo “echoes” lines into terminal</li>
+  <li>ls “lists” files in directories</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Navigate to project, then navigate to area where files were cloned"</span>
+<span class="nb">cd</span> <span class="nv">$project</span> <span class="c"># Changes Directory to the project</span>
+<span class="nb">pwd</span> <span class="c"># outputs the current directory</span>
+
+<span class="nb">echo</span> <span class="s2">""</span> <span class="c"># empty space</span>
+<span class="nb">echo</span> <span class="s2">"list top level or root of files with project pulled from github"</span>
+<span class="nb">ls</span> <span class="c"># list</span>
+
+<span class="nb">echo</span> <span class="s2">""</span> 
+<span class="nb">echo</span> <span class="s2">"list again with hidden files pulled from github"</span>
+<span class="nb">ls</span> <span class="nt">-a</span>   <span class="c"># hidden files flag, many shell commands have flags</span>
+
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"list all files in long format"</span>
+<span class="nb">ls</span> <span class="nt">-al</span>   <span class="c"># all files and long listing</span>
+
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"list all files in long format recursively"</span>
+<span class="nb">ls</span> <span class="nt">-Ral</span>   <span class="c"># all files and long listing</span>
+</code></pre></div></div>
+
+<h3 id="moving-through-linux-directories">
+<a class="anchor" href="#moving-through-linux-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moving through Linux Directories</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Look for posts"</span>
+<span class="nb">export </span><span class="nv">posts</span><span class="o">=</span><span class="nv">$project</span>/_posts  <span class="c"># _posts inside project</span>
+<span class="nb">cd</span> <span class="nv">$posts</span>  <span class="c"># this should exist per fastpages</span>
+<span class="nb">pwd</span>  <span class="c"># present working directory</span>
+<span class="nb">ls</span> <span class="nt">-l</span>  <span class="c"># list posts</span>
+
+
+<span class="nb">echo</span> <span class="s2">"Look for notebooks"</span>
+<span class="nb">export </span><span class="nv">notebooks</span><span class="o">=</span><span class="nv">$project</span>/_notebooks  <span class="c"># _notebooks is inside project</span>
+<span class="nb">cd</span> <span class="nv">$notebooks</span>   <span class="c"># this should exist per fastpages</span>
+<span class="nb">pwd</span>  <span class="c"># present working directory</span>
+<span class="nb">ls</span> <span class="nt">-l</span>  <span class="c"># list notebooks</span>
+
+
+<span class="nb">echo</span> <span class="s2">"Look for images in notebooks, print working directory, list files"</span>
+<span class="nb">cd</span> <span class="nv">$notebooks</span>/images  <span class="c"># this should exist per fastpages</span>
+<span class="nb">pwd
+ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<h3 id="show-contents-of-files">
+<a class="anchor" href="#show-contents-of-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show contents of files</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Navigate to project, then navigate to area where files were cloned"</span>
+
+<span class="nb">cd</span> <span class="nv">$project</span>
+<span class="nb">echo</span> <span class="s2">"show the contents of index.html"</span>
+<span class="nb">echo</span> <span class="s2">""</span>
+
+<span class="nb">cat </span>index.html  <span class="c"># show contents of file, in this case markdown</span>
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"end of index.html"</span>
+</code></pre></div></div>
+
+<h1 id="other-additional-bash-commands">
+<a class="anchor" href="#other-additional-bash-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other additional bash commands</h1>
+
+<h2 id="commands-for-permissions">
+<a class="anchor" href="#commands-for-permissions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands for Permissions</h2>
+
+<ul>
+  <li>chmod is the command used to change access permissions of files (allowing specific people to read, write, or execute files)
+    <ul>
+      <li>permissions are in octal, meaning that a number 0-7 determines the permission for each part (usually there are 3 parts)
+        <ul>
+          <li>part 1 (user): changes the permission for the user that owns the file</li>
+          <li>part 2 (group): changes the permission for the group that owns the file (such as administrator or sudo)</li>
+          <li>part 3 (others): changes the permission for all users</li>
+        </ul>
+      </li>
+      <li>numbers in chmod correspond to the permissions, adding the numbers up results in the complete permission for that part
+        <ul>
+          <li>0 = no permissions, 1 = execute permission, 2 = write permission, 4 = read permission
+            <ul>
+              <li>ex: a permission of 6 = 4 + 2 + 0 so only read and write permissions</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>chown is the command used to change ownership of files
+    <ul>
+      <li>easier than chmod, just specify the user and the file</li>
+    </ul>
+  </li>
+  <li>chgrp command used to change group that owns file
+    <ul>
+      <li>similar syntax to chown</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nv">$project</span>
+<span class="nb">chmod </span>644 README.md <span class="c"># changes permissions of the README file to 644, so owner can read and write, while the group and others can only read</span>
+<span class="nb">chown </span>root README.md <span class="c"># changes owner of README.md to root</span>
+<span class="nb">chgrp sudo </span>README.md <span class="c"># changes group that has access to README.md to sudo</span>
+
+<span class="nb">chown </span>root:sudo README.md <span class="c"># does both owner and group at the same time</span>
+</code></pre></div></div>
+
+<h2 id="filtering-commands">
+<a class="anchor" href="#filtering-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtering Commands</h2>
+
+<p>grep is a very useful command in linux, used to filter content inside files to find a specific match. grep can also be used to find a match in the output of a command.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="s2">"the"</span> README.md <span class="c"># searches for and prints any matches of "read" in readme file</span>
+<span class="nb">grep</span> <span class="nt">-rl</span> <span class="s2">"read"</span> <span class="nv">$project</span> <span class="c"># searches recursively through project directory for "read" while only listing filenames</span>
+</code></pre></div></div>
+
+<p>find is a command similar to grep, but it matches filenames instead of the contents instead files or from outputs like grep does.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"README files"</span>
+find <span class="nv">$project</span> <span class="nt">-iname</span> <span class="k">*</span>README<span class="k">*</span> <span class="c"># finds files in the project directory that have readme in the name</span>
+
+<span class="nb">echo</span> <span class="s2">""</span>
+<span class="nb">echo</span> <span class="s2">"jupyter notebook files"</span>
+find <span class="nv">$project</span> <span class="nt">-iname</span> <span class="k">*</span>.ipynb <span class="c"># finds files in the project directory that have md as the file extension</span>
+</code></pre></div></div>
+
+<h2 id="miscellaneous-commands">
+<a class="anchor" href="#miscellaneous-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Miscellaneous Commands</h2>
+
+<ul>
+  <li>“env” shows environmental variables set in shell</li>
+  <li>“sort” sorts the output or contents of a file (can set specific flags)</li>
+  <li>“head”/”tail” outputs the first or last lines of a file</li>
+</ul>
+
+<h1 id="hacks">
+<a class="anchor" href="#hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks</h1>
+
+<p>Possible bash automations:</p>
+
+<h2 id="verifying-installation-of-tools">
+<a class="anchor" href="#verifying-installation-of-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Verifying Installation of Tools</h2>
+
+<p>This is a simple bash script (a file with .sh file extension) that checks if a package is installed and installs it based on user input.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span>
+<span class="k">do
+    </span><span class="nb">read</span> <span class="nt">-r</span> <span class="nt">-p</span> <span class="s2">"would you like to choose a package to check? [y/n] "</span> option <span class="c"># asks and reads input of user if they want to see if package is installed</span>
+    <span class="k">case</span> <span class="nv">$option</span> <span class="k">in</span> <span class="c"># uses input to see the results</span>
+        y<span class="p">)</span> 
+        <span class="nb">read</span> <span class="nt">-p</span> <span class="s2">"Enter package to check: "</span> tools_verify <span class="c"># reads input for specific package</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="si">$(</span>apt list <span class="nt">--installed</span> <span class="nv">$tools_verify</span> 2&gt;/dev/null | <span class="nb">tail</span> <span class="nt">-1</span><span class="si">)</span> <span class="o">=</span> <span class="k">*</span>installed<span class="k">*</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>  <span class="c"># checks if the tool is installed</span>
+            <span class="nv">version_number</span><span class="o">=</span><span class="si">$(</span>apt list <span class="nt">--installed</span> <span class="nv">$tools_verify</span> 2&gt;/dev/null | <span class="nb">tail</span> <span class="nt">-1</span> | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s2">" "</span> <span class="nt">-f</span> 2<span class="si">)</span> <span class="c"># finds the version number</span>
+            <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$tools_verify</span><span class="s2"> is installed! The version number is </span><span class="nv">$version_number</span><span class="s2">."</span>
+            <span class="nb">echo</span> <span class="s2">""</span>
+        <span class="k">else
+            while </span><span class="nb">true</span><span class="p">;</span>
+            <span class="k">do
+                </span><span class="nb">read</span> <span class="nt">-r</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$tools_verify</span><span class="s2"> is not installed! Would you like to install? [y/n] "</span> install_option
+                <span class="k">case</span> <span class="nv">$install_option</span> <span class="k">in 
+                    </span>y<span class="p">)</span>
+                    <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="nv">$tools_verify</span> <span class="c"># installs the package</span>
+                    <span class="nv">version_number</span><span class="o">=</span><span class="si">$(</span>apt list <span class="nt">--installed</span> <span class="nv">$tools_verify</span> 2&gt;/dev/null | <span class="nb">tail</span> <span class="nt">-1</span> | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s2">" "</span> <span class="nt">-f</span> 2<span class="si">)</span> <span class="c"># finds the version number</span>
+                    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$tools_verify</span><span class="s2"> is installed! The version number is </span><span class="nv">$version_number</span><span class="s2">."</span>
+                    <span class="nb">echo</span> <span class="s2">""</span>
+                    <span class="nb">break</span> <span class="c"># returns back to main loop of package to check</span>
+                    <span class="p">;;</span>
+                    n<span class="p">)</span>
+                    <span class="nb">echo</span> <span class="s2">"alright then!"</span> 
+                    <span class="nb">break</span> <span class="c"># returns back to main loop</span>
+                    <span class="p">;;</span>
+                    <span class="k">*</span><span class="p">)</span>
+                    <span class="nb">echo</span> <span class="s2">"Invalid Option"</span>
+                    <span class="p">;;</span>
+                <span class="k">esac</span>
+            <span class="k">done
+        fi</span>
+        <span class="p">;;</span>
+        n<span class="p">)</span>
+        <span class="nb">echo</span> <span class="s2">"see you next time!"</span>
+        <span class="nb">break</span> <span class="c"># ends the script</span>
+        <span class="p">;;</span>
+        <span class="k">*</span><span class="p">)</span>
+        <span class="nb">echo</span> <span class="s2">"Invalid Option"</span> <span class="c"># throws user back to start of script</span>
+        <span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
+<h2 id="conda-verifiying-packages-installed">
+<a class="anchor" href="#conda-verifiying-packages-installed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conda Verifiying Packages Installed</h2>
+
+<p>This code snippet checks if a package in conda is installed, and if not, installs it.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">conda_package</span><span class="o">=</span>jupyter <span class="c"># can be any package</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="si">$(</span>conda list <span class="nv">$conda_package</span><span class="si">)</span> <span class="o">=</span> <span class="k">*</span><span class="nv">$conda_package</span><span class="k">*</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="c"># matches package with list of installed</span>
+    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$conda_package</span><span class="s2"> is already installed!"</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$conda_package</span><span class="s2"> has not been installed, installing now."</span>
+    conda <span class="nb">install</span> <span class="nv">$conda_package</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<h2 id="updating-repositories">
+<a class="anchor" href="#updating-repositories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating Repositories</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">repository</span><span class="o">=</span>blog <span class="c"># sets the repository to a specific one</span>
+<span class="nb">export </span><span class="nv">repo_main_folder</span><span class="o">=</span>vscode <span class="c"># where the repositories are stored</span>
+<span class="nb">cd</span> <span class="nv">$HOME</span>/<span class="nv">$repo_main_folder</span>/<span class="nv">$blog</span> <span class="c"># moves into that directory</span>
+git fetch origin <span class="c"># fetches any changes</span>
+git pull origin master <span class="c"># updates the repo with new changes</span>
+
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/blog/markdown/bash/2022/08/22/bash-learning.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A Student</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/supermengman" target="_blank" title="supermengman"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
