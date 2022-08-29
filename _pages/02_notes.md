@@ -5,7 +5,7 @@ permalink: /notes/
 ---
 
 # Collegeboard Units:
-- Unit 1: [Primitive Types]()
+- Unit 1: [Primitive Types]({{site.baseurl}}/markdown/logs/2022/08/28/AP-CSA-Week1.html)
 - Unit 2: Using Objects
 - Unit 3: Boolean Expressions and ```if``` statements
 - Unit 4: Iteration
