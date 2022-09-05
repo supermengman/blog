@@ -115,3 +115,15 @@ This one combines both while and if. While the painter can move, and isn't on a 
 ![Code.org pattern]({{site.baseurl}}/images/codeUnit1/pattern.png)
 
 Eventually, all these elements were combined to form a pattern in Lesson 14. A new class PatternPainter was created that extends Painter, and has methods to paint a checkerboard. The BackgroundPainter class was also created to extend Painter, and paint over any non-painted tiles. Finally, these were put together to form the final product.
+
+# Console vs GUI vs Code.org
+
+There are many ways to interface with code, these three are all ways to do that.
+
+With console, the inputs and outputs of the program are mainly done through text. In other words, it's like typing into a text terminal to get things done. An example of this is Mr Morts console menu that allows users to choose some output to display.
+
+With GUI, the inputs and outputs are not displayed as text in a terminal, but instead is usually displayed as a window. This could be better for users to interface with, as the display is more clear. However, it may be more complicated to program. 
+
+With code.org, it is basically a specialized IDE. The classes and methods such as the Painter interface directly with the output, which is a canvas with a painter painting. The code that is in the files doesn't exactly show the behind the scenes drawing, but instead provides an easier way to interface with that output such as with ```turnLeft()``` just turning left.
+
+Overall, console menus are used more for backend development and testing, GUI for the end user, and code.org just for learning.
