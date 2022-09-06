@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      9 min read
     
 </span></p>
 
@@ -139,6 +139,18 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h1"><a href="#Project-Description">Project Description </a>
 <ul>
+<li class="toc-entry toc-h2"><a href="#Key-Requirements">Key Requirements </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Using-Math">Using Math </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#getRoot()">getRoot() </a></li>
+<li class="toc-entry toc-h4"><a href="#calculateEquation()">calculateEquation() </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Different-Constructor-Signatures">Different Constructor Signatures </a></li>
+<li class="toc-entry toc-h3"><a href="#Wrapper-Class-+-Static-Data">Wrapper Class + Static Data </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#Example-Outputs:">Example Outputs: </a></li>
 </ul>
 </li>
@@ -515,6 +527,190 @@ window.onload = wrap_img;
 <li>the graph is initialized, and drawn using Function2D</li>
 <li>the graph is then presented to the user as a GUI element</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Key-Requirements">
+<a class="anchor" href="#Key-Requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Requirements<a class="anchor-link" href="#Key-Requirements"> </a>
+</h2>
+<h3 id="Using-Math">
+<a class="anchor" href="#Using-Math" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Math<a class="anchor-link" href="#Using-Math"> </a>
+</h3>
+<h4 id="getRoot()">
+<a class="anchor" href="#getRoot()" aria-hidden="true"><span class="octicon octicon-link"></span></a>getRoot()<a class="anchor-link" href="#getRoot()"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kt">double</span> <span class="nf">getRoot</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">rootOne</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientB</span> <span class="o">+</span> <span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">coefficientB</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">coefficientA</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">));</span>
+    <span class="kt">double</span> <span class="n">rootTwo</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientB</span> <span class="o">-</span> <span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">coefficientB</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">coefficientA</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">));</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">rootOne</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">rootOne</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rootTwo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">rootTwo</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section from the TrajectoryMath.java file, the Math class is used to calculate the quadratic formula. This can be seen with the <code>Math.sqrt(Math.pow(coefficientB, 2) - 4 * (-this.coefficientC) * this.coefficientA))</code>, which uses the class methods of square root and exponents.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="calculateEquation()">
+<a class="anchor" href="#calculateEquation()" aria-hidden="true"><span class="octicon octicon-link"></span></a>calculateEquation()<a class="anchor-link" href="#calculateEquation()"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">calculateEquation</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="na">coefficientA</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">coefficientB</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">tan</span><span class="p">(</span><span class="n">degrees</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span> <span class="o">=</span> <span class="mf">9.8</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">cos</span><span class="p">(</span><span class="n">degrees</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">),</span> <span class="mi">2</span><span class="p">));</span>
+
+    <span class="n">String</span> <span class="n">precheckedEquation</span> <span class="o">=</span> <span class="s">"y = "</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">coefficientA</span><span class="p">)</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">coefficientB</span><span class="p">)</span> <span class="o">+</span> <span class="s">"x - "</span> <span class="o">+</span>
+    <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">coefficientC</span><span class="p">)</span> <span class="o">+</span> <span class="s">"x^2"</span><span class="p">;</span>
+    <span class="c1">// Fix double negative, but later</span>
+    <span class="c1">//if (precheckedEquation.contains("- -")) {</span>
+    <span class="c1">//}</span>
+
+    <span class="c1">//Add threshold</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">equation</span> <span class="o">=</span> <span class="n">precheckedEquation</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section from the TrajectoryMath.java file, the Math class is used again to calculate coefficientC, with both exponent and using the trig function of cosine.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Different-Constructor-Signatures">
+<a class="anchor" href="#Different-Constructor-Signatures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Different Constructor Signatures<a class="anchor-link" href="#Different-Constructor-Signatures"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// TrajectoryGraph.java</span>
+<span class="kd">public</span> <span class="nf">TrajectoryGraph</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">InputInitial</span> <span class="n">newInputs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputInitial</span><span class="p">();</span> <span class="c1">// start input object from separate file</span>
+    <span class="n">newInputs</span><span class="p">.</span><span class="na">spawnInputs</span><span class="p">();</span> <span class="c1">// start the process of collecting user input</span>
+   <span class="n">drawGraph</span><span class="p">(</span><span class="n">InputInitial</span><span class="p">.</span><span class="na">initialVelocity</span><span class="p">,</span> <span class="n">InputInitial</span><span class="p">.</span><span class="na">initialDegrees</span><span class="p">,</span> <span class="n">InputInitial</span><span class="p">.</span><span class="na">initialHeight</span><span class="p">);</span> <span class="c1">// call method to draw the graph with the user input taken</span>
+<span class="p">}</span>
+
+<span class="c1">// TrajectoryMath.java</span>
+<span class="kd">public</span> <span class="nf">TrajectoryMath</span><span class="p">(</span><span class="kt">double</span> <span class="n">velocity</span><span class="p">,</span> <span class="kt">double</span> <span class="n">degrees</span><span class="p">,</span> <span class="kt">double</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">velocity</span> <span class="o">=</span> <span class="n">velocity</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">degrees</span> <span class="o">=</span> <span class="n">degrees</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="na">calculateEquation</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As seen above, these are two different constructors from different files. One of them initiates a graph object, while the other is used to calculate the function to display.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Wrapper-Class-+-Static-Data">
+<a class="anchor" href="#Wrapper-Class-+-Static-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wrapper Class + Static Data<a class="anchor-link" href="#Wrapper-Class-+-Static-Data"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// InputInitial.java</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Double</span> <span class="n">initialVelocity</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Double</span> <span class="n">initialDegrees</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Double</span> <span class="n">initialHeight</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The wrapper class of Double defines the static data of the initialValues used in InputInitial. I used the wrapper class in order to be able to use the default null value to do error handling, as without being a wrapper class the double has to be a number.</p>
 
 </div>
 </div>
