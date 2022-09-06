@@ -6,7 +6,7 @@ permalink: /notes/
 
 # Collegeboard Units:
 - Unit 1: [Primitive Types]({{site.baseurl}}/markdown/logs/2022/08/28/AP-CSA-Week1.html)
-- Unit 2: Using Objects
+- Unit 2: Using Objects: [code.org unit 1]({{site.baseurl}}/markdown/code.org/collegeboard/2022/09/04/Unit-1-Code-org.html), [Trajectory Calculator Project]({{site.baseurl}}/jupyter/java/pbl/2022/09/05/Using-Objects.html)
 - Unit 3: Boolean Expressions and ```if``` statements
 - Unit 4: Iteration
 - Unit 5: Writing Classes
@@ -17,3 +17,5 @@ permalink: /notes/
 - Unit 10: Recursion
 
 # PBL:
+
+1. [Trajectory Calculator Project 9/4/2022]({{site.baseurl}}/jupyter/java/pbl/2022/09/05/Using-Objects.html)
