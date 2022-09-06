@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Using Objects - Trajectory Calculator | Andrew Meng</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Using Objects - Trajectory Calculator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using java classes, methods, and math to graph a trajectory." />
+<meta property="og:description" content="Using java classes, methods, and math to graph a trajectory." />
+<link rel="canonical" href="https://supermengman.github.io/blog/jupyter/java/pbl/2022/09/05/Using-Objects.html" />
+<meta property="og:url" content="https://supermengman.github.io/blog/jupyter/java/pbl/2022/09/05/Using-Objects.html" />
+<meta property="og:site_name" content="Andrew Meng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-05T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Using Objects - Trajectory Calculator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-05T00:00:00-05:00","datePublished":"2022-09-05T00:00:00-05:00","description":"Using java classes, methods, and math to graph a trajectory.","headline":"Using Objects - Trajectory Calculator","mainEntityOfPage":{"@type":"WebPage","@id":"https://supermengman.github.io/blog/jupyter/java/pbl/2022/09/05/Using-Objects.html"},"url":"https://supermengman.github.io/blog/jupyter/java/pbl/2022/09/05/Using-Objects.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://supermengman.github.io/blog/feed.xml" title="Andrew Meng" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Andrew Meng</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/notes/">Notes</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Using Objects - Trajectory Calculator</h1><p class="page-description">Using java classes, methods, and math to graph a trajectory.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-05T00:00:00-05:00" itemprop="datePublished">
+        Sep 5, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#java">java</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#pbl">pbl</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/supermengman/blog/tree/master/_notebooks/2022-09-05-Using-Objects.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/supermengman/blog/master?filepath=_notebooks%2F2022-09-05-Using-Objects.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/supermengman/blog/blob/master/_notebooks/2022-09-05-Using-Objects.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fsupermengman%2Fblog%2Fblob%2Fmaster%2F_notebooks%2F2022-09-05-Using-Objects.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Code">Code </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#TrajectoryGraph.java">TrajectoryGraph.java </a></li>
+<li class="toc-entry toc-h2"><a href="#TrajectoryMath.java">TrajectoryMath.java </a></li>
+<li class="toc-entry toc-h2"><a href="#InputInitial.java">InputInitial.java </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Project-Description">Project Description </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Example-Outputs:">Example Outputs: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Organization">Organization </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Working-as-a-Team">Working as a Team </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Conclusion">Conclusion </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-09-05-Using-Objects.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Code">
+<a class="anchor" href="#Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code<a class="anchor-link" href="#Code"> </a>
+</h1>
+<p>See the source code here or below: <a href="https://github.com/supermengman/using-objects/tree/main/src/main/java/com/hacks/trajectoryCalculator">https://github.com/supermengman/using-objects/tree/main/src/main/java/com/hacks/trajectoryCalculator</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="TrajectoryGraph.java">
+<a class="anchor" href="#TrajectoryGraph.java" aria-hidden="true"><span class="octicon octicon-link"></span></a>TrajectoryGraph.java<a class="anchor-link" href="#TrajectoryGraph.java"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">package</span> <span class="nn">com.hacks.trajectoryCalculator</span><span class="p">;</span> <span class="c1">// maven build</span>
+
+<span class="c1">// import the graphs</span>
+<span class="kn">import</span> <span class="nn">org.jfree.data.function.Function2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.jfree.data.general.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.jfree.chart.ChartFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.jfree.chart.ChartPanel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.jfree.chart.JFreeChart</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.jfree.chart.plot.PlotOrientation</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.jfree.data.xy.XYDataset</span><span class="p">;</span>
+
+<span class="c1">// import the other files</span>
+<span class="kn">import</span> <span class="nn">com.hacks.trajectoryCalculator.*</span><span class="p">;</span>
+
+<span class="c1">// import swing and awt</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Dimension</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TrajectoryGraph</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="p">{</span>
+    <span class="c1">// Constructor of the graph that will be displayed</span>
+    <span class="kd">public</span> <span class="nf">TrajectoryGraph</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">InputInitial</span> <span class="n">newInputs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputInitial</span><span class="p">();</span> <span class="c1">// start input object from separate file</span>
+        <span class="n">newInputs</span><span class="p">.</span><span class="na">spawnInputs</span><span class="p">();</span> <span class="c1">// start the process of collecting user input</span>
+       <span class="n">drawGraph</span><span class="p">(</span><span class="n">InputInitial</span><span class="p">.</span><span class="na">initialVelocity</span><span class="p">,</span> <span class="n">InputInitial</span><span class="p">.</span><span class="na">initialDegrees</span><span class="p">,</span> <span class="n">InputInitial</span><span class="p">.</span><span class="na">initialHeight</span><span class="p">);</span> <span class="c1">// call method to draw the graph with the user input taken</span>
+    <span class="p">}</span>
+
+    <span class="c1">// graph drawer</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drawGraph</span><span class="p">(</span><span class="kt">double</span> <span class="n">velocity</span><span class="p">,</span> <span class="kt">double</span> <span class="n">degrees</span><span class="p">,</span> <span class="kt">double</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Function2D</span> <span class="n">test</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrajectoryMath</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span> <span class="c1">// TrajectoryMath implements function2d, so use those values create new function2d object</span>
+        <span class="n">TrajectoryMath</span> <span class="n">testGetter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrajectoryMath</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span> <span class="c1">// creates TrajectoryMath object from the other file to call custom methods</span>
+        <span class="n">XYDataset</span> <span class="n">dataset</span> <span class="o">=</span> <span class="n">DatasetUtils</span><span class="p">.</span><span class="na">sampleFunction2D</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">testGetter</span><span class="p">.</span><span class="na">getRoot</span><span class="p">(),</span> <span class="mi">50</span><span class="p">,</span> <span class="s">"Function"</span><span class="p">);</span> <span class="c1">// generates the dataset of xy values with the function</span>
+        <span class="kd">final</span> <span class="n">JFreeChart</span> <span class="n">chart</span> <span class="o">=</span> <span class="n">ChartFactory</span><span class="p">.</span><span class="na">createXYLineChart</span><span class="p">(</span><span class="s">"Trajectory Equation"</span><span class="p">,</span> <span class="s">"X Position (meters)"</span><span class="p">,</span> <span class="s">"Y Position (meters)"</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">PlotOrientation</span><span class="p">.</span><span class="na">VERTICAL</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// creates the actual graph with attributes</span>
+        
+        <span class="c1">// initializing the display</span>
+        <span class="n">ChartPanel</span> <span class="n">cp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChartPanel</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">Dimension</span> <span class="nf">getPreferredSize</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Dimension</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span> <span class="c1">// set initial dimension</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+
+        <span class="c1">// allow mouse wheel scrolling</span>
+        <span class="n">cp</span><span class="p">.</span><span class="na">setMouseWheelEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="n">add</span><span class="p">(</span><span class="n">cp</span><span class="p">);</span>
+
+        <span class="c1">// Finalize the building of the graph</span>
+        <span class="n">setDefaultCloseOperation</span><span class="p">(</span><span class="n">EXIT_ON_CLOSE</span><span class="p">);</span>
+        <span class="n">pack</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    
+        <span class="c1">// runs the creation of the graph with a queue in a different thread and posts the gui after events are processed</span>
+        <span class="n">java</span><span class="p">.</span><span class="na">awt</span><span class="p">.</span><span class="na">EventQueue</span><span class="p">.</span><span class="na">invokeLater</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">// initialize new TrajectoryGraph object, setvisible to display the graph</span>
+                <span class="k">new</span> <span class="n">TrajectoryGraph</span><span class="p">().</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="TrajectoryMath.java">
+<a class="anchor" href="#TrajectoryMath.java" aria-hidden="true"><span class="octicon octicon-link"></span></a>TrajectoryMath.java<a class="anchor-link" href="#TrajectoryMath.java"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">package</span> <span class="nn">com.hacks.trajectoryCalculator</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.jfree.data.function.Function2D</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Actual math for calculating trajectory</span>
+<span class="cm"> * </span>
+<span class="cm"> * Calculates equation as a string and returns it</span>
+<span class="cm"> * </span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TrajectoryMath</span> <span class="kd">implements</span> <span class="n">Function2D</span> <span class="p">{</span>
+
+    <span class="c1">// Initialize variables</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">velocity</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">degrees</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">equation</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">coefficientA</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">coefficientB</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">coefficientC</span><span class="p">;</span>
+
+    
+    <span class="c1">// Constructor</span>
+    <span class="kd">public</span> <span class="nf">TrajectoryMath</span><span class="p">(</span><span class="kt">double</span> <span class="n">velocity</span><span class="p">,</span> <span class="kt">double</span> <span class="n">degrees</span><span class="p">,</span> <span class="kt">double</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">velocity</span> <span class="o">=</span> <span class="n">velocity</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">degrees</span> <span class="o">=</span> <span class="n">degrees</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">calculateEquation</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Getters and setters</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getVelocity</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">velocity</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getDegrees</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">degrees</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getHeight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getEquation</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">equation</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getCoefficientA</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">coefficientA</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getCoefficientB</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">coefficientB</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getCoefficientC</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getRoot</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">rootOne</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientB</span> <span class="o">+</span> <span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">coefficientB</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">coefficientA</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">));</span>
+        <span class="kt">double</span> <span class="n">rootTwo</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientB</span> <span class="o">-</span> <span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">coefficientB</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">coefficientA</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span><span class="p">));</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">rootOne</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">rootOne</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rootTwo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">rootTwo</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVelocity</span><span class="p">(</span><span class="kt">double</span> <span class="n">velocity</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">velocity</span> <span class="o">=</span> <span class="n">velocity</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDegrees</span><span class="p">(</span><span class="kt">double</span> <span class="n">degrees</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">degrees</span> <span class="o">=</span> <span class="n">degrees</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHeight</span><span class="p">(</span><span class="kt">double</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Array should be in order of velocity, degrees, and height</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setParameters</span><span class="p">(</span><span class="kt">double</span><span class="o">[]</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">velocity</span> <span class="o">=</span> <span class="n">values</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">degrees</span> <span class="o">=</span> <span class="n">values</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">values</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Math for equation</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">calculateEquation</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">coefficientA</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">coefficientB</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">tan</span><span class="p">(</span><span class="n">degrees</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">coefficientC</span> <span class="o">=</span> <span class="mf">9.8</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">cos</span><span class="p">(</span><span class="n">degrees</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">),</span> <span class="mi">2</span><span class="p">));</span>
+
+        <span class="n">String</span> <span class="n">precheckedEquation</span> <span class="o">=</span> <span class="s">"y = "</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">coefficientA</span><span class="p">)</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">coefficientB</span><span class="p">)</span> <span class="o">+</span> <span class="s">"x - "</span> <span class="o">+</span>
+        <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">coefficientC</span><span class="p">)</span> <span class="o">+</span> <span class="s">"x^2"</span><span class="p">;</span>
+        <span class="c1">// Fix double negative, but later</span>
+        <span class="c1">//if (precheckedEquation.contains("- -")) {</span>
+        <span class="c1">//}</span>
+
+        <span class="c1">//Add threshold</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">equation</span> <span class="o">=</span> <span class="n">precheckedEquation</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getValue</span><span class="p">(</span><span class="kt">double</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">coefficientA</span> <span class="o">+</span> <span class="n">coefficientB</span> <span class="o">*</span> <span class="n">v</span> <span class="o">-</span> <span class="n">coefficientC</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * public static void main(String[] args) {</span>
+<span class="cm">        TrajectoryMath example = new TrajectoryMath(15, 60, 4);</span>
+<span class="cm">        System.out.println(example.getRoot());</span>
+<span class="cm">     }</span>
+<span class="cm">     */</span>
+     
+   
+ <span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="InputInitial.java">
+<a class="anchor" href="#InputInitial.java" aria-hidden="true"><span class="octicon octicon-link"></span></a>InputInitial.java<a class="anchor-link" href="#InputInitial.java"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">package</span> <span class="nn">com.hacks.trajectoryCalculator</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="p">;</span> <span class="c1">// library to display options</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JTextField</span><span class="p">;</span> <span class="c1">// library to create a text field to render on GUI</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InputInitial</span> <span class="p">{</span>
+    <span class="c1">// instance variables to be used</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Double</span> <span class="n">initialVelocity</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Double</span> <span class="n">initialDegrees</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Double</span> <span class="n">initialHeight</span><span class="p">;</span>
+
+    <span class="c1">// create the GUI element that users input into</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">spawnInputs</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// while the values have not changed yet, keep going (for error handling)</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">initialVelocity</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">initialDegrees</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">initialHeight</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// text field initialization</span>
+            <span class="n">JTextField</span> <span class="n">inputVelocity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">();</span>
+            <span class="n">JTextField</span> <span class="n">inputDegrees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">();</span>
+            <span class="n">JTextField</span> <span class="n">inputHeight</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">();</span>
+
+            <span class="c1">// organizing the input text to display + the text field in object</span>
+            <span class="n">Object</span><span class="o">[]</span> <span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s">"Initial Velocity (m/s):"</span><span class="p">,</span> <span class="n">inputVelocity</span><span class="p">,</span>
+                <span class="s">"Initial Degrees:"</span><span class="p">,</span> <span class="n">inputDegrees</span><span class="p">,</span>
+                <span class="s">"Initial Height (m):"</span><span class="p">,</span> <span class="n">inputHeight</span>
+            <span class="p">};</span>
+
+            <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showConfirmDialog</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="s">"Input the initial values for your object (numbers only):"</span><span class="p">,</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">OK_CANCEL_OPTION</span><span class="p">);</span> <span class="c1">// creates the option menu with the 3 inputs</span>
+
+            <span class="c1">// take the input, assign it to the public variables</span>
+            <span class="n">initialVelocity</span> <span class="o">=</span> <span class="n">parseInput</span><span class="p">(</span><span class="n">inputVelocity</span><span class="p">);</span>
+            <span class="n">initialDegrees</span> <span class="o">=</span> <span class="n">parseInput</span><span class="p">(</span><span class="n">inputDegrees</span><span class="p">);</span>
+            <span class="n">initialHeight</span> <span class="o">=</span> <span class="n">parseInput</span><span class="p">(</span><span class="n">inputHeight</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+    <span class="p">}</span>
+
+    <span class="c1">// change JTextField into Double, also error handling</span>
+    <span class="kd">public</span> <span class="n">Double</span> <span class="nf">parseInput</span><span class="p">(</span><span class="n">JTextField</span> <span class="n">inputValue</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">placeholder</span> <span class="o">=</span> <span class="n">inputValue</span><span class="p">.</span><span class="na">getText</span><span class="p">();</span> <span class="c1">// get the string out of the input</span>
+        
+        <span class="c1">// error handling + edge cases</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">initialValue</span> <span class="o">=</span> <span class="n">Double</span><span class="p">.</span><span class="na">parseDouble</span><span class="p">(</span><span class="n">placeholder</span><span class="p">);</span>
+
+            <span class="c1">// if negative, cannot be valid so throw error --&gt; reinput values bc still null</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">initialValue</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showMessageDialog</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s">"Inputs must be greater than 0"</span><span class="p">,</span> <span class="s">"Invalid Input"</span><span class="p">,</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">WARNING_MESSAGE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// if everything ok, return the value</span>
+                <span class="k">return</span> <span class="n">initialValue</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// if cannot be cased as a double, throw error --&gt; reinput values</span>
+            <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showMessageDialog</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s">"There was an invalid input for "</span> <span class="o">+</span> <span class="n">placeholder</span> <span class="o">+</span> <span class="s">", please try again. "</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="s">"Unwanted Input"</span><span class="p">,</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">WARNING_MESSAGE</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Project-Description">
+<a class="anchor" href="#Project-Description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Description<a class="anchor-link" href="#Project-Description"> </a>
+</h1>
+<p>In this project, I worked with Bailey to create this program. The code is split into 3 files: one to draw the graph, one to gather user input, and one to calculate the trajectory equation. The overall code structure flows like so:</p>
+<ul>
+<li>initialize TrajectoryGraph object, and call the user input method</li>
+<li>the user inputs the initial velocity, initial height, and initial degrees into a JOptionsPane</li>
+<li>the data is fed into the calculator, which returns height given a x value</li>
+<li>the graph is initialized, and drawn using Function2D</li>
+<li>the graph is then presented to the user as a GUI element</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-Outputs:">
+<a class="anchor" href="#Example-Outputs:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Outputs:<a class="anchor-link" href="#Example-Outputs:"> </a>
+</h2>
+<p><img src="/blog/images/copied_from_nb/../images/using-objects/exampleInput.png" alt="Example user input"></p>
+<p><img src="/blog/images/copied_from_nb/../images/using-objects/generatedGraph.png" alt="generated graph"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Organization">
+<a class="anchor" href="#Organization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organization<a class="anchor-link" href="#Organization"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Working-as-a-Team">
+<a class="anchor" href="#Working-as-a-Team" aria-hidden="true"><span class="octicon octicon-link"></span></a>Working as a Team<a class="anchor-link" href="#Working-as-a-Team"> </a>
+</h2>
+<p>To complete this, me and my partner Bailey Say split up the work in order to be more efficient. Bailey worked on creating the TrajectoryMath.java file, which took care of getting and setting the variables to create the function. It also created the function itself, and he did research to find the formula to calculate a trajectory.</p>
+<p>As for myself, I worked on getting GUI to display as well as creating dialog boxes for the user to input. For this, I worked on the TrajectoryGraph.java as well as InputInitial.java. I also worked on error handling in input, cutting off negative inputs as well as non double inputs.</p>
+<p>In addition to working on GUI, I also attempted to use spring boot and maven to build the project. Even though I could not exactly figure out how to put it on a website, I at least resolved issues with building through maven. I learned that the package in front of the files has to correspond with the specific folder in order for maven to know what to import, and that allowed us to use these multiple files to run a single program.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Conclusion">
+<a class="anchor" href="#Conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion<a class="anchor-link" href="#Conclusion"> </a>
+</h1>
+<p>Overall, this project helped me and Bailey to understand more about how projects in Java are built, having to figure out how to use tools like maven. It also allowed us to experiment with multi file java programs, finding out how calling methods from other files works as well as classes. In addition to being good learning for CSA, it also contributes to me and Bailey's experience in AP Physics.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="supermengman/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/jupyter/java/pbl/2022/09/05/Using-Objects.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A Student</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/supermengman" target="_blank" title="supermengman"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
