@@ -12,3 +12,14 @@ _notebooks/.ipynb_checkpoints
 .netlify
 .tweet-cache
 __pycache__
+_posts/2020-02-20-test.md
+_posts/2022-08-18-python-jupyter-test.md
+_posts/2022-08-19-java-jupyter-test.md
+_posts/2022-08-22-bash-learning.md
+_posts/2022-08-27-Java-primitives.md
+_posts/2022-08-29-Terms-to-Know-Rhetorical-Devices.md
+_posts/2022-09-05-Using-Objects.md
+_posts/2022-09-06-java-boolean-expressions.md
+images/copied_from_nb/my_icons/fastai_logo.png
+images/images/using-objects/exampleInput.png
+images/images/using-objects/generatedGraph.png
