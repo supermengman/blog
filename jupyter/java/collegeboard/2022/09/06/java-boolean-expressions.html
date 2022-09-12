@@ -322,7 +322,7 @@ not yes :(
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"yes!"</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">yesNo</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"no"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if no, then print</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"no? :("</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// if not yes or no</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"bruh u messed up"</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -393,13 +393,13 @@ bruh u messed up
         <span class="c1">// if statement: if matches types of cheese, say the sandwich</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"gouda"</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"salami"</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"parmesan"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if no, then print</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"parmesan"</span><span class="p">))</span> <span class="p">{</span> 
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"prosciutto"</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"havarti"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if no, then print</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"havarti"</span><span class="p">))</span> <span class="p">{</span> 
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"soppressata"</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"monterey jack"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if no, then print</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"monterey jack"</span><span class="p">))</span> <span class="p">{</span> 
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"salami"</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"ricotta"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// if no, then print</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cheese</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">"ricotta"</span><span class="p">))</span> <span class="p">{</span> 
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"ground beef"</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"search it up"</span><span class="p">);</span>
@@ -457,10 +457,11 @@ salami
         <span class="n">String</span> <span class="n">cheese</span> <span class="o">=</span>  <span class="n">cheeseScan</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cheese</span><span class="p">);</span>
         
+        <span class="c1">// switch case: take cheese as input, check against list of cheeses</span>
         <span class="k">switch</span> <span class="p">(</span><span class="n">cheese</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">case</span> <span class="s">"gouda"</span><span class="p">:</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"salami"</span><span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span> <span class="c1">// break to get out of switch, so no default case</span>
             <span class="k">case</span> <span class="s">"parmesan"</span><span class="p">:</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"prosciutto"</span><span class="p">);</span>
                 <span class="k">break</span><span class="p">;</span>
@@ -474,7 +475,7 @@ salami
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"ground beef"</span><span class="p">);</span>
                 <span class="k">break</span><span class="p">;</span>
 
-<span class="nl">            default:</span>
+<span class="nl">            default:</span> <span class="c1">// case if nothing matches</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"google it"</span><span class="p">);</span>
         <span class="p">}</span>
        
@@ -551,27 +552,33 @@ salami
 <div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeMorgan</span> <span class="p">{</span>
+
+    <span class="c1">// define variables</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">username</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
+    <span class="c1">// take the input for the variables using scanner</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">inputDetails</span><span class="p">(</span><span class="n">String</span> <span class="n">detail</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">detail</span> <span class="o">+</span> <span class="s">": "</span><span class="p">);</span>
         <span class="n">Scanner</span> <span class="n">detailScan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span> <span class="c1">// scanner initiate</span>
         <span class="n">String</span> <span class="n">inputDetail</span> <span class="o">=</span> <span class="n">detailScan</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">inputDetail</span><span class="p">);</span>
         <span class="n">detailScan</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-        <span class="k">return</span> <span class="n">inputDetail</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">inputDetail</span><span class="p">;</span> <span class="c1">// return the input</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"type your email, username, then password to sign up: "</span><span class="p">);</span>
+        
+        <span class="c1">// take user input</span>
         <span class="n">email</span> <span class="o">=</span> <span class="n">inputDetails</span><span class="p">(</span><span class="s">"email"</span><span class="p">);</span>
         <span class="n">username</span> <span class="o">=</span> <span class="n">inputDetails</span><span class="p">(</span><span class="s">"username"</span><span class="p">);</span>
         <span class="n">password</span> <span class="o">=</span> <span class="n">inputDetails</span><span class="p">(</span><span class="s">"password"</span><span class="p">);</span>
 
+        <span class="c1">// conditional, if not all requirements met then throw error</span>
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">email</span> <span class="o">!=</span> <span class="s">""</span> <span class="o">&amp;&amp;</span> <span class="n">username</span> <span class="o">!=</span> <span class="s">""</span> <span class="o">&amp;&amp;</span> <span class="n">password</span> <span class="o">!=</span> <span class="s">""</span><span class="p">))</span> <span class="p">{</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="s">"Not all requirements are met"</span><span class="p">);</span>
         <span class="p">}</span>
@@ -635,10 +642,13 @@ password:
 <div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeMorgan</span> <span class="p">{</span>
+
+    <span class="c1">// define variables</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">username</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
+    
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">inputDetails</span><span class="p">(</span><span class="n">String</span> <span class="n">detail</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">detail</span> <span class="o">+</span> <span class="s">": "</span><span class="p">);</span>
         <span class="n">Scanner</span> <span class="n">detailScan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span> <span class="c1">// scanner initiate</span>
@@ -648,15 +658,18 @@ password:
         <span class="k">return</span> <span class="n">inputDetail</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="c1">// take the input for the variables using scanner</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         
-
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"type your email, username, then password to sign up: "</span><span class="p">);</span>
+
+        <span class="c1">// take user input</span>
         <span class="n">email</span> <span class="o">=</span> <span class="n">inputDetails</span><span class="p">(</span><span class="s">"email"</span><span class="p">);</span>
         <span class="n">username</span> <span class="o">=</span> <span class="n">inputDetails</span><span class="p">(</span><span class="s">"username"</span><span class="p">);</span>
         <span class="n">password</span> <span class="o">=</span> <span class="n">inputDetails</span><span class="p">(</span><span class="s">"password"</span><span class="p">);</span>
 
-        <span class="k">if</span> <span class="p">((</span><span class="n">email</span> <span class="o">==</span> <span class="s">""</span> <span class="o">||</span> <span class="n">username</span> <span class="o">==</span> <span class="s">""</span> <span class="o">||</span> <span class="n">password</span> <span class="o">==</span> <span class="s">""</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// conditional with de morgans law applied</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">email</span> <span class="o">==</span> <span class="s">""</span> <span class="o">||</span> <span class="n">username</span> <span class="o">==</span> <span class="s">""</span> <span class="o">||</span> <span class="n">password</span> <span class="o">==</span> <span class="s">""</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="s">"Not all requirements are met"</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
