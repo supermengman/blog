@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Sep 12 10:38:31 2022
+# Make data base, printed on Mon Sep 19 22:12:36 2022
 
 # Variables
 
@@ -47,7 +49,7 @@ VSCODE_CWD = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/mengman/.vscode-server/bin/784b0177c56c607789f9638da7b6bf3230d47a8c/bin/remote-cli:/home/mengman/anaconda3/bin:/home/mengman/anaconda3/condabin:/usr/lib/jvm/java-17-openjdk-amd64/bin:/opt/apache-maven-3.8.6/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/VMware/VMware Player/bin:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0:/mnt/c/windows/System32/OpenSSH:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Intel/WiFi/bin:/mnt/c/Program Files/Common Files/Intel/WirelessCommon:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/WINDOWS/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/andre/scoop/shims:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/andre/Anaconda3/Library/bin:/mnt/c/Users/andre/Anaconda3/Scripts:/mnt/c/Users/andre/Anaconda3:/mnt/c/Users/andre/Anaconda3/condabin:/mnt/c/Users/andre/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/andre/AppData/Roaming/npm:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/andre/spicetify-cli:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.1/bin:/snap/bin
+PATH = /home/mengman/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/bin/remote-cli:/home/mengman/anaconda3/bin:/home/mengman/anaconda3/condabin:/usr/lib/jvm/java-17-openjdk-amd64/bin:/opt/apache-maven-3.8.6/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/VMware/VMware Player/bin:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0:/mnt/c/windows/System32/OpenSSH:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Intel/WiFi/bin:/mnt/c/Program Files/Common Files/Intel/WirelessCommon:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/WINDOWS/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/andre/scoop/shims:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/andre/Anaconda3/Library/bin:/mnt/c/Users/andre/Anaconda3/Scripts:/mnt/c/Users/andre/Anaconda3:/mnt/c/Users/andre/Anaconda3/condabin:/mnt/c/Users/andre/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/andre/AppData/Roaming/npm:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/andre/spicetify-cli:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.1/bin:/snap/bin
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
@@ -55,7 +57,7 @@ CONDA_PREFIX = /home/mengman/anaconda3
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-7aed7284-7f25-49d7-a89a-ba450aea67c7.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ac2f710f-ad91-4ec2-a3b3-6c204c846f45.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,11 +73,11 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/24949_interop
+WSL_INTEROP = /run/WSL/554_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = 5503b26a-c7a0-40d4-8221-6e2894b0f1e5
+WT_SESSION = cb9e1e0b-4ec7-4ae2-be00-4383576aa0a3
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -272,6 +274,7 @@ restart-jekyll: .FORCE
 help:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 2):
 	cat Makefile
@@ -316,10 +319,7 @@ convert: .FORCE
 
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
- 
-make: *** No rule to make target 'all'.  Stop.
-
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Mon Sep 12 10:38:31 2022
+# Finished Make data base on Mon Sep 19 22:12:36 2022
 
  
