@@ -19,3 +19,15 @@ permalink: /notes/
 # PBL:
 
 1. [Trajectory Calculator Project 9/4/2022]({{site.baseurl}}/jupyter/java/pbl/2022/09/05/Using-Objects.html)
+
+### Vocab
+
+Scrum Master: facilitates the sprint, tracking issues, maintains scrum boards
+
+DevOps: combination of tools, philosophies, and practice to increase the ability of a team to deploy and deliver applications
+
+Frontend: builds what the user sees
+
+Backend: maintains the things the suer cannot see (data storage, security, etc)
+
+Sprint: time period where a group does development work
