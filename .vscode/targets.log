@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Sep 23 09:56:21 2022
+# Make data base, printed on Sun Sep 25 22:56:07 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
 # automatic
@@ -31,7 +31,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
+_ = /home/mengman/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/node
 # environment
 MAVEN_HOME = /opt/apache-maven-3.8.6
 # makefile (from 'Makefile', line 1)
@@ -55,7 +55,7 @@ CONDA_PREFIX = /home/mengman/anaconda3
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-290355d2-09fd-4df2-9430-3d44bec90846.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-5081ebb0-d5bd-43a2-82ff-546360d64d28.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -63,7 +63,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = 172.22.176.1:0
+DISPLAY = 172.22.32.1:0
 # environment
 CONDA_EXE = /home/mengman/anaconda3/bin/conda
 # environment
@@ -71,11 +71,9 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/78_interop
+WSL_INTEROP = /run/WSL/5659_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
-# environment
-WT_SESSION = 0da643d2-1de4-4f22-a867-c5d580cbe1c8
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -105,7 +103,7 @@ MAKECMDGOALS := all
 # environment
 CONDA_SHLVL = 1
 # environment
-SHLVL = 1
+SHLVL = 0
 # environment
 JAVA_HOME = /usr/lib/jvm/java-17-openjdk-amd64/
 # default
@@ -115,7 +113,7 @@ USER = mengman
 # makefile
 .DEFAULT_GOAL := help
 # environment
-NAME = Code
+NAME = Andrew-work
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -138,8 +136,6 @@ MFLAGS = -pqrR
 BROWSER = /mnt/c/Program Files/Google/Chrome/Application/chrome.exe
 # environment
 VSCODE_HANDLES_SIGPIPE = true
-# environment
-WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
 # default
 MAKEFILES := 
 # automatic
@@ -173,7 +169,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=81/1024=8%, Rehash=0, Collisions=7/106=7%
+# Load=79/1024=8%, Rehash=0, Collisions=7/104=7%
 
 # Pattern-specific Variable Values
 
@@ -274,12 +270,12 @@ help:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 2):
- 
-make: *** No rule to make target 'all'.  Stop.
-
 	cat Makefile
 
 # Not a target:
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -320,6 +316,6 @@ convert: .FORCE
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Fri Sep 23 09:56:21 2022
+# Finished Make data base on Sun Sep 25 22:56:07 2022
 
  
