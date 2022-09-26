@@ -371,7 +371,7 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
         <span class="k">this</span><span class="p">.</span><span class="na">duration</span> <span class="o">=</span> <span class="p">((</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="p">));</span>
     <span class="p">}</span>
 
-    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">FiboRecursion</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="nc">FiboRecursion</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
         
         <span class="c1">// default constructor</span>
         <span class="kd">public</span> <span class="nf">FiboRecursion</span><span class="p">()</span> <span class="p">{</span>
@@ -423,7 +423,7 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
     <span class="p">}</span>
 
     <span class="c1">// extending for WHILE</span>
-    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">FiboWhile</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="nc">FiboWhile</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
 
         <span class="c1">// calls super constructor default</span>
         <span class="kd">public</span> <span class="nf">FiboWhile</span><span class="p">()</span> <span class="p">{</span>
@@ -464,7 +464,7 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
     <span class="p">}</span>
 
     <span class="c1">// extending for FOR</span>
-    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">FiboFor</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="nc">FiboFor</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
         <span class="c1">// constructor</span>
         <span class="kd">public</span> <span class="nf">FiboFor</span><span class="p">()</span> <span class="p">{</span>
             <span class="kd">super</span><span class="p">();</span>
@@ -564,17 +564,17 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
 
-        <span class="n">FiboFor</span> <span class="n">fibFor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FiboFor</span><span class="p">();</span>
+        <span class="n">FiboFor</span> <span class="n">fibFor</span> <span class="o">=</span> <span class="n">fib</span><span class="p">.</span><span class="na">new</span> <span class="nf">FiboFor</span><span class="p">();</span>
         <span class="n">fibFor</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
 
-        <span class="n">FiboWhile</span> <span class="n">fibWhile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FiboWhile</span><span class="p">();</span>
+        <span class="n">FiboWhile</span> <span class="n">fibWhile</span> <span class="o">=</span> <span class="n">fib</span><span class="p">.</span><span class="na">new</span> <span class="nf">FiboWhile</span><span class="p">();</span>
         <span class="n">fibWhile</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
 
-        <span class="n">FiboRecursion</span> <span class="n">fibRecursion</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FiboRecursion</span><span class="p">();</span>
+        <span class="n">FiboRecursion</span> <span class="n">fibRecursion</span> <span class="o">=</span> <span class="n">fib</span><span class="p">.</span><span class="na">new</span> <span class="nf">FiboRecursion</span><span class="p">();</span>
         <span class="n">fibRecursion</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">Fibo</span><span class="p">.</span><span class="na">areSame</span><span class="p">(</span><span class="n">fib</span><span class="p">.</span><span class="na">getNth</span><span class="p">(),</span> <span class="n">fibFor</span><span class="p">.</span><span class="na">getNth</span><span class="p">(),</span> <span class="n">fibRecursion</span><span class="p">.</span><span class="na">getNth</span><span class="p">(),</span> <span class="n">fibWhile</span><span class="p">.</span><span class="na">getNth</span><span class="p">()))</span> <span class="p">{</span>
@@ -620,7 +620,7 @@ fibonacci Sequence 17 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 fibonacci Sequence 18 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597]
 fibonacci Sequence 19 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584]
 fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
-time taken = 3.6928 ms
+time taken = 3.806 ms
 
 Init method = for
 fibonacci Number 20 = 4181
@@ -646,7 +646,7 @@ fibonacci Sequence 17 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 fibonacci Sequence 18 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597]
 fibonacci Sequence 19 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584]
 fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
-time taken = 0.0438 ms
+time taken = 0.0621 ms
 
 Init method = while
 fibonacci Number 20 = 4181
@@ -672,7 +672,7 @@ fibonacci Sequence 17 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 fibonacci Sequence 18 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597]
 fibonacci Sequence 19 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584]
 fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
-time taken = 0.1261 ms
+time taken = 0.0632 ms
 
 Init method = recursion
 fibonacci Number 20 = 4181
@@ -698,7 +698,7 @@ fibonacci Sequence 17 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 fibonacci Sequence 18 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597]
 fibonacci Sequence 19 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584]
 fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
-time taken = 57.2899 ms
+time taken = 74.7499 ms
 all values are equal: 4181
 </pre>
 </div>
@@ -730,7 +730,7 @@ all values are equal: 4181
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="c1">// extending for FOR</span>
-<span class="kd">static</span> <span class="kd">class</span> <span class="nc">FiboFor</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="nc">FiboFor</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
     <span class="c1">// constructor</span>
     <span class="kd">public</span> <span class="nf">FiboFor</span><span class="p">()</span> <span class="p">{</span>
         <span class="kd">super</span><span class="p">();</span>
@@ -797,7 +797,7 @@ all values are equal: 4181
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="c1">// extending for WHILE</span>
-<span class="kd">static</span> <span class="kd">class</span> <span class="nc">FiboWhile</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="nc">FiboWhile</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
 
     <span class="c1">// calls super constructor default</span>
     <span class="kd">public</span> <span class="nf">FiboWhile</span><span class="p">()</span> <span class="p">{</span>
@@ -870,7 +870,7 @@ all values are equal: 4181
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">static</span> <span class="kd">class</span> <span class="nc">FiboRecursion</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
+<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">FiboRecursion</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
         
     <span class="c1">// default constructor</span>
     <span class="kd">public</span> <span class="nf">FiboRecursion</span><span class="p">()</span> <span class="p">{</span>
