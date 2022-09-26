@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Sep 25 22:56:07 2022
+# Make data base, printed on Mon Sep 26 09:53:38 2022
 
 # Variables
 
@@ -55,7 +57,7 @@ CONDA_PREFIX = /home/mengman/anaconda3
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-5081ebb0-d5bd-43a2-82ff-546360d64d28.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-2abf2d3e-2a57-401d-8216-66371493a978.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,7 +73,7 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/5659_interop
+WSL_INTEROP = /run/WSL/6821_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
@@ -97,6 +99,7 @@ MAKELEVEL := 0
 # environment
 CONDA_DEFAULT_ENV = base
 # default
+ 
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
@@ -273,9 +276,6 @@ help:
 	cat Makefile
 
 # Not a target:
- 
-make: *** No rule to make target 'all'.  Stop.
-
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -316,6 +316,6 @@ convert: .FORCE
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Sun Sep 25 22:56:07 2022
+# Finished Make data base on Mon Sep 26 09:53:38 2022
 
  
