@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Oct  3 09:49:54 2022
+# Make data base, printed on Mon Oct  3 10:02:13 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up
+WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # automatic
@@ -31,7 +31,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /home/mengman/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/node
+_ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
 MAVEN_HOME = /opt/apache-maven-3.8.6
 # makefile (from 'Makefile', line 1)
@@ -55,7 +55,7 @@ CONDA_PREFIX = /home/mengman/anaconda3
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-087afa37-e02c-426f-9f9b-a64670bb4ca9.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-1670db97-af97-4254-81ca-2ce8079dd76b.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,9 +71,11 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/7939_interop
+WSL_INTEROP = /run/WSL/2049_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+WT_SESSION = 3391123d-a79c-4823-8586-f3ffd0052875
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -83,7 +85,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = mengman
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 CONDA_PROMPT_MODIFIER = (base) 
 # automatic
@@ -103,7 +105,7 @@ MAKECMDGOALS := all
 # environment
 CONDA_SHLVL = 1
 # environment
-SHLVL = 0
+SHLVL = 1
 # environment
 JAVA_HOME = /usr/lib/jvm/java-17-openjdk-amd64/
 # default
@@ -113,7 +115,7 @@ USER = mengman
 # makefile
 .DEFAULT_GOAL := help
 # environment
-NAME = Andrew-work
+NAME = Code
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -136,6 +138,8 @@ MFLAGS = -pqrR
 BROWSER = /mnt/c/Program Files/Google/Chrome/Application/chrome.exe
 # environment
 VSCODE_HANDLES_SIGPIPE = true
+# environment
+WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
 # default
 MAKEFILES := 
 # automatic
@@ -169,7 +173,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=79/1024=8%, Rehash=0, Collisions=7/104=7%
+# Load=81/1024=8%, Rehash=0, Collisions=7/106=7%
 
 # Pattern-specific Variable Values
 
@@ -273,9 +277,6 @@ help:
 	cat Makefile
 
 # Not a target:
- 
-make: *** No rule to make target 'all'.  Stop.
-
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -287,6 +288,9 @@ bash-jekyll: .FORCE
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 46):
 	docker-compose exec jekyll /bin/bash
+
+ 
+make: *** No rule to make target 'all'.  Stop.
 
 convert: .FORCE
 #  Implicit rule search has not been done.
@@ -316,6 +320,6 @@ convert: .FORCE
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Mon Oct  3 09:49:54 2022
+# Finished Make data base on Mon Oct  3 10:02:13 2022
 
  
