@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Sep 26 09:53:38 2022
+# Make data base, printed on Mon Oct  3 00:10:26 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ make: *** No rule to make target 'all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up
+WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # automatic
@@ -33,7 +33,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /home/mengman/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/node
+_ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
 MAVEN_HOME = /opt/apache-maven-3.8.6
 # makefile (from 'Makefile', line 1)
@@ -57,7 +57,7 @@ CONDA_PREFIX = /home/mengman/anaconda3
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-2abf2d3e-2a57-401d-8216-66371493a978.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-45dc8619-a087-49a3-bc74-f60234cd0e50.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -73,9 +73,11 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/6821_interop
+WSL_INTEROP = /run/WSL/2676_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+WT_SESSION = f7a94f56-98b9-48fe-9b67-bb8863473fe3
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -99,14 +101,13 @@ MAKELEVEL := 0
 # environment
 CONDA_DEFAULT_ENV = base
 # default
- 
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
 CONDA_SHLVL = 1
 # environment
-SHLVL = 0
+SHLVL = 1
 # environment
 JAVA_HOME = /usr/lib/jvm/java-17-openjdk-amd64/
 # default
@@ -116,7 +117,7 @@ USER = mengman
 # makefile
 .DEFAULT_GOAL := help
 # environment
-NAME = Andrew-work
+NAME = Code
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -139,6 +140,8 @@ MFLAGS = -pqrR
 BROWSER = /mnt/c/Program Files/Google/Chrome/Application/chrome.exe
 # environment
 VSCODE_HANDLES_SIGPIPE = true
+# environment
+WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
 # default
 MAKEFILES := 
 # automatic
@@ -172,7 +175,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=79/1024=8%, Rehash=0, Collisions=7/104=7%
+# Load=81/1024=8%, Rehash=0, Collisions=7/106=7%
 
 # Pattern-specific Variable Values
 
@@ -281,6 +284,7 @@ help:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 bash-jekyll: .FORCE
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -316,6 +320,6 @@ convert: .FORCE
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Mon Sep 26 09:53:38 2022
+# Finished Make data base on Mon Oct  3 00:10:26 2022
 
  
