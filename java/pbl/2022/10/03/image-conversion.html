@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Arrays and Images" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Provided code is to assist in changing Images." />
-<meta property="og:description" content="Provided code is to assist in changing Images." />
+<meta name="description" content="How to run code???" />
+<meta property="og:description" content="How to run code???" />
 <link rel="canonical" href="https://supermengman.github.io/blog/java/pbl/2022/10/03/image-conversion.html" />
 <meta property="og:url" content="https://supermengman.github.io/blog/java/pbl/2022/10/03/image-conversion.html" />
 <meta property="og:site_name" content="Andrew Meng" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Arrays and Images" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-03T00:00:00-05:00","datePublished":"2022-10-03T00:00:00-05:00","description":"Provided code is to assist in changing Images.","headline":"Arrays and Images","mainEntityOfPage":{"@type":"WebPage","@id":"https://supermengman.github.io/blog/java/pbl/2022/10/03/image-conversion.html"},"url":"https://supermengman.github.io/blog/java/pbl/2022/10/03/image-conversion.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-03T00:00:00-05:00","datePublished":"2022-10-03T00:00:00-05:00","description":"How to run code???","headline":"Arrays and Images","mainEntityOfPage":{"@type":"WebPage","@id":"https://supermengman.github.io/blog/java/pbl/2022/10/03/image-conversion.html"},"url":"https://supermengman.github.io/blog/java/pbl/2022/10/03/image-conversion.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://supermengman.github.io/blog/feed.xml" title="Andrew Meng" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Arrays and Images</h1><p class="page-description">Provided code is to assist in changing Images.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-03T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Arrays and Images</h1><p class="page-description">How to run code???</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-03T00:00:00-05:00" itemprop="datePublished">
         Oct 3, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -100,7 +100,6 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Saving-PNG-to-GIF">Saving PNG to GIF </a></li>
 <li class="toc-entry toc-h2"><a href="#Image-Scaling-and-ASCII-Conversion">Image Scaling and ASCII Conversion </a></li>
 <li class="toc-entry toc-h1"><a href="#Hacks">Hacks </a>
 <ul>
@@ -119,61 +118,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Saving-PNG-to-GIF">
-<a class="anchor" href="#Saving-PNG-to-GIF" aria-hidden="true"><span class="octicon octicon-link"></span></a>Saving PNG to GIF<a class="anchor-link" href="#Saving-PNG-to-GIF"> </a>
-</h2>
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">javax.imageio.ImageIO</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.awt.image.BufferedImage</span><span class="p">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ImageIOTest</span> <span class="p">{</span>    
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="p">){</span>
-       <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// buffer type </span>
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="c1">// Name of file and directories</span>
-            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"MonaLisa"</span><span class="p">;</span>
-            <span class="n">String</span> <span class="n">in</span> <span class="o">=</span> <span class="s">"images/"</span><span class="p">;</span>
-            <span class="n">String</span> <span class="n">out</span> <span class="o">=</span> <span class="s">"images/tmp/"</span><span class="p">;</span>
-
-            <span class="c1">// Either use URL or File for reading image using ImageIO</span>
-            <span class="n">File</span> <span class="n">imageFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".png"</span><span class="p">);</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">imageFile</span><span class="p">);</span>  <span class="c1">// set buffer of image data</span>
-
-            <span class="c1">// ImageIO Image write to gif in Java</span>
-            <span class="c1">// Documentation https://docs.oracle.com/javase/tutorial/2d/images/index.html</span>
-            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s">"gif"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
-
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-              <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
-        <span class="p">}</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Success"</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="n">ImageIOTest</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
