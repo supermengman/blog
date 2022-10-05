@@ -31,11 +31,11 @@ permalink: /data/weather
   const resultContainer = document.getElementById("result");
 
   // prepare fetch options
-  const url = "http://localhost:8085/api/weather/currentWeather";
+  const url = "https://mengman.tk/api/weather/currentWeather";
 
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    mode: 'same-origin', // no-cors, *cors, same-origin
+    mode: 'cors', // no-cors, *cors, same-origin
     cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'omit', // include, *same-origin, omit
     headers: {
