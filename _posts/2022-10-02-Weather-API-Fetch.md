@@ -24,6 +24,11 @@ permalink: /data/weather
   </tbody>
 </table>
 
+<div id="weatherStuff">
+
+</div>
+
+
 
 <!-- Script is layed out in a sequence (no function) and will execute when page is loaded -->
 <script>
@@ -70,7 +75,22 @@ permalink: /data/weather
           document.getElementById("feels_like").innerHTML = data.current.feelslike_f;
           document.getElementById("location").innerHTML = data.location.name;
 
-          
+          var img = document.createElement("img");
+          img.src = "http:" + data.current.condition.icon;
+          var weatherDisplay = document.getElementById("weatherStuff");
+          weatherDisplay.appendChild(img);
+
+          var temp = document.createElement("ul");
+          temp.innerText = data.current.temp_f
+          weatherDisplay.appendChild(temp);
+
+          var temp_feels = document.createElement("ul");
+          temp_feels.innerText = data.current.feelslike_f
+          weatherDisplay.appendChild(temp_feels);
+
+          var location = document.createElement("ul");
+          location.innerText = data.location.name
+          weatherDisplay.appendChild(location);
       })
   })
   // catch fetch errors (ie ACCESS to server blocked)
