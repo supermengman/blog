@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://supermengman.github.io/blog/data/weather" />
 <meta property="og:site_name" content="Andrew Meng" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-10-02T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-10-10T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Weather Fetch API" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-02T00:00:00-05:00","datePublished":"2022-10-02T00:00:00-05:00","description":"Testing the use of displaying frontend API","headline":"Weather Fetch API","mainEntityOfPage":{"@type":"WebPage","@id":"https://supermengman.github.io/blog/data/weather"},"url":"https://supermengman.github.io/blog/data/weather"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-10T00:00:00-05:00","datePublished":"2022-10-10T00:00:00-05:00","description":"Testing the use of displaying frontend API","headline":"Weather Fetch API","mainEntityOfPage":{"@type":"WebPage","@id":"https://supermengman.github.io/blog/data/weather"},"url":"https://supermengman.github.io/blog/data/weather"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://supermengman.github.io/blog/feed.xml" title="Andrew Meng" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,17 +73,14 @@ window.onload = wrap_img;
         <table>
   <thead>
   <tr>
-    <th>Image</th>
-    <th>Weather F</th>
-    <th>Feels like F</th>
-    <th>Location</th>
+    <th>name</th>
+    <th>category</th>
+    <th>grade</th>
+    <th>id</th>
   </tr>
   </thead>
-  <tbody>
-    <td id="image"></td>
-    <td id="weather_f"></td>
-    <td id="feels_like"></td>
-    <td id="location"></td>
+  <tbody id="result">
+    
   </tbody>
 </table>
 
@@ -97,7 +94,7 @@ window.onload = wrap_img;
   const resultContainer = document.getElementById("result");
 
   // prepare fetch options
-  const url = "https://mengman.tk/api/weather/currentWeather";
+  const url = "https://dnhsscioly.tk/api/roster/";
 
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -130,28 +127,26 @@ window.onload = wrap_img;
           console.log(data);
           console.log(data);
 
-          // World Data
-          document.getElementById("image").innerHTML = data.current.condition.icon;
-          document.getElementById("weather_f").innerHTML = data.current.temp_f;
-          document.getElementById("feels_like").innerHTML = data.current.feelslike_f;
-          document.getElementById("location").innerHTML = data.location.name;
 
-          var img = document.createElement("img");
-          img.src = "http:" + data.current.condition.icon;
-          var weatherDisplay = document.getElementById("weatherStuff");
-          weatherDisplay.appendChild(img);
+          for (const row of data) {
+            console.log(row);
 
-          var temp = document.createElement("ul");
-          temp.innerText = data.current.temp_f
-          weatherDisplay.appendChild(temp);
+            const tr = document.createElement("tr");
 
-          var temp_feels = document.createElement("ul");
-          temp_feels.innerText = data.current.feelslike_f
-          weatherDisplay.appendChild(temp_feels);
+            const name = document.createElement("td");
+            const category = document.createElement("td");
+            const grade = document.createElement("td");
 
-          var location = document.createElement("ul");
-          location.innerText = data.location.name
-          weatherDisplay.appendChild(location);
+            name.innerHTML = row.name;
+            category.innerHTML = row.category;
+            grade.innerHTML = row.grade;
+
+            tr.appendChild(name);
+            tr.appendChild(category);
+            tr.appendChild(grade);
+
+            resultContainer.appendChild(tr);
+          }
       })
   })
   // catch fetch errors (ie ACCESS to server blocked)
