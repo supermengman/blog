@@ -4,7 +4,7 @@ description: Testing the use of displaying frontend API
 categories: [markdown,javascript]
 comments: true
 title: Roster
-permalink: /data/weather
+permalink: /data/roster
 ---
 
 <table>
@@ -14,7 +14,6 @@ permalink: /data/weather
     <th>name</th>
     <th>category</th>
     <th>grade</th>
-    <th>id</th>
   </tr>
   </thead>
   <tbody id = "result">
@@ -72,11 +71,22 @@ permalink: /data/weather
             const id = document.createElement("td");
             const name = document.createElement("td");
             const category = document.createElement("td");
+            category.innerHTML = row.category;
+              const category_select = document.createElement("select");
+                var opt = document.createElement("option");
+                opt.value = "anatomy";
+                opt.innerHTML = "anatomy"
+                category_select.appendChild(opt);
+                category.appendChild(category_select);
+
+              const category_button = document.createElement('button');
+                category_button.innerHTML = "submit";
+                category.appendChild(category_button);
             const grade = document.createElement("td");
 
             id.innerHTML = row.id;
             name.innerHTML = row.name;
-            category.innerHTML = row.category;
+            
             grade.innerHTML = row.grade;
 
             tr.appendChild(id);
