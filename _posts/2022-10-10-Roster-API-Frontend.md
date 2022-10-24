@@ -3,13 +3,14 @@ layout: default
 description: Testing the use of displaying frontend API
 categories: [markdown,javascript]
 comments: true
-title: Weather Fetch API
+title: Roster
 permalink: /data/weather
 ---
 
 <table>
   <thead>
   <tr>
+    <th>id</th>
     <th>name</th>
     <th>category</th>
     <th>grade</th>
@@ -17,13 +18,10 @@ permalink: /data/weather
   </tr>
   </thead>
   <tbody id = "result">
-    
+
   </tbody>
 </table>
 
-<div id="weatherStuff">
-
-</div>
 
 
 
@@ -33,7 +31,7 @@ permalink: /data/weather
   const resultContainer = document.getElementById("result");
 
   // prepare fetch options
-  const url = "https://dnhsscioly.tk/api/roster/";
+  const url = "https://backend.dnhsscioly.tk/api/roster/";
 
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -64,7 +62,6 @@ permalink: /data/weather
       // valid response will have json data
       response.json().then(data => {
           console.log(data);
-          console.log(data);
 
 
           for (const row of data) {
@@ -72,14 +69,17 @@ permalink: /data/weather
 
             const tr = document.createElement("tr");
 
+            const id = document.createElement("td");
             const name = document.createElement("td");
             const category = document.createElement("td");
             const grade = document.createElement("td");
 
+            id.innerHTML = row.id;
             name.innerHTML = row.name;
             category.innerHTML = row.category;
             grade.innerHTML = row.grade;
 
+            tr.appendChild(id);
             tr.appendChild(name);
             tr.appendChild(category);
             tr.appendChild(grade);
