@@ -58,9 +58,9 @@
     
         ,"post5": {
             "title": "Roster",
-            "content": "id name category grade id .",
-            "url": "https://supermengman.github.io/blog/data/weather",
-            "relUrl": "/data/weather",
+            "content": "id name category grade .",
+            "url": "https://supermengman.github.io/blog/data/roster",
+            "relUrl": "/data/roster",
             "date": " • Oct 10, 2022"
         }
         
