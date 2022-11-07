@@ -73,14 +73,23 @@ permalink: /data/roster
             const category = document.createElement("td");
             category.innerHTML = row.category;
               const category_select = document.createElement("select");
+              category_select.id = "category_select" + row.id;
                 var opt = document.createElement("option");
                 opt.value = "anatomy";
-                opt.innerHTML = "anatomy"
+                opt.innerHTML = "anatomy";
+                
                 category_select.appendChild(opt);
                 category.appendChild(category_select);
 
               const category_button = document.createElement('button');
                 category_button.innerHTML = "submit";
+                category_button.id = "button" + row.id
+                category_button.onclick = function () {
+                  console.log("help me");
+                  var event_selected = document.getElementById("button" + row.id);
+                  console.log(event_selected);
+                  eventSend("add", row.id, event_selected.value);
+                }
                 category.appendChild(category_button);
             const grade = document.createElement("td");
 
@@ -107,4 +116,12 @@ permalink: /data/roster
     tr.appendChild(td);
     resultContainer.appendChild(tr);
   });
+
+  function eventSend(type, id, category) {
+    if (type == "add") {
+      fetch(url + "addEvent/" + id + "/" + category)
+    } else {
+      fetch(url + "removeEvent/" + id + "/" + category)
+    }
+  }
 </script>
