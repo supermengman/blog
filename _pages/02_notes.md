@@ -9,7 +9,7 @@ permalink: /notes/
 - Unit 2: Using Objects: [code.org unit 1]({{site.baseurl}}/markdown/code.org/collegeboard/2022/09/04/Unit-1-Code-org.html), [Trajectory Calculator Project]({{site.baseurl}}/jupyter/java/pbl/2022/09/05/Using-Objects.html), [Student Lesson]({{site.baseurl}}/jupyter/java/collegeboard/2022/10/14/Unit-2-Using-Objects.html)
 - Unit 3: Boolean Expressions and ```if``` statements: [notes](https://supermengman.github.io/blog/jupyter/java/collegeboard/2022/09/06/java-boolean-expressions.html), [Student Lesson]({{site.baseurl}}/jupyter/java/collegeboard/frq/2022/10/23/Unit-3-HW.html)
 - Unit 4: Iteration: [Monkey Code](https://supermengman.github.io/blog/jupyter/java/minilab/2022/09/12/AP-iteration.html)
-- Unit 5: Writing Classes: [Fibonacci}(https://supermengman.github.io/blog/jupyter/java/collegeboard/2022/09/20/Fibonacci.html), [Student Lesson]({{site.baseurl}}/jupyter/java/collegeboard/2022/10/22/Unit-5-HW.html)
+- Unit 5: Writing Classes: [Fibonacci](https://supermengman.github.io/blog/jupyter/java/collegeboard/2022/09/20/Fibonacci.html), [Student Lesson]({{site.baseurl}}/jupyter/java/collegeboard/2022/10/22/Unit-5-HW.html)
 - Unit 6: Array: [Student Lesson]({{site.baseurl}}/jupyter/java/collegeboard/frq/2022/11/07/test.html)
 - Unit 7: `ArrayList`
 - Unit 8: 2D Array
