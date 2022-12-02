@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      13 min read
     
 </span></p>
 
@@ -141,7 +141,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#3.3-if-else">3.3 if else </a></li>
 <li class="toc-entry toc-h1"><a href="#3.4-else-if">3.4 else if </a></li>
 <li class="toc-entry toc-h1"><a href="#3.5-compound-boolean-expressions">3.5 compound boolean expressions </a></li>
-<li class="toc-entry toc-h1"><a href="#3.6-DeMorgans-law">3.6 DeMorgans law </a></li>
+<li class="toc-entry toc-h1"><a href="#3.6-DeMorgans-law">3.6 DeMorgans law </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#3.7-Comparing-Objects">3.7 Comparing Objects </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#Q1.-2019-AP-CSA-FRQ">Q1. 2019 AP CSA FRQ </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#(a)-numberOfLeapYears">(a) numberOfLeapYears </a></li>
@@ -202,7 +206,7 @@ window.onload = wrap_img;
 <li>another conditional if the frst one is false</li>
 </ul>
 <h1 id="3.5-compound-boolean-expressions">
-<a class="anchor" href="#3.5-compound-boolean-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5 compound boolean expressions<a class="anchor-link" href="#3.5-compound-boolean-expressions"> </a>
+<a class="anchor" href="#3.5-compound-boolean-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5 <mark>compound boolean expressions</mark><a class="anchor-link" href="#3.5-compound-boolean-expressions"> </a>
 </h1>
 <ul>
 <li>nested if: if within if (if outer is false, then inner is ignored too)</li>
@@ -212,11 +216,142 @@ window.onload = wrap_img;
 </li>
 </ul>
 <h1 id="3.6-DeMorgans-law">
-<a class="anchor" href="#3.6-DeMorgans-law" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.6 DeMorgans law<a class="anchor-link" href="#3.6-DeMorgans-law"> </a>
+<a class="anchor" href="#3.6-DeMorgans-law" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.6 <mark>DeMorgans law</mark><a class="anchor-link" href="#3.6-DeMorgans-law"> </a>
 </h1>
 <ul>
 <li>basically distribute the negative and reverse all the operations</li>
 </ul>
+<p>These are laws named after Augustus De Morgan, a 19th C British Mathemetician. It uses the NOT operator, which takes precedent over AND and OR. It can be used to simplify expressions of true and false, and as boolean values are being compared in an if conditional, applying De Morgan's law to simplify a program's logic will be very helpful.</p>
+<p>Overall, the idea is that: when distributing or factoring a negation from a boolean expression, the operators all switch. || changes to &amp;&amp; and vice versa. In addition, &lt; changes to =&gt;, and vice versa. <a href="https://sites.google.com/a/punahou.edu/apcompsci/exam-review/boolean-operators-and-demorgan-s-laws">PunApps AP Comp Sci</a></p>
+<p>In addition:</p>
+<ul>
+<li>&lt; becomes &gt;=</li>
+<li>&gt; becomes &lt;=</li>
+<li>== becomes !=</li>
+<li>&lt;= becomes &gt;</li>
+<li>&gt;= becomes &lt;</li>
+<li>!= becomes ==</li>
+</ul>
+<p>For example:</p>
+<blockquote>
+<p><code>!(!A || !B)</code> --&gt; <code>A &amp;&amp; B</code></p>
+</blockquote>
+<p>As you can see, the ! in the front propogates and distributes into the condition, negating the ! inside as well as changing the || (or) to &amp;&amp; (and). If you plug in the values, you will see that they equate to the same thing. It may not make intuitive sense exactly, but it is a proven law.</p>
+<ul>
+<li>can be seen in a <mark>truth table</mark>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAACWCAMAAAC/8CD2AAABUFBMVEX///9ks9/+/v79/f3v7+/s7OzZ2dn///3h4eHk5OTW1tbs7v/O1v00UmORve/z8fH09v0AAABmuOVcsuG/v7/MzMzv8v/l6v/X3v/39/fHx8eurq6cnJybv/N0tdqOuNKXuc+uvMaFhYV2dnarq6tTU1OPj48iIiJkZGT6IgCgoKCXl5eBgYFtbW36VEf9ubZMTEwANv/+4N8+Pj6zwf8REREdHR1dXV0kTP/7m5aVyeiCwOT+6+r7jYay2O7G4vMuLi79xcOWqf8AIf/Z7Pc0NDSBmf/7g3z8rKjD4fKn0uz6NyLAyv/+2thyh//W6/b7c2uptv+Oov/9wL28w9/6Zl37hoAvWf9qhf8AGv9Zc/93kf/8l5L6RDWpuf/9z82jv+iPn8pHV2F7jrQ7YP8fSf8vXf9Zbf+6xf8NPP/Kz+n6T0Jae//6QDD6Lxj5dm9iN56mAAAgAElEQVR4nO2d/1/aSrfvxwwJIfUeEglKCIfnOQRSTEilolIBQSkqsP1S7bV111bPPbfd7T51t///b3etSQIBFIlPz3P79MV6tYKTrJmVN/ON+WQiIXOb29zmNre5zW1uc5vb/w+jT+b2o0xGoMv//m9h7X//jzug/ed//lOK+YF5/PuKC3QhpGX/IxHOIaGGdGBOf/t7SK/Qcd1V6mNC9e3fnvzMQBf+9veQDnOg020O9F6bA51uc6D32M8FNJEdS5gDvddmiHKp1uuMJc2B3mszRFk/JWQs6YcBDRPtfaHOlMfPBDTR1+hY0o8Cmu2ECPeeUJda9RmcR4HWs/VZnBaGgS/V69nxjm9qlNlstr7k5eEWVodi3V/7MvWPZN1cPaBLEJhfSt19B2fU74jAj8s/DGVAaTWZzhblaKgQ2dKgyPoprc2QRxBo7VTudWhvpkK9wGunHbDazFHWe/Jpi3bwWrPN1ilpLtRapN+R+wsLTbnToQxottmBbHt4LS7QWkfuyVqTXVsLymsuZHsyeGO59VM4WR5E4MYFxbRaWg89wep1mdBWc6brGoaahYCa8mkWS+h0+gunhJ62lh50DgJtEtqvwf9ZCvUCl+V6XSOz1Go3yholrXqHtBLQvkl/gXSWmpT0+1Su10hnoe8CbZJeoklaQ6A9Qms1gtQS+Bl0SA0QnTbxg8x2SB3+9/1G6saFxdRkAiS1epZ06k0oYMamNwgViujUTiFIyH0B8qppWm2GPIJA61BsQoarmaFQN/A+6WSzcgigiQ7XTPSIDO/r/X4T3CFu+E/rLXKaqLEmD3xqI0ATNa5TT1DwXFggWh+gtoAxVFM4VtNIAh1G40IIcCV9iK+eIFoNPrHQfWiiBZ97i/Sy8EkmOqSJlWeGTMaAouvsQBMYcEigpAmwcIiodXpQK5cA6NIo0DrSGKmhNegkEjLtjwFdYOMYWbgLKIdAax7Q/qOA9gJA5ccCrSc0OlPb8Jo8kR8BtAdtaGEJWpMHFGspNvlEn7KsANg4UAgMimL+/QTya7lAsWHW76+hCGGByFnoSxJhmzx8bqdYSxc6FIHW8VMP3eTJaQs+jlkK9QLva3KHhgMK4wtjAUN6U6anpxrtwfV2FnpUPoVhAM7KnnIdeRQo6bW8+gHnyH2omJrM+nqs1XDyKNBEj9JWX9Y69ZoMIwo49rzTZzI3VIiv0+9Ax5mFMQmpQIYzNN7xJj9LrR4Ezt6E7kOz7gw54c2UEwnv/1J2YSnhJmWz/bEmPwgsAZMZ5uH/vsBq6OigNMgU50+s3IXE7G3emzZhEayYhDsD8wOebiNAuZl6iWDgWFoooNAZzVTE6KDEmvv9sUyM8v+Y/bCvnr0obc06/R0EDvMerjeDlz9tciehD1mtw2ZJLtBsKzp1dtyEOZQfwU8FtAY2q98w8Dp4PTzf9Sd3cPIsQP3zvCY/PbB64PBPBTSM/fzroQ98T0yMDPv94MnDUGf58LP9kQv7VYFmT6d/1YQvliQQUD3YSQ9CbZ7OUuRoSb8o0HqnM72CZk8JFwgI5r3DTsUPtTV1KBxYTQt28L8o0KY3mRhOlobTLPe3mkb9t/i6RIafgBdqjX2hC0y4EsN3wYTsKQ308L8oUBknUvVmrdl0K1m93+svLSzVmpCGZzWbLeoCrTeb/T5MbfE77UioCbaGU2/W+02XV7YPuSWGmWBCv9ZPLPnf2pj9mkCzRKslejLttSireE2536K1ekuWmx1cTevg75StRsi9PiQlEnS4huEB1aCW9zvkFL7CeeuE/dNOLduTtRZ8ZcbpLyTIp/A1jJwOpzm/JtA6LmjUgGrdnfOfagt9ANYjMryeLuDqTJ81eTieZV/8Ad8Y0AUKQOtQ1bMtgp0kfNXA1bWFJqX1vreSCDm6QIcd9q8JdIGDSpfF71enLqdaDxtwk8oJBIqrL24fiotVuEyTSBDaHKuhMjZ5XHdpMmCIFReD/JWrBIUyEOiSC9yzXxRoD2qPBxRqKAzp9WYAKGLoa9wCaiNQQ/EcGJQGQ7oHtI+Dkrs269bQHo5TS32quUBlVudPE9lT8usPSnX5NJtFAULGPhQbLvR79RahS03oDepU7vcIYsDaVcMRrEmH83N/caQDHwiuLJ+6fajcqbVoc8F1dIHXTtkqbi/wTfEXBQpDSB+A9rxRvt/q1Vq9frPXg+G+V4PfW80eG6rrvdMm9KH1TmDV0g91qdXLQk/R77kVsNZrtvow7Pd63qDebEFHcrrQCvL8ZYHCF/z65BrVcFVvYTCZXGJL3cFV4EGoWRzUAgsV7sJjcCEQmvzC6ELrLwuUzZ1mW41EFS5ogVCDK4N3WKJFxgX/XxdotqNpMy0VtjRttCoHQu3BsSkLXX1ZpmPru78uUPxiOFORE+cFQn0oj8njvzDQR9t8PTRgPw3QpZCW/Y+QDol0ImwZYH/7e0iH0HHdYY8L1TMXqPx//ldYq/6PO6D913/9U4r5gXn8X7eGpuIhjU+HdNB0LWwZYIIU0oFXH1HKmD0uVM9W3H1KqXA77wjRkmE91LAOaDExpEP4uO6wR4Xq2RzoHTYHOrQ50Ok2B3q/zYFOtX8ZoHTs93jj4UzGQ+XG81y53zcAlBpKoaCUnc2quatUHUelxFA2jRjRd3fz+adK1Sgrg3DdwEtKuapUnK2yWQHHIniYiuKIRK1sWfq+UigVlEFw7I0OZz/ddypKpgDvqhkNMlcKaSIVlVKyrFSMomIGw2NAI0WlWlCqRcXJbWFgSaIVlc1chFi7+2pmUykaFSU2Etfes9WLnYvVG3j7ah1Tu7+tHrI3F+93vq4fP1t9tvNqtTsVaOry5duDy+dteNveQDxHH59/XoQ30aur9seNlauXLw5OPp3IU4BWRSI9TZKIKVoK5KpIhBQd/ITFDCEZSCL5MaAFgYgVlVA7qSuUJJGeU0CPSA7haZDLKNCSSjTHpMTKC1tJQpFeHk8j1CFEgiTCTwKNOTzkLZKYGck9xUhiRCuw05I6ZAlJxBRH4iLr3/YIudmGN193WMLON/Zy+J2Q7jrRVtcIabyZCpSQlwBz5QDoXN4u4+8bzxm9sz8IWQTEn/DQwTSgEIv0NA0XwCPQNFRHzjEYHssFqokRv/a7gcPJQgUuio8hPQmBGgwoNV2gNMb7HixK8Io4JqRLrKTNEgJlrTLnFx4LNlIGVJMwGgHK0hCoDkAjVRPzFaFsTNLE+BjQ3/ZInEKdXHv1F0t4/xt7eQZAGxppfFsjNH78AFConTJNYV19m3KBMq4Hb2WyDN+HXhwQTk6NdyljfSi7JpeeXhEJLY4ATQ47qEFfxYDiVVKS3pVGgVIiDbsj/x2PQAlrC3FF92uoCxSSMiPhDfpQBtSlZ5cj40DVQVcbALoGvWWju7d6HAC6vbqNfSgCPX59H88A0EVo4/KXjc9nAaBHz68YLgC6cjReQe8FauVyEh0FqtuFIZ5JoLZZSmqjQC2rqk8AjXhAdw3bULURoLulfDE3HSgEZgp0BKiimwVpHOi3ne5vgG5vjzzbCQBtvFl9BYAbq4fdi3u70AHQ27PPXwBRmxx85oZA5bOXH78g0HfXl+czAxV3HbhOAMoNgGp8fhpQcb8QIaNAY7yenwA6qKGqwYaSYJNXI5IxHehTaSsH7gCU+EC3tJg9CXStAaMQ7X7ffvY1AJRoa7/9tQ41tNvoPgz0XG4fQX/5uX3LUHpACZd6+ycQfXElH50tzwoUOkQIljOKmhc3Nnk+NvC7o8nHFAsvuYzdWcxy+9DIcNozXkOhfW8VMV3hMT/bTSKj0547mryqQIhxJ8cyUd0mL0bGgUKTX2+QdWjgjdW9AVCsHTcfuqzJa8cT06FxoG3yZIXQgxSR37YDQIHXu5NlbPJ0ZeYaSrRcRcCOFK8jL3ijPGf5kd8BlMvsQiLrSIkuuX0o/PSR3AE0rUAFjrGZVVr1gJJk+m6gogc0YpR5Qq0qfLgaZo5AYZ5BJ4CC7WEt/PDGB7q+fQg/D7cZUEKO9x4ECvbkMkrI1VvijfLL18CSbFwyoMDveirQuKWYPOF4Q5E0YddIcpFqThCTtpskSKYxNpoSLb9ZihEuklPSWqxSTGq0agiiZLpJgpQx+NEoabpSlDjwUzI8qVbUCNRpSZRsjSUJkl4M1lEfaMRU8hGIoqoINL2Zg9laOSOI6TxLkqRkqTQSV2NtdRsivbnoUtK4+O11o3Gxenx8c/H6t5vG8fdjbW/1/frx3l/3zfFZqHLq95MnlKxcXslEPv/97Mnywe9HqcWD83dnKysHZ/LK89tU6ujj4lSgopWxJJjTWJl8jFPtvAZTUNuCS8EkXc2b430VieUzGZheCeAokqQNp8Ys8OBZUh480v68wgOq6ZkMfAHg8xkrSUQTvDTLhGkpB0l2XtVNfWLaBCZYliXAh5GxdJ7qNpwj2balxzEJArPG5qHr3e3uOkfWtmGkZ+9vtrfXXnd3Gt3tte4ehZfu3tr76RP7Jxvn7UVKFs/PVqAettuLqfb59dH1weJR+3pjY3kZDh99aZ9PnzZR9z/84/At62N43j8SNB8ox/kew1MibO457uE3eS9/zjsDT43zrLRxjwBQOuLInCgfGQY26A3duLzg2b9A1lhmA6olva/zDIbKDYt03w+dnizfHS3aL/9d/jE2XxwZ2hzodJsDvd/mQKfaPwkoHxYo/UmALkphDeaYoUxQQzowSybDeoSN6w57XKie/bdXQyMhjU+G9VDDOqAJUkgHPv2YYsbsUaF6lvq5m/y8D73f5kCn2hzoPTYHeofNgQ7t1wE6sXoSGUsYj3LcgfJk0n4OoBO6/JP7fQNAOXO36pSLxr5hF+ClJBBSqpRLMaKWC3q+XHFKBbbcHAhcLVSKpeo+LuoZCFCzymWDnePkSgU+WahUS8VdfRilVKwUvBQdF5Ip5FBgWZmGXU6LDhx2KuYAtqt65naLxbLj7OfMMgSWixHNqZTNCLHKBRVKdErlMj8SV/e3i8OLV2++vupePHv15s0NIdvPnr1ZJzcXz7qvIen9q2c3DwFNXb59d3D5AheQN44w1KN3H98xXb591X53tHL1x+eDq7fTlu9oQSLSVprESoKNqifq8lWHra7bhGASscd0eSLgcrtuEiLuu3q68dR9cQjJiYRHHUVyhlESglJ80sGFe4ctVucV9wW1SzhZMVCH10aAxooik0CEEl/agiC2eBIp5/BK0nkoCpJIaXQ99OKGrH9dI/H3N2urDXKDIsjhM8wUtXhMImtrDwEl5PdzQhavgM7JpavLv2Qv128JOQLOf8KhlatpurzqSSBiLKDLD0U6OEMcqOw+0E2VaBy8zxd2WULOfdkFLkKcAeW8b4M+UBsaO2pHhV2mUOmu6FnadyWrzRw4SKM1NJ72NCUpHtDl8bAvI1NxVJoBWuvP8F6G9bXVOCp2hOw8Y5luI9A44RqNe9YzA6E+b0OoUCdTt28ZJV+X/8iR5RUmIxMujC6/K4zr8tJgwX4INE10Hs/QXdGn5NbQ0qaOFQ+BCupIlEqGJCEbDdqqGgCqKxZrtQCUVwcV9E5dPlPhx3X59Lgu7wFFehq5+evGB8ptu0nr01p8UJdPYVu//rwRALrxvM36UAC6PLsur+ZNuK4RoGndmZCRBcVU93l2x43b5j2gsaKCrZBXcmoxPwrUUasqyqK0VAgAjZsKE5M2q2rJnAJ0U7VQVQkC3UznixPSzADot7W192vaCNBva68Pp7X4AdCTo9svhDw5owfvgrr8+ctb7Etf3B4dzK7LJ596uvwQqCjZdwC1hGqMcFZJr5QDQAmf2YSBgldswRwDWhJyUEayqhcZSg8oVNmtfchz0xHzmfigmAmgW+omDlkjQMVk7n6gqzdfLzC/YA29OZ4iygeAHqQOUJe/3bgc0eXlLy9eQPqLy5Xr9uy6vIrDDWc4QV1eHE5iAk0+yRPRliJJdmueD5RQfTPPmjyfHAVqYzaamY4Iu/kAUCi7UtKwyWvS1Caf3wR68eKILi8MbhiYBEqP8c4w8t4dlLpuk2/ce19TEGgb8HC0fbSccgf7gS6f+giDETR5OTW7Lh83yhBlHn8QNenp8kQf0+URKF4u3uKg4F00uV34wdvY/A3THeVJTB0FSnCMhx/Fig9U04El0Ys8AsVf7wDq6/J8sRqBDwTOhQ9N8HR5kh/V5YN9KPf+K+B7/Rfezrh34wIl5GbKfaIjurx8GyXk8qMPVN7AG+6ubz1dXt6YCpTqSh6vL6fwnLRpxghfyUQisZybxPN5ZxSopip4JQL2k1q1ktS06maE5x19K6aJxSSVlEyEF7digygpr5Q0jmhGiRJqKqoGPwSez5jltMbnLKopToSPlQezMx+oZsG5hNOczQi0HRi/hH09EpEsN4nnbYcbBUr3/kJlnnZXj2njw+E6pc/eNxqNHTep0XjNbhedBpQu/34lc0Q+OOAI1355JNP2y9Tyk/b5uyN5+bxN5eeXy09W3h1NBSrkjFKS0HTJMEWqO7ZGJCNnmzxLsvNmMT06bZJyhilwXMbI8CRZMnKCahi2VSrGcqW8rVMRDudtxxxGGbONEowpumMKRDThPXiZmG/esKwMkDVKlmU4o9MmsGTOgH6SQvaZGLUci3Jpw8zYEZZkW7nBqOQDbWwfvtkj9Hjn8P06ef19u0HWd3a62+uY9H27u/1q7aFp00r75OqIkqOTgxRZOT+5WkwdnJxfn98eXZ9cX7efLJ+dXF2fnUy74Za42rOrRVNfaediMf9I8DvYUP9m53OcK+a7UVK8Y5P3MvGd3I+dDgpwCxvkS8WY7xCwSV1+EBhz8L/BDvwGNXRwJe4dBliMO/ccv5L7gFIuynKIslCjLNRolPkiNIgjSqKTvvPFkTvsp1gcedDmQKfaHOg9Ngd6h82BDu1nAboohjQhHQvnEFNDOjCTkmG9wsZ1hz0uVM88XX4xFtIg8JCmhnVAk6SQDuHjusMeFapn/z1v8pM270OHNgc63eZA77c50Kk2B3qP3QN0QmXXxhP+YaATYve4kI/2cwCdCHVinX5oQV1eNQwzYxh4DWzbj5Y3cF0O3pgZs0TThpHL5JxkIHC9WDKNnO3k9JJRsm2BkLxj2DGSNAw9XWKnD8QJFqWYc0qZXBHfq3gElwVL7JS8aRlSzDRKGdPJjy7faVYxlzNMs2hBQDnT4gk1DcOKE90opXU36DHV82Jn+3Bn+/vO2g68bB9DyuHhdoMc7xyu3bz5/r67833akr27fHd+eXV2fovrnUcoIdHFqxO2azZ6fX52tfikDYfbl2fTVE9NV9Q4n7NQXMM8Oa1ciaNDydAi1YiWVvR4xCoFAq/kI+l9KyI56YwiRvT9JC4zixSOOhq1IYm3B4vv7ppYRClpEd0huMbM9snbioCv6q4Wt3SiKY4WSRfHdPmCGteVdFx1RGczHjHLPBErBs+RiG5TXGCO8MUxXX6tcfO12zg+3Ouurjdef7gh2quv65TQm+/UXWDeflCXp/LvB/LyxhUh8hVT33GBGV+PPi7LZ2dEfn4pLy9eTl0PTW9JbkiZSpUlFJkwSTZtOKa5egdNBwK3vK2JooT7EAUUPNzNs5ztiRsxcWzjF5NA8A6A8i7TjT1NyajAuQJxJZD0aA2NqJ4Eko74unzc0+U9TYkIY3eOeBLI+vFr1IxdXZ41XE9GJo31mXR5wEdI6t2oLv8ZsKVcXZ4sPghUjeBOVn0zEgBarSSxeAQqpoOBk5H98kkEPrpfXhx2aUOgkoB3VdiVdACopejsFYBG0tN1eWt3QpdPThHpNHKMGz9HdfnGjLp8iuny7Y9HAaDXLzcYRdTlJ3iOAd3UkxX3uRZsZ7EPNFnZwl2zgmJJvjQ/CTSdtqFbGwGaTOYm9ssrJclgurxmVANAeYMJ+WTTEWx7ioy8Kam4eXFERhZUY5qMfLPdjY/JyDfvZ9Llr1JXR6jLy1e3AV1++eol60tfXKba7QeAKpaKQE0rveUEgBLJUAxs0nb6fqD6bhXRBIGq6h1AjbSDuryTdkZ0+UhmswxYNotpcyrQ/KQun9SnAP22NqnLv96bDejJ0Qnq8peLV3/KJKDLtz/hntkXt4vnDwF1m7xgp4X8vhAASuK2knabvL8LebLJMyWflAoaw+M2+dhdTV4QYCzShfSWSoK6vLqbY7p8JDm1ydu7AtPlkY+vy0vTdPm9b/gwDFeXj3fDNnmOtjdSi582SFCXP3p74OryDzV5AEo5ogOiCG5ld4FqMPoSWsh4g5J748IdQDWngEp+BS8Ot78jKo5IY9u78WYxmAZgAygUfKBUzcBPy9PlKR1MBO/Q5cWyoREth4I2xakXu1mMqPfr8vTwAp/m8gGF+Js972YxcjyTLg+hUtwvf/vOBwo9KkA8u33CBiVKp8rIKrv5I2YAN62AdxKUyxCrk4cRmIf2iE+94SJlcSTwJLv/AwaVCBy3NRLfsiBcw03ioGmPPYDAfS6TiYO5jbUOHYmag1w126Z4OyPlipNAdfeRUXjvInQlkC/ekcHbbhKFCfE40OMP7G6b7moDRvn38BH81YW43hDvdsbjB3V5Ql6e4882DuZnL1P44wkhX84/p2AGdc7h7YwcdzINqFrEu2XjRsWMEL1QNkSrXCiZ1X2+7ORLFkkXy45p7OdGAhedckGHuVSxXJS4PMwOiVR1TEdgSXh6fmTaJBrlKlSmfAUm/IJRLqjpKpzl7Ktm2bJKMT5Xrpq5cmVCl4fTiklCIapcTMtVTMqpEFqJZ0mGWdz1OfpxrR8+u1iDeeerZzCFX/t6CJP6V4fbh8du0vabD90HdfmDP959kcn1x8sUSV19fHe0ePvHSfvk7cb557Ozg5Un5x8/t88/f5w2bXJVb44p5uy925fhGCANVPaxmoCJ2pj+LQqUjJ3uRzmiy7My3LOgQDaZGtv9Pq7La0FdXnCbyuD4RFzjuvz6+jCuGXR5Go1iXAFdPgqGe/DZZGquy89u89Wmoc2BTrc50PttDnSqzYHeY74uz4e0WDoSziGihnRgJkghHULHdYc9LlTPvO3di0JIk9JhPdSwDmjJZEiH8HHdYY8K1bOfXJf/l31Exs8K9F+2D50DDdoc6NDmQKfbLwN0fO3gYV1+Qrse93hQ7I6TSZsA+lBgPxXQZMbO6xmmxLNHS2uqndGZLp/XrQyV8LBlulvmvW01LMlmT/5lonA6YzMPks9bmTg+K1P3n5HpbquxWAo6pzEjKkECg6bmdVvg83jYVkeX7zBXOGoNA9PtjIr8IxCv5cZt2YF12pud7lq3u7bdvelud9fW1gnZ2/YefXlzDEmvcYPNA0BTB+2NNvw7WDw7b29c49PC2+dnKbJyfb6xcnZ+tnF9Pr4WOg6Uzyi6KBm4Xs82yNFYZV9ETrYTEwqRiK5YomQG10N5XcmIUskCD7ZwT2NVV2bPV2NiUYyriilKGWMYZVxQDFGyIUUr4eZC9thWFFjTFTFm6pqoVEVBH9PlKZ9TVDGN2h6vsNsjhKdVDEwzczFpn/A2xp2zhnFdbB+//rC9vvf99fbq3nr34pg0Lj7caKTx+lWj8R6Sjnce1OXPTxYX310upm7PNv5spxbffiH4RNZlIi++S8nXkJQ6O3kAqKvL85Bdftd9aICnKT1FhcjX5fUAUCLgA5FxJ6G6z/bOktIue8FlaJUnEbY1MT+M0tPl86jL7wd1+VIFMpM8XV4fraG41RwaAcpZ9pb7eZbZhxR5qrN7A1SMO6IO43rvSSDHN0yXXx3o8py3X540jqesiLKczoDdyYFMnlyncKvspxN8AgEL7Bwq69sjVEPuWKSeAIr1hZqZLS0AtFJgIhgC9bfCjm6eJZxle2DczbPVfUbi3s2zUFaukgwAtb2/inH35tk8AE3jTsOSXaZDoPF9h30oCDQmBeMa0+Vfjz6AYMbNs2T5hP0hBUbvz4MJoHe1+HFdXuXxId+qSlnV8oGmt3bxoQCCovOlURkZkwo8/g0J7WkmAFR6uomdKq9Y/Pj27hyfw7Zr8YYTAAp9hYlNf9OI6JMycv5pMoZqqp7mN9UhUKorFbzLRN1SeSd4R0sQ6PF6d6cxKiOvT3vm+l1Az1aO3q2MAr1e/nL1MFDFtHZRl9fFLSMAlKThclGXz+XL40BzeCMHyVtipRAAyv5aigZAjXx1DGgxj39fQDJEw32KuCcj8wZ0nwC0oBuTDyDIb2YyZfyrA+nkpjkESqhaVjIoLpr5cvAmtgDQb92vF5hf8AEE3e73WXT5IdAr70H2AaAHG1cHDwOFpqNHiGjqaZupwQNdHoaFJGvfwuitOJgEfSVv62lrSwwAxed6q6zJixOPyJAkQq1MWmcj30CXp/kt+NDwERmTt+Lk4UPT40QyVTVX5YdAUfVTYkR9Kvh/VuMOXb7LHsHu6fJ+k7/viet3Az1KPcc/XvHlJf7Ktb0mfzYTUI2yp9O4O91dXV6HAiJliz2xhWoRYQSoih5JGBk4rCvufnkN/0aNVnT3y1NNk4JAbZw7arjhuFD1gVLoMghnO0yX57ThCkegD4ViLPgEJNbmGdC4DufxWyrrQ6nGFlLu0uVfXTR8XR7/AAgOSpSuP6zLB/vQ80+AaBHFZPboegZUvuv7EAMaXU5FOY6DPhQvPZJL4o0NhubdimBacOEaNCkRh3TqCKghQuDowZJg+qLCjLtaxVubEKhlVRCo6o3yRQk9VObgPYAgD9xgIOK9v1yRNMvQgWZylCh4t6Sp47l4OgBFJ30LqyWPt67y7KlOFQRq4IQsDjU0vSm4R/24wAcfMwQv7CEu37rE+1sAO9S/+25n3Stj0txQOS66fHsgR7kojPJR+dMJjUb/uIpGo2crUZYU5c6/RMd9oysrUc4HCh1SVSJxRylFiP5UKQq2suWUKgpMDnUjR9NlpVBylCIDwwInmJSk1FAcaHe7SkHKb206pbIi7RbyuTIxZcIAAAHMSURBVFJcKijlkrNVIX6URHSUfaiMloL3TRSUfTVdUaq5qpI3di2rKMRKym7J2MdbToZAoYlUsAActzRqPVUcHk4z4DRx09Edk2DcuaKSG37QwPPV6gfU5Z+tXhzT7dXvDbL39XD7+42b9P473vvwANCofPXnp3M5unL5/ONG9MvLd4vRJ3/ctq+uKSZ9Prj69G55OlCNQ/GZMsVcG+ryOFqnY/63PMoFgGp4LjgyD/TW6MBDHHjQAVC2oV7D3DmKr5zmOqB7Ev86TsBhWEMxVXOjohx7z07Dt7E0j13EILBBDXXvF/Auxt2Xzx0fY8Z0ePYDNZTK0aiMQOAFNXkU5lcWl6Fq4hH4nU7wHAXKHoHPceyn9zh8N5VNid3f/J9ekw/h4UbpnjJwI95Bzns78A8CZYcfLiYQ14iPl4NfWODsB4ByUfbPf3GTolHvCL6f9B0BGsKGgc/soYZ0YE4u0BAOoeO6K5PHhOrZHOhdmcyBDh1+HqDhDAMP6aGGdGBOADScQ+i47srkMaH6xoByy4tyWEuGdVBDFwEmCmE90o8pZsweFapnqRWYwHDy4tx+lC2z+0H/4WYyN9/cue/cfqTNgf5gmwP9wfb/AEYoIZOlj1pUAAAAAElFTkSuQmCC" alt="bruh">  - used in logic for boolean algebra, can tell what is true and false from different alignment sof the table</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.7-Comparing-Objects">
+<a class="anchor" href="#3.7-Comparing-Objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.7 <mark>Comparing Objects</mark><a class="anchor-link" href="#3.7-Comparing-Objects"> </a>
+</h2>
+<p>It might be common sense to just use the boolean equality == to compare two objects, but they will only return true if they are the same object (not a copy, but the exact memory code). If there is a variable that points to an object, it is identical, but if it is another instantiatoin of an object, it iwll be false.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Hi"</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"Hi"</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">d</span> <span class="o">=</span> <span class="s">"Hi!"</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">"Hi"</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="n">b</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">);</span> <span class="c1">// no string constructor, so still same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">e</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>true
+false
+true
+false
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you just want to commpare the two characteristics, the equals() method works.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Hi"</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"Hi"</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">d</span> <span class="o">=</span> <span class="s">"Hi!"</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">"Hi"</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>true
+false
+true
+true
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Although these examples are all on strings, they work on all objects.</p>
 
 </div>
 </div>
@@ -1156,7 +1291,14 @@ Input num of terms:
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/supermengman" target="_blank" title="supermengman"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/supermengman" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+</ul>
 </div>
 
   </div>

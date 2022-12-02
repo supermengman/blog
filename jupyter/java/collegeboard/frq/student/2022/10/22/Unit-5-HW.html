@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      5 min read
     
 </span></p>
 
@@ -140,7 +140,12 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#5.1-Anatomy-of-a-class">5.1 Anatomy of a class </a></li>
 <li class="toc-entry toc-h2"><a href="#5.2-Constructors">5.2 Constructors </a></li>
-<li class="toc-entry toc-h2"><a href="#5.5-Modifiers">5.5 Modifiers </a></li>
+<li class="toc-entry toc-h2"><a href="#5.5-Modifiers/Accessor-Methods">5.5 Modifiers/Accessor Methods </a></li>
+<li class="toc-entry toc-h2"><a href="#5.8-Scope-and-Access:">5.8 Scope and Access: </a></li>
+<li class="toc-entry toc-h2"><a href="#Extra">Extra </a></li>
+<li class="toc-entry toc-h2"><a href="#Standard-Methods:">Standard Methods: </a></li>
+<li class="toc-entry toc-h2"><a href="#Late-Binding-with-superclasses">Late Binding with superclasses </a></li>
+<li class="toc-entry toc-h2"><a href="#Big-O-Notation">Big O Notation </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#Code-FRQ">Code FRQ </a>
@@ -164,11 +169,13 @@ window.onload = wrap_img;
 <a class="anchor" href="#Lesson-Notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lesson Notes<a class="anchor-link" href="#Lesson-Notes"> </a>
 </h1>
 <h2 id="5.1-Anatomy-of-a-class">
-<a class="anchor" href="#5.1-Anatomy-of-a-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1 Anatomy of a class<a class="anchor-link" href="#5.1-Anatomy-of-a-class"> </a>
+<a class="anchor" href="#5.1-Anatomy-of-a-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1 Anatomy of a <mark>class</mark><a class="anchor-link" href="#5.1-Anatomy-of-a-class"> </a>
 </h2>
 <ul>
 <li>class: blueprint for objects, with instance variables, constructors, methods</li>
 <li>objects are instances of classes</li>
+<li>
+<mark>naming conventions</mark>: start uppercase letter, should be noun, not acronym</li>
 </ul>
 <p>Methods define functionality/behavior of an object, can access instance variables</p>
 <p>ACCESS MODIFIERS:</p>
@@ -179,17 +186,221 @@ methods can be designated with these</li>
 </ul>
 <p>Benefit of modifiers: can limit access, and use getters/setters methods in order to interact with variables instead of directly editing the variable itself</p>
 <h2 id="5.2-Constructors">
-<a class="anchor" href="#5.2-Constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2 Constructors<a class="anchor-link" href="#5.2-Constructors"> </a>
+<a class="anchor" href="#5.2-Constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2 <mark>Constructors</mark><a class="anchor-link" href="#5.2-Constructors"> </a>
 </h2>
 <ul>
 <li>initializes instance variables when object created</li>
-<li>usually 2 or more onstructors </li>
+<li>usually 2 or more constructors </li>
 <li>can have multiple constructors with different parameters</li>
+<li>no return because it is creating an object and its variables, not calling methods to do work and return a value</li>
+<li>
+<mark>this</mark> keyword refers to the current object being called, usually being used to find the current object's variable or run a method on it</li>
 </ul>
-<h2 id="5.5-Modifiers">
-<a class="anchor" href="#5.5-Modifiers" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.5 Modifiers<a class="anchor-link" href="#5.5-Modifiers"> </a>
+<h2 id="5.5-Modifiers/Accessor-Methods">
+<a class="anchor" href="#5.5-Modifiers/Accessor-Methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.5 Modifiers/<mark>Accessor Methods</mark><a class="anchor-link" href="#5.5-Modifiers/Accessor-Methods"> </a>
 </h2>
-<p>more specifically, they are getters/setters. They allow other classes to change the instance variables of a different class.</p>
+<p>more specifically, they are getters/setters. They allow other classes to change the instance variables of a different class.
+It also is used to get private variables in an object</p>
+<p><mark>Mutator Methods</mark></p>
+<ul>
+<li>they are a set method to change the value of the private variable. They don't return a value, but are void methods</li>
+</ul>
+<p><mark>Public vs Private vs Protected
+</mark></p>
+<ul>
+<li>public is available for class and subclasses and everything in the world/project</li>
+<li>protected isnt available in the world but is available in the class</li>
+<li>private is only used in the class
+see example in <a href="https://supermengman.github.io/blog/jupyter/java/collegeboard/frq/student/2022/10/23/Unit-3-HW.html">https://supermengman.github.io/blog/jupyter/java/collegeboard/frq/student/2022/10/23/Unit-3-HW.html</a>
+</li>
+</ul>
+<h2 id="5.8-Scope-and-Access:">
+<a class="anchor" href="#5.8-Scope-and-Access:" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.8 Scope and Access:<a class="anchor-link" href="#5.8-Scope-and-Access:"> </a>
+</h2>
+<ul>
+<li>Class level is for instance variables</li>
+<li>Method level is for local variables</li>
+<li>Block level is for loop variables</li>
+</ul>
+<h2 id="Extra">
+<a class="anchor" href="#Extra" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extra<a class="anchor-link" href="#Extra"> </a>
+</h2>
+<ul>
+<li>a <mark>main method</mark> in an abstract class can be used for tester methods, making sure that variables are set correctly. <a href="https://github.com/rjawesome/CSASpringTri2/blob/steptrack2/src/main/java/com/nighthawk/spring_portfolio/mvc/steptrack1/Person.java">https://github.com/rjawesome/CSASpringTri2/blob/steptrack2/src/main/java/com/nighthawk/spring_portfolio/mvc/steptrack1/Person.java</a>
+</li>
+<li>
+<p>a class can <mark>inherit</mark> from a parent class, and write new functions. see <a href="https://supermengman.github.io/blog/jupyter/java/collegeboard/2022/09/20/Fibonacci.html">https://supermengman.github.io/blog/jupyter/java/collegeboard/2022/09/20/Fibonacci.html</a></p>
+<ul>
+<li>also <mark>subclass</mark>, <mark>super</mark> in there<ul>
+<li>subclass constructor calls main constructor with the super keyword (super calls the parent function methods)</li>
+</ul>
+</li>
+<li>also see <mark>override</mark>, with the @override allowing changes to the init function (overriding the parent)</li>
+</ul>
+</li>
+<li>
+<p><mark>abstract class/method</mark>: a restricted class that gets inherited from another class. methods can be in abstract classes, and are called when they are extended. This helps achieve security</p>
+<ul>
+<li>it is an implementation of <mark>polymorphism</mark>, where one class can have different implementations of a method.
+```java
+// Abstract class
+abstract class Animal {
+// Abstract method (does not have a body)
+public abstract void animalSound();
+// Regular method
+public void sleep() {
+System.out.println("Zzz");
+}
+}</li>
+</ul>
+</li>
+</ul>
+<p>// Subclass (inherit from Animal)
+class Pig extends Animal {
+  public void animalSound() {
+    // The body of animalSound() is provided here
+    System.out.println("The pig says: wee wee");
+  }
+}</p>
+<p>class Main {
+  public static void main(String[] args) {
+    Pig myPig = new Pig(); // Create a Pig object
+    myPig.animalSound();
+    myPig.sleep();
+  }
+}
+```</p>
+<p>Methods:</p>
+<ul>
+<li>
+<mark>overloading method</mark>: If there are different types in the parameters, you can cwrite multiple methods with the same name, as they still count.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Calculate</span>
+<span class="p">{</span>
+  <span class="kt">void</span> <span class="nf">sum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"sum is"</span><span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">))</span> <span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kt">void</span> <span class="nf">sum</span> <span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="kt">float</span> <span class="n">b</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"sum is"</span><span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Calculate</span>  <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calculate</span><span class="p">();</span>
+    <span class="n">cal</span><span class="p">.</span><span class="na">sum</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>      <span class="c1">//sum(int a, int b) is method is called.</span>
+    <span class="n">cal</span><span class="p">.</span><span class="na">sum</span><span class="p">(</span><span class="mf">4.6f</span><span class="p">,</span> <span class="mf">3.8f</span><span class="p">);</span> <span class="c1">//sum(float a, float b) is called.</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Standard-Methods:">
+<a class="anchor" href="#Standard-Methods:" aria-hidden="true"><span class="octicon octicon-link"></span></a><mark>Standard Methods</mark>:<a class="anchor-link" href="#Standard-Methods:"> </a>
+</h2>
+<ul>
+<li>toString: a method to print out all the attributes of an object</li>
+<li>equals(): a method to check if two objects and their attributes are equal (based on own criteria)</li>
+<li>hashCode(): a method to generate a unique identifier for an object</li>
+</ul>
+<p>All can be lomboked in @Data, like in <a href="https://github.com/rjawesome/CSASpringTri2/blob/steptrack2/src/main/java/com/nighthawk/spring_portfolio/mvc/steptrack1/Person.java">https://github.com/rjawesome/CSASpringTri2/blob/steptrack2/src/main/java/com/nighthawk/spring_portfolio/mvc/steptrack1/Person.java</a></p>
+<h2 id="Late-Binding-with-superclasses">
+<a class="anchor" href="#Late-Binding-with-superclasses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Late Binding with superclasses<a class="anchor-link" href="#Late-Binding-with-superclasses"> </a>
+</h2>
+<ul>
+<li>early binding is just static, meaning that it compiles and binds the object to the class definition declared</li>
+<li>late binding means that it is bound to the child one or whatever is called in the new</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NewClass</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">superclass</span> <span class="p">{</span>
+        <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"print in superclass."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">subclass</span> <span class="kd">extends</span> <span class="n">superclass</span> <span class="p">{</span>
+        <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"print in subclass."</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">superclass</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="n">superclass</span><span class="p">();</span>
+        <span class="n">superclass</span> <span class="n">B</span> <span class="o">=</span> <span class="k">new</span> <span class="n">subclass</span><span class="p">();</span>
+        <span class="n">A</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="n">B</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">NewClass</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>print in superclass.
+print in superclass.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>that was in early because its compiled, but if not it will say print in subclass.</p>
+<h2 id="Big-O-Notation">
+<a class="anchor" href="#Big-O-Notation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Big O Notation<a class="anchor-link" href="#Big-O-Notation"> </a>
+</h2>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/1*KfZYFUT2OKfjekJlCeYvuQ.jpeg" alt="graph"></p>
+<ul>
+<li>the chart shows the efficiency of algorithms</li>
+</ul>
 
 </div>
 </div>
@@ -302,7 +513,7 @@ methods can be designated with these</li>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>now for constructor:</p>
+<p>now for <mark>constructor</mark>:</p>
 
 </div>
 </div>
@@ -465,7 +676,14 @@ methods can be designated with these</li>
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/supermengman" target="_blank" title="supermengman"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/supermengman" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+</ul>
 </div>
 
   </div>

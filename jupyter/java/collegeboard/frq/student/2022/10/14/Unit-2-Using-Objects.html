@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -139,7 +139,16 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#2.1:-What-are-objects?">2.1: What are objects? </a></li>
 <li class="toc-entry toc-h1"><a href="#2.2:-Initializing/Constructing">2.2: Initializing/Constructing </a></li>
 <li class="toc-entry toc-h1"><a href="#2.3:-Methods">2.3: Methods </a></li>
-<li class="toc-entry toc-h1"><a href="#2.4-Methods-with-parameters">2.4 Methods with parameters </a></li>
+<li class="toc-entry toc-h1"><a href="#2.4-Methods-with-parameters">2.4 Methods with parameters </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#2.6-String-Concatenation">2.6 String Concatenation </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#2.7-String-Methods-+-comparing">2.7 String Methods + comparing </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#2.9-Math-class-with-random">2.9 Math class with random </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#HOMEWORK">HOMEWORK </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#part-a">part a </a></li>
@@ -210,6 +219,286 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.6-String-Concatenation">
+<a class="anchor" href="#2.6-String-Concatenation" aria-hidden="true"><span class="octicon octicon-link"></span></a><mark>2.6 String Concatenation</mark><a class="anchor-link" href="#2.6-String-Concatenation"> </a>
+</h2>
+<p>Strings can be appended using + or +=. This is also known as concatenation.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"hello"</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"world"</span><span class="p">;</span>
+
+<span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>hello world
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mixing types in concatenation is also possible, but often parentheses are needed to do calculations if using multiple primitives. Otherwise, it will take each number as a string and just append it.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"12"</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// print out 1243</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1243
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"12"</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// print out 127 with the parenthesis</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>127
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2.7-String-Methods-+-comparing">
+<a class="anchor" href="#2.7-String-Methods-+-comparing" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.7 String Methods + comparing<a class="anchor-link" href="#2.7-String-Methods-+-comparing"> </a>
+</h1>
+<p><mark>compare strings</mark></p>
+<ul>
+<li>you can use <code>equals(String)</code> or <code>compareTo(String)</code>
+equals returns a boolean, and just returns true if two strings are equal</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"blah"</span><span class="p">;</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">"bleh"</span><span class="p">));</span> <span class="c1">// false</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">"blah"</span><span class="p">));</span> <span class="c1">// true</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>false
+true
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>compareTo returns an integer, comparing the string relative to the string within the parentheses. It returns a negative if the original string comes before the one inside, or positive if its afetr.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"blah"</span><span class="p">;</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">"bleh"</span><span class="p">));</span> <span class="c1">// negative</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">"blah"</span><span class="p">));</span> <span class="c1">// 0</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">"bl"</span><span class="p">));</span> <span class="c1">// positive</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-4
+0
+2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><mark>comparing numbers</mark>
+The normal operations in if statements still apply here, like:</p>
+<ul>
+<li>&lt;</li>
+<li>&gt;</li>
+<li>&lt;=</li>
+<li>
+<blockquote>
+<p>=</p>
+</blockquote>
+</li>
+<li>!=</li>
+<li>==</li>
+</ul>
+<p>Using these will return true or false depending on if it works.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.9-Math-class-with-random">
+<a class="anchor" href="#2.9-Math-class-with-random" aria-hidden="true"><span class="octicon octicon-link"></span></a><mark>2.9 Math class with random</mark><a class="anchor-link" href="#2.9-Math-class-with-random"> </a>
+</h2>
+<p>The math class has many useful methods to calculate, like abs (absolute value) or sqrt (square root)
+The most complex of the methods is random, which returns some number between 0 (inclusive) and 1 (non inclusive)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">();</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.5430955616916946</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -444,7 +733,14 @@ window.onload = wrap_img;
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/supermengman" target="_blank" title="supermengman"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/supermengman" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+</ul>
 </div>
 
   </div>

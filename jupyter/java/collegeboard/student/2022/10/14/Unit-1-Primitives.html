@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -222,7 +222,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Wrapper-class">
-<a class="anchor" href="#Wrapper-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wrapper class<a class="anchor-link" href="#Wrapper-class"> </a>
+<a class="anchor" href="#Wrapper-class" aria-hidden="true"><span class="octicon octicon-link"></span></a><mark>Wrapper class</mark><a class="anchor-link" href="#Wrapper-class"> </a>
 </h2>
 </div>
 </div>
@@ -242,6 +242,9 @@ window.onload = wrap_img;
 <li>Character wraps char</li>
 </ul>
 <p>Wrapper classes are used when working with collections, or putting the data into an ArrayList or other data structures. Methods can also be called on wrapper classes, with an example being toString().</p>
+<ul>
+<li>one use case is in parsing other types of primitives into something else, for example using the parseInt method of the wrapper class</li>
+</ul>
 
 </div>
 </div>
@@ -528,6 +531,56 @@ Would you like to truncate to the nearest whole number? (y/exit) 7
 not a valid input
 Would you like to truncate to the nearest whole number? (y/exit) y
 563 decimeters.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><mark>Casting, specifically for truncating or rounding</mark></p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">truncatedConversion</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="na">changeCalculation</span><span class="p">();</span> <span class="c1">// casts the calculation into an int, truncating it to whole number</span>
+</pre></div>
+<p>By casting the calculation (a double) into an int, it truncates to a whole number. This is one useful application of casting.</p>
+<p><mark>Casting, specifically for division</mark></p>
+<p>Another use of casting is for division. Usually for accurate division, the numbers need to be casted into doubles. If they were integers or longs, then the output would be a truncated whole number still, whic might not be too useful.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">);</span> <span class="c1">// will be truncated to 1</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">a</span><span class="o">/</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">b</span><span class="p">);</span> <span class="c1">// is cased to double so will be 1.5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+1.5
 </pre>
 </div>
 </div>
@@ -864,7 +917,14 @@ You need a 170.00000000000003 on the test.</pre>
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/supermengman" target="_blank" title="supermengman"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/supermengman" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+</ul>
 </div>
 
   </div>
