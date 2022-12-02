@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Nov 29 09:59:59 2022
+# Make data base, printed on Thu Dec  1 23:41:42 2022
 
 # Variables
 
@@ -33,7 +33,7 @@ VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
 _ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
-STARSHIP_SESSION_KEY = 2573315243315642
+STARSHIP_SESSION_KEY = 1990492829679160
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -41,7 +41,7 @@ VSCODE_CWD = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/mengman/.vscode-server/bin/6261075646f055b99068d3688932416f2346dd3b/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Player/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/WINDOWS/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/andre/scoop/shims:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/andre/Anaconda3/Library/bin:/mnt/c/Users/andre/Anaconda3/Scripts:/mnt/c/Users/andre/Anaconda3:/mnt/c/Users/andre/Anaconda3/condabin:/mnt/c/Users/andre/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/andre/AppData/Roaming/npm:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/andre/spicetify-cli:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.1/bin:/mnt/c/Users/andre/AppData/Local/Programs/Hyper/resources/bin
+PATH = /home/mengman/.vscode-server/bin/6261075646f055b99068d3688932416f2346dd3b/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Player/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/WINDOWS/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/andre/scoop/shims:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/andre/Anaconda3/Library/bin:/mnt/c/Users/andre/Anaconda3/Scripts:/mnt/c/Users/andre/Anaconda3:/mnt/c/Users/andre/Anaconda3/condabin:/mnt/c/Users/andre/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/andre/AppData/Roaming/npm:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/andre/spicetify-cli:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.1/bin:/mnt/c/Users/andre/AppData/Local/Programs/Hyper/resources/bin:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # makefile (from 'Makefile', line 1)
@@ -49,7 +49,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-4e00d7c0-4572-4cfe-ba56-4624d7026bf1.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-457e79dc-ddb3-4bca-8ab5-a512ea5aa2fb.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -57,15 +57,17 @@ VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-4e00d7c0-4572-4cfe-ba56-4
 # environment
 DISPLAY = :0
 # environment
+WSL2_GUI_APPS_ENABLED = 1
+# environment
 PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/8_interop
+WSL_INTEROP = /run/WSL/149_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = bea2434b-c0f1-4d7e-ae31-dc0625d324d1
+WT_SESSION = 05d5e751-e21d-4616-83e2-02bfe333ed4c
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -147,7 +149,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 STARSHIP_SHELL = zsh
 # variable set hash-table stats:
-# Load=68/1024=7%, Rehash=0, Collisions=7/93=8%
+# Load=69/1024=7%, Rehash=0, Collisions=7/94=7%
 
 # Pattern-specific Variable Values
 
@@ -273,10 +275,10 @@ convert: .FORCE
 .FORCE:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
-#  File has not been updated.
  
 make: *** No rule to make target 'all'.  Stop.
 
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 53):
 	chmod -R u+rw .
 
@@ -294,6 +296,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Tue Nov 29 09:59:59 2022
+# Finished Make data base on Thu Dec  1 23:41:42 2022
 
  
