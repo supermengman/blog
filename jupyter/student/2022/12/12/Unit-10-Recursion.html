@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -155,6 +155,80 @@ window.onload = wrap_img;
 <li>recursion used when big problem can be expressed in a smaller problem</li>
 <li>difference: recursion uses function calls, iteration uses loops</li>
 </ul>
+<p>See Fibonacci Hacks: <a href="https://supermengman.github.io/blog/jupyter/java/collegeboard/2022/09/20/Fibonacci.html">here</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">FiboRecursion</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
+        
+    <span class="c1">// default constructor</span>
+    <span class="kd">public</span> <span class="nf">FiboRecursion</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// takes input of number, calls constructor</span>
+    <span class="kd">public</span> <span class="nf">FiboRecursion</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        
+    <span class="p">}</span>
+
+    <span class="c1">// the recursive function: type int so it feeds into self and returns a value</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">fibNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// if its the first 2 terms (0 or 1), set the data in the array and hashmap as 0 or 1 and return</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">setDataRec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// setData as 0 or 1</span>
+            <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">currentFibNum</span> <span class="o">=</span> <span class="n">fibNum</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibNum</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// sets the current fibonacci number to the sum of the previous two (recursion starts)</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDataRec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentFibNum</span><span class="p">);</span> <span class="c1">// sets data of the currentFibNum to the index of the fibNum (n)</span>
+
+        <span class="k">return</span> <span class="n">currentFibNum</span><span class="p">;</span> <span class="c1">// returns for recursion</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span> <span class="c1">// overwrite init function for the RECURSION</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// set name</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"recursion"</span><span class="p">;</span>
+
+        <span class="c1">// populate array</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="kd">super</span><span class="p">.</span><span class="na">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">list</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="kt">long</span><span class="p">)</span> <span class="mi">0</span><span class="p">);</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">hash</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="kd">super</span><span class="p">.</span><span class="na">list</span><span class="p">.</span><span class="na">clone</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="c1">// find the fib num up to super.size minus 1 because does not include</span>
+        <span class="n">fibNum</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">// better setdata: can put into specific index</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDataRec</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">long</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">list</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span> <span class="c1">// sets something into the array at certain index</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">smallList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">list</span><span class="p">.</span><span class="na">subList</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// cuts off the list at the fibonacci number length, as it already populates with the amount needed</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">hash</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">smallList</span><span class="p">.</span><span class="na">clone</span><span class="p">());</span> <span class="c1">// adds the list to hashmap</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="10.2-Binary-Search">
 <a class="anchor" href="#10.2-Binary-Search" aria-hidden="true"><span class="octicon octicon-link"></span></a>10.2 Binary Search<a class="anchor-link" href="#10.2-Binary-Search"> </a>
 </h1>
