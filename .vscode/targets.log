@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jan 22 23:04:59 2023
+# Make data base, printed on Mon Jan 23 09:55:42 2023
 
 # Variables
 
@@ -51,7 +51,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-d6307c52-5f8c-4bf7-9f4b-cda6620d47e6.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-1ac9e0fc-5748-4f4d-94c1-39f828516ac5.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -277,8 +277,8 @@ convert: .FORCE
 .FORCE:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
+ 
 #  recipe to execute (from 'Makefile', line 53):
 	chmod -R u+rw .
 
@@ -296,6 +296,6 @@ convert: .FORCE
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Sun Jan 22 23:04:59 2023
+# Finished Make data base on Mon Jan 23 09:55:42 2023
 
  
