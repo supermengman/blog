@@ -10,6 +10,8 @@ title: Test Corrections 52 Q
 # Stats
 Score: 43/52
 Total Score: 0.9 + 1.8 = 2.7/3
+Time: 82 minutes
+Weak Areas: array transversals, substring, and arraylist
 
 # Q4 ABCDEF substring
 
