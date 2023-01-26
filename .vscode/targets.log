@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jan 23 10:05:26 2023
+# Make data base, printed on Thu Jan 26 10:02:34 2023
 
 # Variables
 
@@ -51,7 +49,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-5dcba8cc-0204-4d6f-a9f4-d16150253cf6.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-7ba248c4-e644-4f6d-b1ba-c9cf59c4ffe8.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -276,6 +274,9 @@ convert: .FORCE
 
 .FORCE:
 #  Implicit rule search has not been done.
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 53):
@@ -294,8 +295,7 @@ convert: .FORCE
 
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
- 
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Mon Jan 23 10:05:26 2023
+# Finished Make data base on Thu Jan 26 10:02:34 2023
 
  
