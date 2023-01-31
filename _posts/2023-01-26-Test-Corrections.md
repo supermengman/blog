@@ -9,9 +9,9 @@ title: Test Corrections 66 Q
 
 # Stats
 Score: 61/66
-Total Score: 0.95
+Total Score: 0.92
 Time: 75 minutes
-Weak Areas: 
+Weak Areas: return methods, recursive, etc.
 
 # Q36 
 The question refer to the code from the GridWorld case study.

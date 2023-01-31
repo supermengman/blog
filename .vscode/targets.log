@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jan 26 10:02:34 2023
+# Make data base, printed on Tue Jan 31 09:49:31 2023
 
 # Variables
 
@@ -33,7 +33,7 @@ VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
 _ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
-STARSHIP_SESSION_KEY = 2827622076215886
+STARSHIP_SESSION_KEY = 3050910024122372
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -49,7 +49,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-7ba248c4-e644-4f6d-b1ba-c9cf59c4ffe8.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-73fca97e-5413-45cb-8f01-3f517c357284.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -67,7 +67,7 @@ WSL_INTEROP = /run/WSL/8_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = da973864-dbe3-4651-bbf9-0e5fcb206ad0
+WT_SESSION = 51cb9ed2-7467-475b-ace9-ad0d8bb3a5b3
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -296,6 +296,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Thu Jan 26 10:02:34 2023
+# Finished Make data base on Tue Jan 31 09:49:31 2023
 
  
