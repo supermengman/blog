@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data Types Hacks | Andrew Meng</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Data Types Hacks" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Hacks for the data types lesson" />
+<meta property="og:description" content="Hacks for the data types lesson" />
+<link rel="canonical" href="https://supermengman.github.io/blog/cb/2023/03/06/datatypes.html" />
+<meta property="og:url" content="https://supermengman.github.io/blog/cb/2023/03/06/datatypes.html" />
+<meta property="og:site_name" content="Andrew Meng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-06T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data Types Hacks" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-06T00:00:00-06:00","datePublished":"2023-03-06T00:00:00-06:00","description":"Hacks for the data types lesson","headline":"Data Types Hacks","mainEntityOfPage":{"@type":"WebPage","@id":"https://supermengman.github.io/blog/cb/2023/03/06/datatypes.html"},"url":"https://supermengman.github.io/blog/cb/2023/03/06/datatypes.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://supermengman.github.io/blog/feed.xml" title="Andrew Meng" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Andrew Meng</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/notes/">Notes</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Data Types Hacks</h1><p class="page-description">Hacks for the data types lesson</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-06T00:00:00-06:00" itemprop="datePublished">
+        Mar 6, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      17 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#cb">cb</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/supermengman/blog/tree/master/_notebooks/2023-03-06-datatypes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/supermengman/blog/master?filepath=_notebooks%2F2023-03-06-datatypes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/supermengman/blog/blob/master/_notebooks/2023-03-06-datatypes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fsupermengman%2Fblog%2Fblob%2Fmaster%2F_notebooks%2F2023-03-06-datatypes.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Binary-Addition-Seed">Binary Addition Seed </a></li>
+<li class="toc-entry toc-h1"><a href="#int/Integer">int/Integer </a></li>
+<li class="toc-entry toc-h1"><a href="#double/Double">double/Double </a></li>
+<li class="toc-entry toc-h1"><a href="#boolean/Boolean">boolean/Boolean </a></li>
+<li class="toc-entry toc-h1"><a href="#char/Character">char/Character </a></li>
+<li class="toc-entry toc-h1"><a href="#Methods-and-Control-Structure-FRQ:-2016-Q1">Methods and Control Structure FRQ: 2016 Q1 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#a.">a. </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#A-breakdown">A breakdown </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#B">B </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#B-Breakdown">B Breakdown </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Explore-Teacher-Code">Explore Teacher Code </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#What-are-Methods-and-Control-Structures?">What are Methods and Control Structures? </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Diverse-Arrays-and-Matrix">Diverse Arrays and Matrix </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Review-other-code:">Review other code: </a></li>
+<li class="toc-entry toc-h2"><a href="#Menu-code">Menu code </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-03-06-datatypes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Binary-Addition-Seed">
+<a class="anchor" href="#Binary-Addition-Seed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary Addition Seed<a class="anchor-link" href="#Binary-Addition-Seed"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryAddition</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">inputBinary</span> <span class="p">(</span><span class="n">String</span> <span class="n">prompt</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">prompt</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">deciOne</span> <span class="o">=</span> <span class="n">sc</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">deciOne</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">binOne</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">binOne</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)((</span><span class="n">deciOne</span> <span class="o">%</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">i</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">));</span> 
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">binOne</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">addBin</span> <span class="p">(</span><span class="kt">int</span> <span class="n">numOne</span><span class="p">,</span> <span class="kt">int</span> <span class="n">numTwo</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">sum</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">carryOver</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">33</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">first</span> <span class="o">=</span> <span class="n">numOne</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">second</span> <span class="o">=</span> <span class="n">numTwo</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">carryOver</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> 
+                <span class="n">sum</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="p">)(</span><span class="sc">'0'</span> <span class="o">+</span> <span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">carryOver</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="n">sum</span><span class="p">;</span>
+                <span class="n">carryOver</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span>
+                <span class="n">sum</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">carryOver</span><span class="p">)</span> <span class="o">+</span> <span class="n">sum</span><span class="p">;</span>
+                <span class="n">carryOver</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+            <span class="p">}</span>
+            <span class="n">numOne</span> <span class="o">=</span> <span class="n">numOne</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">numTwo</span> <span class="o">=</span> <span class="n">numTwo</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// cut string</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">sum</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">sum</span><span class="p">.</span><span class="na">length</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sum</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">numOne</span> <span class="o">=</span> <span class="n">inputBinary</span><span class="p">(</span><span class="s">"Input first binary number: "</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">numTwo</span> <span class="o">=</span> <span class="n">inputBinary</span><span class="p">(</span><span class="s">"Input second binary number: "</span><span class="p">);</span>
+        <span class="n">String</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">addBin</span><span class="p">(</span><span class="n">numOne</span><span class="p">,</span> <span class="n">numTwo</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"The sum is: "</span> <span class="o">+</span> <span class="n">sum</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">BinaryAddition</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input first binary number: 1
+Input second binary number: 1
+The sum is: 10
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="int/Integer">
+<a class="anchor" href="#int/Integer" aria-hidden="true"><span class="octicon octicon-link"></span></a>int/Integer<a class="anchor-link" href="#int/Integer"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swap</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"c = "</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a = 85 and b = 90
+a = 85 and b = 90
+c = 175
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swap</span> <span class="p">(</span><span class="n">Integer</span> <span class="n">a</span><span class="p">,</span> <span class="n">Integer</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Integer</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Integer</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">));</span>
+<span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> 
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="n">swap</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">" arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="n">Integer</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"c = "</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>arr (1st) = 95 and arr (2nd) = 31
+arr (1st) = 95 and  arr (2nd) = 31
+c = 126
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="double/Double">
+<a class="anchor" href="#double/Double" aria-hidden="true"><span class="octicon octicon-link"></span></a>double/Double<a class="anchor-link" href="#double/Double"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swap</span> <span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">();</span>
+<span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"c = "</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a = 0.5392976519054533 and b = 0.7136309112889999
+a = 0.5392976519054533 and b = 0.7136309112889999
+c = 1.2529285631944531
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swap</span> <span class="p">(</span><span class="n">Double</span> <span class="n">a</span><span class="p">,</span> <span class="n">Double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Double</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Double</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Double</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">());</span>
+<span class="n">Double</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Double</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">());</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="n">swap</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"c = "</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>arr (1st) = 0.8714734691329225 and arr (2nd) = 0.958581170162068
+arr (1st) = 0.8714734691329225 and arr (2nd) = 0.958581170162068
+c = 1.8300546392949903
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="boolean/Boolean">
+<a class="anchor" href="#boolean/Boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>boolean/Boolean<a class="anchor-link" href="#boolean/Boolean"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swap</span> <span class="p">(</span><span class="kt">boolean</span> <span class="n">a</span><span class="p">,</span> <span class="kt">boolean</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">boolean</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">boolean</span> <span class="n">a</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">boolean</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">||</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"c = "</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a = true and b = false
+a = true and b = false
+c = true
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swap</span> <span class="p">(</span><span class="n">Boolean</span> <span class="n">a</span><span class="p">,</span> <span class="n">Boolean</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Boolean</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Boolean</span> <span class="n">a</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="n">Boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="o">&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="n">swap</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="kt">boolean</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">||</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"c = "</span> <span class="o">+</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>arr (1st) = true and arr (2nd) = false
+arr (1st) = true and arr (2nd) = false
+c = true
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="char/Character">
+<a class="anchor" href="#char/Character" aria-hidden="true"><span class="octicon octicon-link"></span></a>char/Character<a class="anchor-link" href="#char/Character"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swapCh</span> <span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">,</span> <span class="kt">char</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="sc">'a'</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="sc">'b'</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="n">swapCh</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"a = "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"b = "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">char</span><span class="o">[]</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">};</span>
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"str = "</span> <span class="o">+</span> <span class="n">str</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"str substring 0 to 1 = "</span> <span class="o">+</span> <span class="n">str</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a = a and b = b
+a = a and b = b
+str = ab
+str substring 0 to 1 = a
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">void</span> <span class="nf">swapCh</span> <span class="p">(</span><span class="n">Character</span> <span class="n">a</span><span class="p">,</span> <span class="n">Character</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Character</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Character</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Character</span><span class="p">(</span><span class="sc">'a'</span><span class="p">);</span>
+<span class="n">Character</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Character</span><span class="p">(</span><span class="sc">'b'</span><span class="p">);</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="n">swapCh</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">// values stay the same</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"arr (1st) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="s">"arr (2nd) = "</span> <span class="o">+</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="kt">char</span><span class="o">[]</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">arr</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arr</span><span class="p">.</span><span class="na">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">c</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"str = "</span> <span class="o">+</span> <span class="n">str</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"str substring 0 to 1 = "</span> <span class="o">+</span> <span class="n">str</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>arr (1st) = a and arr (2nd) = b
+arr (1st) = a and arr (2nd) = b
+str = ab
+str substring 0 to 1 = a
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Methods-and-Control-Structure-FRQ:-2016-Q1">
+<a class="anchor" href="#Methods-and-Control-Structure-FRQ:-2016-Q1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods and Control Structure FRQ: 2016 Q1<a class="anchor-link" href="#Methods-and-Control-Structure-FRQ:-2016-Q1"> </a>
+</h1>
+<ol>
+<li>RandomStringChooser class</li>
+</ol>
+<h2 id="a.">
+<a class="anchor" href="#a." aria-hidden="true"><span class="octicon octicon-link"></span></a>a.<a class="anchor-link" href="#a."> </a>
+</h2>
+<p>Write the RandomStringChooser class. The constructor accepts an array of strings as a parameter and stores the array in an instance variable. The class should also have a method called getNext that returns a random string from the array. If all the strings have been returned, then the method should return "NONE". The method should not return the same string twice.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="p">{</span><span class="s">"wheels"</span><span class="p">,</span> <span class="s">"on"</span><span class="p">,</span> <span class="s">"the"</span><span class="p">,</span> <span class="s">"bus"</span><span class="p">};</span>
+<span class="n">RandomStringChooser</span> <span class="n">chooser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RandomStringChooser</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">chooser</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">+</span> <span class="s">" "</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// output: bus the wheels on NONE NONE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RandomStringChooser</span> <span class="p">{</span>
+    <span class="c1">// declare the instance variable</span>
+    <span class="kd">private</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">;</span>
+
+    <span class="c1">// write the constructor</span>
+    <span class="kd">public</span> <span class="nf">RandomStringChooser</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">wordArray</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// initialize the instance variable with for loop</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">word</span> <span class="p">:</span> <span class="n">wordArray</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">words</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// get random word from array if there is any</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNext</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">words</span><span class="p">.</span><span class="na">remove</span><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">words</span><span class="p">.</span><span class="na">size</span><span class="p">()));</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="s">"NONE"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// tester method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="p">{</span><span class="s">"wheels"</span><span class="p">,</span> <span class="s">"on"</span><span class="p">,</span> <span class="s">"the"</span><span class="p">,</span> <span class="s">"bus"</span><span class="p">};</span>
+        <span class="n">RandomStringChooser</span> <span class="n">chooser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RandomStringChooser</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">chooser</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">+</span> <span class="s">" "</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">RandomStringChooser</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>wheels bus the on NONE NONE </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A-breakdown">
+<a class="anchor" href="#A-breakdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>A breakdown<a class="anchor-link" href="#A-breakdown"> </a>
+</h3>
+<p>Theres the normal class description and boilerplate code, but the important part is the constructor. The constructor takes in an array of strings and stores it in an instance variable. The instance variable is an array of strings, so it can be used in the other methods.</p>
+<p>The method getNext() returns a random string from the array. The method should not return the same string twice. This means that the method should remove the string from the array after it is returned. This is a little tricky, but we can use the ArrayList class to help us out. The ArrayList class is a resizable array, also a complex data type, which means that we can add and remove elements from the array. We can use the ArrayList class to store the strings from the array, and then use the ArrayList class to remove the strings after they are returned. The remove() method takes in an index as a parameter, so we can use the Random class to generate a random index and multiply by the data size to get some number between 0 and the size of the array. However, the random class returns a double, so we need to cast it into an int, which is a primitive data type. This is passed by value into the remove method.</p>
+<p>Now we can use it as the index for the remove() method. The remove() method returns the element that was removed, so we can return it from the getNext() method while simultaneously printing out the element removed.</p>
+<p>As seen with the output, there are two NONES because of it choosing 6 out of 4 words.</p>
+<h2 id="B">
+<a class="anchor" href="#B" aria-hidden="true"><span class="octicon octicon-link"></span></a>B<a class="anchor-link" href="#B"> </a>
+</h2>
+<p>RandomLetterChooser subclass. It constructs a random letter chooser given a string of str, implementing getSingleLetters that returns an array of single-letter strings. The constructor should call the superclass constructor with the array of single-letter strings.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RandomLetterChooser</span> <span class="kd">extends</span> <span class="n">RandomStringChooser</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">RandomLetterChooser</span><span class="p">(</span><span class="n">String</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">getSingleLetters</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">getSingleLetters</span><span class="p">(</span><span class="n">String</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">letters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">letters</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">letters</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">RandomLetterChooser</span> <span class="n">chooser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RandomLetterChooser</span><span class="p">(</span><span class="s">"cat"</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">chooser</span><span class="p">.</span><span class="na">getNext</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">RandomLetterChooser</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ctaNONE</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="B-Breakdown">
+<a class="anchor" href="#B-Breakdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>B Breakdown<a class="anchor-link" href="#B-Breakdown"> </a>
+</h3>
+<p>Essentially, this is the exact thing as RandomWordChooser, but instead of an array of words, its an array of strings. So, we can just extend the method of getNext() from the RandomWordChooser class and just change the array of words to an array of strings. The constructor essentially does this, by calling the super constructor with the array of single-letter strings generated with the getSingleLetters method. These get passed by value, and even though the actual array isn't actually stored, the array doesn't get changed.</p>
+<p>the getSingleLetters wasn't part of the FRQ, but it was quick to code. It just splits the string into an array of single-letter strings with the substring method.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Explore-Teacher-Code">
+<a class="anchor" href="#Explore-Teacher-Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Explore Teacher Code<a class="anchor-link" href="#Explore-Teacher-Code"> </a>
+</h1>
+<h2 id="What-are-Methods-and-Control-Structures?">
+<a class="anchor" href="#What-are-Methods-and-Control-Structures?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What are Methods and Control Structures?<a class="anchor-link" href="#What-are-Methods-and-Control-Structures?"> </a>
+</h2>
+<p>Methods and Control Structures, in the context of AP Classroom, is the process of creating classes and methods to solve problems. The methods and control structures are the building blocks of the Java programming language.</p>
+<p>ChatGPT:
+Methods:
+Methods are also known as functions or procedures in different programming languages. They are a set of statements or code blocks that are executed together to perform a specific task. Methods can take input arguments and return output values or perform a set of actions without returning any value. They are typically designed to be reusable and modular, allowing the same code to be called from different parts of a program.</p>
+<p>Control Structures:
+Control structures are constructs in programming languages that allow the flow of code to be controlled based on specific conditions or events. They include conditional statements, loops, and branching statements.</p>
+<p>Conditional statements (if/else statements) allow the program to make decisions based on specific conditions, executing one block of code if the condition is true and another block if the condition is false.
+Loops (for loops, while loops) allow the program to repeat a set of actions multiple times until a specific condition is met.
+Branching statements (break, continue) allow the program to exit out of a loop or skip certain iterations based on specific conditions.
+Control structures are used to make programs more efficient and flexible, allowing them to handle different scenarios and inputs.</p>
+<p>Especially on the test, students will be asked to write program code to create objects of a class and call methods, and satisfy method specifications.</p>
+<h3 id="Diverse-Arrays-and-Matrix">
+<a class="anchor" href="#Diverse-Arrays-and-Matrix" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diverse Arrays and Matrix<a class="anchor-link" href="#Diverse-Arrays-and-Matrix"> </a>
+</h3>
+<p>Basically this code takes in a 2D array, and checks if it is diverse if the sums of each row are different.</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isDiverse</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">arr2D</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="o">[]</span> <span class="n">sums</span> <span class="o">=</span> <span class="n">rowSums</span><span class="p">(</span><span class="n">arr2D</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">sumsLength</span> <span class="o">=</span> <span class="n">sums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+
+        <span class="c1">// ij loop, two indexes needed in evaluation, similar to bubble sort iteration</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sumsLength</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">sumsLength</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">sums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">sums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>    <span class="c1">// leave as soon as you find duplicate</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// all diverse checks have been made</span>
+    <span class="p">}</span>
+</pre></div>
+<p>This is kind of like Methods and Control Structures, as it is a method that takes in parameters and meets specificatiosn. It has control structures like conditionals and loops, but it is not an object.</p>
+<p>As for Data Types, I think it has some usage of int arrays, but they are all passed as reference as the primitive class.</p>
+<p>Matrix:</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Matrix</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="p">;</span>
+
+    <span class="c1">// store matrix</span>
+    <span class="kd">public</span> <span class="nf">Matrix</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">matrix</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// nest for loops to format output of a matrix</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// construct output of matrix using for loops</span>
+        <span class="c1">// outer loop for row</span>
+        <span class="n">StringBuilder</span> <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="p">:</span> <span class="n">matrix</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// inner loop for column</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">cell</span> <span class="p">:</span> <span class="n">row</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">output</span><span class="p">.</span><span class="na">append</span><span class="p">((</span><span class="n">cell</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="s">" "</span> <span class="p">:</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%x"</span><span class="p">,</span><span class="n">cell</span><span class="p">)).</span><span class="na">append</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">output</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"\n"</span><span class="p">);</span> <span class="c1">// new line</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">output</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// print it backwards matrix</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">reverse</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// outer loop starting at end row</span>
+        <span class="n">StringBuilder</span> <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>  <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// inner loop for column</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span>  <span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">;</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">output</span><span class="p">.</span><span class="na">append</span><span class="p">((</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]==-</span><span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="s">" "</span> <span class="p">:</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%x"</span><span class="p">,</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">)).</span><span class="na">append</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">output</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"\n"</span><span class="p">);</span> <span class="c1">// new line</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">output</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>This code definitely exhibits methods and control structures, with methods like toString and reverse being able to print out the 2D integer arrays. These are designed to specification with for loops and conditionals.</p>
+<p>It also has more data types, with actual 2D integera arrays being stored inside functions. These can be seen to be passed by reference, so the actual array does not get changed when the code is run.</p>
+<h2 id="Review-other-code:">
+<a class="anchor" href="#Review-other-code:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Review other code:<a class="anchor-link" href="#Review-other-code:"> </a>
+</h2>
+<p>DoNothingByValue
+This code mostly demosnstrates passing variables as reference, with the Triple class defining specific wrapper classes. There are multiple changeIt methods, which change the value of the variable. The changeIt method with the primitive data type is passed by value, so the actual value of the variable does not change. The changeIt method with the wrapper class is passed by reference, so the actual value of the variable does change.</p>
+<p>IntByReference
+The key knowledge here is that you can swap orders by assigning it to a temporary memory address for both to access and swap. In addition, since these integers are stored in the actual object istelf, the values are passed by reference, so the actual values of the variables change.</p>
+<h2 id="Menu-code">
+<a class="anchor" href="#Menu-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Menu code<a class="anchor-link" href="#Menu-code"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">package</span> <span class="nn">com.nighthawk.hacks.methodsDataTypes</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Menu: custom implementation</span>
+<span class="cm"> * @author     John Mortensen</span>
+<span class="cm"> *</span>
+<span class="cm"> * Uses String to contain Title for an Option</span>
+<span class="cm"> * Uses Runnable to store Class-Method to be run when Title is selected</span>
+<span class="cm"> */</span>
+
+<span class="c1">// The Menu Class has a HashMap of Menu Rows</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Menu</span> <span class="p">{</span>
+    <span class="c1">// Format</span>
+    <span class="c1">// Key {0, 1, 2, ...} created based on order of input menu</span>
+    <span class="c1">// Value {MenuRow0, MenuRow1, MenuRow2,...} each corresponds to key</span>
+    <span class="c1">// MenuRow  {&lt;Exit,Noop&gt;, Option1, Option2, ...}</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">MenuRow</span><span class="o">&gt;</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Constructor for Menu,</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param  rows,  is the row data for menu.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Menu</span><span class="p">(</span><span class="n">MenuRow</span><span class="o">[]</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">MenuRow</span> <span class="n">row</span> <span class="p">:</span> <span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Build HashMap for lookup convenience</span>
+            <span class="n">menu</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="k">new</span> <span class="n">MenuRow</span><span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="na">getTitle</span><span class="p">(),</span> <span class="n">row</span><span class="p">.</span><span class="na">getAction</span><span class="p">()));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Get Row from Menu,</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param  i,  HashMap key (k)</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  MenuRow, the selected menu</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">MenuRow</span> <span class="nf">get</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">menu</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Iterate through and print rows in HashMap</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">MenuRow</span><span class="o">&gt;</span> <span class="n">pair</span> <span class="p">:</span> <span class="n">menu</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span> <span class="o">+</span> <span class="s">" ==&gt; "</span> <span class="o">+</span> <span class="n">pair</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">getTitle</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  To test run Driver</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Driver</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="c1">// The MenuRow Class has title and action for individual line item in menu</span>
+<span class="kd">class</span> <span class="nc">MenuRow</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">title</span><span class="p">;</span>       <span class="c1">// menu item title</span>
+    <span class="n">Runnable</span> <span class="n">action</span><span class="p">;</span>    <span class="c1">// menu item action, using Runnable</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Constructor for MenuRow,</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param  title,  is the description of the menu item</span>
+<span class="cm">     * @param  action, is the run-able action for the menu item</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">MenuRow</span><span class="p">(</span><span class="n">String</span> <span class="n">title</span><span class="p">,</span> <span class="n">Runnable</span> <span class="n">action</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">action</span> <span class="o">=</span> <span class="n">action</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Getters</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getTitle</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">title</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">Runnable</span> <span class="nf">getAction</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">action</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Runs the action using Runnable (.run)</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">action</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// The Main Class illustrates initializing and using Menu with Runnable action</span>
+<span class="kd">class</span> <span class="nc">Driver</span> <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     *  Menu Control Example</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Row initialize</span>
+        <span class="n">MenuRow</span><span class="o">[]</span> <span class="n">rows</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MenuRow</span><span class="o">[]</span><span class="p">{</span>
+            <span class="c1">// lambda style, () -&gt; to point to Class.Method</span>
+            <span class="k">new</span> <span class="n">MenuRow</span><span class="p">(</span><span class="s">"Exit"</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">main</span><span class="p">(</span><span class="kc">null</span><span class="p">)),</span>
+            <span class="k">new</span> <span class="n">MenuRow</span><span class="p">(</span><span class="s">"Do Nothing"</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoNothingByValue</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">)),</span>
+            <span class="k">new</span> <span class="n">MenuRow</span><span class="p">(</span><span class="s">"Swap if Hi-Low"</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">IntByReference</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">)),</span>
+            <span class="k">new</span> <span class="n">MenuRow</span><span class="p">(</span><span class="s">"Matrix Reverse"</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">)),</span>
+            <span class="k">new</span> <span class="n">MenuRow</span><span class="p">(</span><span class="s">"Diverse Array"</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">)),</span>
+            <span class="k">new</span> <span class="n">MenuRow</span><span class="p">(</span><span class="s">"Random Squirrels"</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Number</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">))</span>
+        <span class="p">};</span>
+
+        <span class="c1">// Menu construction</span>
+        <span class="n">Menu</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Menu</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span>
+
+        <span class="c1">// Run menu forever, exit condition contained in loop</span>
+        <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Hacks Menu:"</span><span class="p">);</span>
+            <span class="c1">// print rows</span>
+            <span class="n">menu</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+
+            <span class="c1">// Scan for input</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">scan</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+
+                <span class="c1">// menu action</span>
+                <span class="k">try</span> <span class="p">{</span>
+                    <span class="n">MenuRow</span> <span class="n">row</span> <span class="o">=</span> <span class="n">menu</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">selection</span><span class="p">);</span>
+                    <span class="c1">// stop menu</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">row</span><span class="p">.</span><span class="na">getTitle</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">"Exit"</span><span class="p">))</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">scan</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> 
+                            <span class="n">scan</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>  <span class="c1">// scanner resource requires release</span>
+                        <span class="k">return</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="c1">// run option</span>
+                    <span class="n">row</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Invalid selection %d\n"</span><span class="p">,</span> <span class="n">selection</span><span class="p">);</span>
+                <span class="p">}</span>
+
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Not a number"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Control structurs in Drive:</p>
+<ul>
+<li>while</li>
+<li>try/catch</li>
+<li>if/else</li>
+</ul>
+<p>MenuRow:
+There are data types of String as a class, not a primitive, but realistically it doesn't show much there or even in methods/control structures</p>
+<p>Runnable: 
+I think this is lombok, as I don't see the actual method or class described here.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/blog/cb/2023/03/06/datatypes.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://supermengman.github.io/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A Student</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/supermengman" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
