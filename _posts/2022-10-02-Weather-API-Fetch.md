@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 description: Testing the use of displaying frontend API
 categories: [markdown,javascript]
 comments: true
