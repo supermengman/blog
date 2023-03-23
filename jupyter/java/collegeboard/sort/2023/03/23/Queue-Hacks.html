@@ -621,27 +621,42 @@ Words count: 8, data: 1 2 3 4 5 6 7 8
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">QueueShuffler</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">dequeuedQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+          <span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+        <span class="p">}</span>
+    
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+          <span class="kt">int</span> <span class="n">rand</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+          <span class="n">q</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">rand</span><span class="p">));</span>
+          <span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">rand</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * Driver Class</span>
 <span class="cm"> * Tests queue with string, integers, and mixes of Classes and types</span>
 <span class="cm"> */</span>
 <span class="kd">class</span> <span class="nc">QueueTester3</span> <span class="p">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">shuffledQ</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">dequeuedQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-    
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-      <span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
-    <span class="p">}</span>
-
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-      <span class="kt">int</span> <span class="n">rand</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
-      <span class="n">shuffledQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">rand</span><span class="p">));</span>
-      <span class="n">dequeuedQueue</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">rand</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">shuffledQ</span><span class="p">;</span>
-  <span class="p">}</span>
-
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
   <span class="p">{</span>
     
@@ -654,7 +669,10 @@ Words count: 8, data: 1 2 3 4 5 6 7 8
 
     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">firstQ</span><span class="p">);</span>
 
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">shuffle</span><span class="p">(</span><span class="n">firstQ</span><span class="p">));</span>
+    <span class="n">QueueShuffler</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">shuffler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueShuffler</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">shuffler</span><span class="p">.</span><span class="na">shuffle</span><span class="p">(</span><span class="n">firstQ</span><span class="p">);</span>
+    
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">firstQ</span><span class="p">);</span>
 
   <span class="p">}</span>
 <span class="p">}</span>
@@ -672,7 +690,7 @@ Words count: 8, data: 1 2 3 4 5 6 7 8
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Words count: 8, data: 1 2 3 4 5 6 7 8 
-Words count: 8, data: 5 1 8 2 6 4 7 3 
+Words count: 8, data: 6 7 5 2 3 4 8 1 
 </pre>
 </div>
 </div>
