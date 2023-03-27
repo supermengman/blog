@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jan 31 09:49:31 2023
+# Make data base, printed on Sun Mar 26 22:20:45 2023
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
 # automatic
@@ -31,9 +31,9 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
+_ = /home/mengman/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node
 # environment
-STARSHIP_SESSION_KEY = 3050910024122372
+STARSHIP_SESSION_KEY = 2161428097846825
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -41,7 +41,7 @@ VSCODE_CWD = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/mengman/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b503ca0534/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Player/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/WINDOWS/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/andre/scoop/shims:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/andre/Anaconda3/Library/bin:/mnt/c/Users/andre/Anaconda3/Scripts:/mnt/c/Users/andre/Anaconda3:/mnt/c/Users/andre/Anaconda3/condabin:/mnt/c/Users/andre/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/andre/AppData/Roaming/npm:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/andre/spicetify-cli:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.1/bin:/mnt/c/Users/andre/AppData/Local/Programs/Hyper/resources/bin:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps
+PATH = /home/mengman/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Player/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/WINDOWS/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/andre/scoop/shims:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/andre/Anaconda3/Library/bin:/mnt/c/Users/andre/Anaconda3/Scripts:/mnt/c/Users/andre/Anaconda3:/mnt/c/Users/andre/Anaconda3/condabin:/mnt/c/Users/andre/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/andre/AppData/Roaming/npm:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/andre/spicetify-cli:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.1/bin:/mnt/c/Users/andre/AppData/Local/Programs/Hyper/resources/bin:/mnt/c/Users/andre/AppData/Local/Microsoft/WindowsApps
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # makefile (from 'Makefile', line 1)
@@ -49,7 +49,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-73fca97e-5413-45cb-8f01-3f517c357284.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-5dd1b858-e5f9-4ccb-9b3a-afd096f9839a.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -63,11 +63,9 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/8_interop
+WSL_INTEROP = /run/WSL/12_interop
 # environment
-PULSE_SERVER = /mnt/wslg/PulseServer
-# environment
-WT_SESSION = 51cb9ed2-7467-475b-ace9-ad0d8bb3a5b3
+PULSE_SERVER = unix:/mnt/wslg/PulseServer
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -87,7 +85,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 1
+SHLVL = 0
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -95,11 +93,11 @@ USER = mengman
 # makefile
 .DEFAULT_GOAL := help
 # environment
-NAME = Code
+NAME = Andrew-work
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/andre/.vscode/extensions/ms-vscode-remote.remote-wsl-0.72.0
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/andre/.vscode/extensions/ms-vscode-remote.remote-wsl-0.76.1
 # default
 MAKE_COMMAND := make
 # environment
@@ -120,8 +118,6 @@ MFLAGS = -pqrR
 +F = $(notdir $+)
 # environment
 VSCODE_HANDLES_SIGPIPE = true
-# environment
-WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
 # default
 MAKEFILES := 
 # automatic
@@ -149,7 +145,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 STARSHIP_SHELL = zsh
 # variable set hash-table stats:
-# Load=69/1024=7%, Rehash=0, Collisions=7/94=7%
+# Load=67/1024=7%, Rehash=0, Collisions=7/92=8%
 
 # Pattern-specific Variable Values
 
@@ -274,15 +270,15 @@ convert: .FORCE
 
 .FORCE:
 #  Implicit rule search has not been done.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 53):
 	chmod -R u+rw .
 
 # files hash-table stats:
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 # Load=16/1024=2%, Rehash=0, Collisions=0/37=0%
 # VPATH Search Paths
 
@@ -296,6 +292,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Tue Jan 31 09:49:31 2023
+# Finished Make data base on Sun Mar 26 22:20:45 2023
 
  
