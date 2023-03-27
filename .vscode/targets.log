@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Mar 26 22:20:45 2023
+# Make data base, printed on Mon Mar 27 09:00:59 2023
 
 # Variables
 
@@ -33,7 +33,7 @@ VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
 _ = /home/mengman/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node
 # environment
-STARSHIP_SESSION_KEY = 2161428097846825
+STARSHIP_SESSION_KEY = 2205019542132211
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -49,7 +49,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-5dd1b858-e5f9-4ccb-9b3a-afd096f9839a.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-34df732b-ba17-4f07-b2e8-21a9a89b7f06.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -292,6 +292,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Sun Mar 26 22:20:45 2023
+# Finished Make data base on Mon Mar 27 09:00:59 2023
 
  
