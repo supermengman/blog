@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      11 min read
     
 </span></p>
 
@@ -135,6 +135,12 @@ window.onload = wrap_img;
     <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#Linked-List-code">Linked List code </a></li>
 <li class="toc-entry toc-h1"><a href="#Queue-Base-Code">Queue Base Code </a></li>
+<li class="toc-entry toc-h1"><a href="#Notes-on-Code">Notes on Code </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Managing-data-in-the-Queue">Managing data in the Queue </a></li>
+<li class="toc-entry toc-h2"><a href="#ForEach-and-Iterables">ForEach and Iterables </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#Challenge-#1,-Add-and-Delete-elements-from-Queue.-Working-with-the-code-that-is-given,-you-will-need-to-adjust-Add-and-write-Delete,-to-output-from-the-Queue-as-follows.">Challenge #1, Add and Delete elements from Queue. Working with the code that is given, you will need to adjust Add and write Delete, to output from the Queue as follows. </a></li>
 <li class="toc-entry toc-h1"><a href="#Challenge-#2,-perform-a-merge-or-combination-of-2-Queue's-that-are-ordered.-This-is-a-foundation-step-for-the-algorithm-used-in-Merge-sorting.">Challenge #2, perform a merge or combination of 2 Queue&#39;s that are ordered. This is a foundation step for the algorithm used in Merge sorting. </a></li>
 <li class="toc-entry toc-h1"><a href="#Challenge-3">Challenge 3 </a></li>
@@ -423,6 +429,52 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Notes-on-Code">
+<a class="anchor" href="#Notes-on-Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes on Code<a class="anchor-link" href="#Notes-on-Code"> </a>
+</h1>
+<h2 id="Managing-data-in-the-Queue">
+<a class="anchor" href="#Managing-data-in-the-Queue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Managing data in the Queue<a class="anchor-link" href="#Managing-data-in-the-Queue"> </a>
+</h2>
+<p>There were modifications done to the code, mostly to remove the QueueManager class. The QueueManager class simply creates a Queue object while taking in an array of objects, which could be useful but is kind of unneccessary when one can use the enhanced for loop. Instead, the add method can be called, and this manipulation of data can be seen in the challenges below.</p>
+<h2 id="ForEach-and-Iterables">
+<a class="anchor" href="#ForEach-and-Iterables" aria-hidden="true"><span class="octicon octicon-link"></span></a>ForEach and Iterables<a class="anchor-link" href="#ForEach-and-Iterables"> </a>
+</h2>
+<p>The code seen here:</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">QueueIterator</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+<p>Is in the Queue class, and this is called when an enhanced for loop is called. It returns an iterator, which is an object that can be used to iterate over a collection. The QueueIterator class is defined as follows:</p>
+<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">QueueIterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span><span class="p">;</span>  <span class="c1">// current element in iteration</span>
+
+    <span class="c1">// QueueIterator is pointed to the head of the list for iteration</span>
+    <span class="kd">public</span> <span class="nf">QueueIterator</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// hasNext informs if next element exists</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// next returns data object and advances to next position in queue</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>It is able to check if there is a next element, and it is able to return the next element. This is what allows the enhanced for loop to work, and it is what allows the Queue to be iterable.</p>
+<p>This also works for Generic data, as the generic type of T is used in the Queue classes. Thus, it can take any type of data, as long as it has a comparable interface. For example, as seen in the challenge below, it can take a String, an Integer, or a Double.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
