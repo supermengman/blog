@@ -12,12 +12,12 @@ title: CSUSM Interest Meeting
 - two recent graduates (applied physics and smth)
 
 ## Ashley
-    - work in quantum mechanics
-    - took ap physics, loved it
-    - CSU one of the only CSU with physics major
-    - first gen student, failed a lot in calc
-    - got into research, and is now getting a phd in material sciences
-    - SM good campus to learn more
+- work in quantum mechanics
+- took ap physics, loved it
+- CSU one of the only CSU with physics major
+- first gen student, failed a lot in calc
+- got into research, and is now getting a phd in material sciences
+- SM good campus to learn more
 
 ## John
 
