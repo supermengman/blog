@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Mar 27 09:00:59 2023
+# Make data base, printed on Tue Mar 28 18:13:08 2023
 
 # Variables
 
@@ -33,7 +35,7 @@ VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
 _ = /home/mengman/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node
 # environment
-STARSHIP_SESSION_KEY = 2205019542132211
+STARSHIP_SESSION_KEY = 1872213399261523
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -49,7 +51,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-34df732b-ba17-4f07-b2e8-21a9a89b7f06.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-f24bd52e-78c9-459b-ae39-21ca0a55aafa.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -63,7 +65,7 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/12_interop
+WSL_INTEROP = /run/WSL/6881_interop
 # environment
 PULSE_SERVER = unix:/mnt/wslg/PulseServer
 # environment
@@ -276,9 +278,6 @@ convert: .FORCE
 	chmod -R u+rw .
 
 # files hash-table stats:
- 
-make: *** No rule to make target 'all'.  Stop.
-
 # Load=16/1024=2%, Rehash=0, Collisions=0/37=0%
 # VPATH Search Paths
 
@@ -287,11 +286,12 @@ make: *** No rule to make target 'all'.  Stop.
 # No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 52 / storage = 551 B / avg = 10 B
+ 
 # current buf: size = 8162 B / used = 551 B / count = 52 / avg = 10 B
 
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Mon Mar 27 09:00:59 2023
+# Finished Make data base on Tue Mar 28 18:13:09 2023
 
  
