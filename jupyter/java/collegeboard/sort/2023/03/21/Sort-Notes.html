@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      11 min read
     
 </span></p>
 
@@ -139,6 +139,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#Selection-Sort">Selection Sort </a></li>
 <li class="toc-entry toc-h1"><a href="#Insertion-Sort">Insertion Sort </a></li>
 <li class="toc-entry toc-h1"><a href="#Merge-Sort">Merge Sort </a></li>
+<li class="toc-entry toc-h1"><a href="#Data-Object-with-Comparable">Data Object with Comparable </a></li>
 <li class="toc-entry toc-h1"><a href="#Tester-Method-for-all-sorters">Tester Method for all sorters </a></li>
 </ul><!--
 #################################################
@@ -681,6 +682,168 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Data-Object-with-Comparable">
+<a class="anchor" href="#Data-Object-with-Comparable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Object with Comparable<a class="anchor-link" href="#Data-Object-with-Comparable"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="p">{</span>
+	<span class="c1">// Class data</span>
+    <span class="kd">public</span> <span class="kd">enum</span> <span class="n">KeyType</span> <span class="p">{</span><span class="n">title</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">passwordHash</span><span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">KeyType</span> <span class="n">key</span> <span class="o">=</span> <span class="n">KeyType</span><span class="p">.</span><span class="na">title</span><span class="p">;</span>  <span class="c1">// static initializer</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setOrder</span><span class="p">(</span><span class="n">KeyType</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span><span class="n">Person</span><span class="p">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">;}</span>
+
+
+	<span class="c1">// Instance data</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">email</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">passwordHash</span><span class="p">;</span>
+
+	<span class="cm">/* constructor</span>
+<span class="cm">	 *</span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="nf">Person</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">email</span><span class="p">,</span> <span class="n">String</span> <span class="n">passwordHash</span><span class="p">)</span>
+	<span class="p">{</span>
+
+		<span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">email</span> <span class="o">=</span> <span class="n">email</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">passwordHash</span> <span class="o">=</span> <span class="n">passwordHash</span><span class="p">;</span>
+	<span class="p">}</span>
+
+
+	<span class="kd">protected</span> <span class="n">KeyType</span> <span class="nf">getKey</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Person</span><span class="p">.</span><span class="na">key</span><span class="p">;</span> <span class="p">}</span>
+	
+    <span class="c1">// compare</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Person</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+	<span class="p">}</span>
+
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="s">"{ \"Name\": \""</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"\", \"Email\": \""</span> <span class="o">+</span> <span class="n">email</span> <span class="o">+</span> <span class="s">"\", \"Password\": \""</span> <span class="o">+</span> <span class="n">passwordHash</span> <span class="o">+</span> <span class="s">"\" }"</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// Test data initializer</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="n">Person</span><span class="o">[]</span> <span class="nf">persons</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Person</span><span class="o">[]</span> <span class="p">{</span>
+            <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">"John"</span><span class="p">,</span> <span class="s">"john@email.com"</span><span class="p">,</span> <span class="s">"password"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">"Mary"</span><span class="p">,</span> <span class="s">"mary@email.com"</span><span class="p">,</span> <span class="s">"password2"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="s">"bob@email.com"</span><span class="p">,</span> <span class="s">"password3"</span><span class="p">)</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+	
+	<span class="cm">/* main to test Person class</span>
+<span class="cm">	 * </span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Inheritance Hierarchy</span>
+		<span class="c1">//Person[] objs = persons();</span>
+		<span class="n">Person</span> <span class="n">john</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">"John"</span><span class="p">,</span> <span class="s">"john@email.com"</span><span class="p">,</span> <span class="s">"password"</span><span class="p">);</span>
+		<span class="c1">// print with title</span>
+		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Person Class Test"</span><span class="p">);</span>
+		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">john</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+	
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">public class Person implements Comparable&lt;Person&gt; {</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	// Class data</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">    public enum KeyType {title, name, email, passwordHash}</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">    public static KeyType key = KeyType.title;  // static initializer</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	public static void setOrder(KeyType key) {Person.key = key;}</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	// Instance data</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	private String name;</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">    private String email;</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">    private String passwordHash;</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	/* constructor</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	 *</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	 */</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	public Person(String name, String email, String passwordHash)</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	{</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		this.name = name;</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">        this.email = email;</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">        this.passwordHash = passwordHash;</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	}</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	protected KeyType getKey() { return Person.key; }</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	@Override</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	public String toString()</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	{</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		return "{ \"Name\": \"" + name + "\", \"Email\": \"" + email + "\", \"Password\": \"" + passwordHash + "\" }";</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	}</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	// Test data initializer</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	public static Person[] persons()</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">    {</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">        return new Person[] {</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">            new Person("John", "john@email.com", "password"),</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">            new Person("Mary", "mary@email.com", "password2"),</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">            new Person("Bob", "bob@email.com", "password3")</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">        };</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">    }</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	/* main to test Person class</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	 * </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	 */</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	public static void main(String[] args)</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	{</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		// Inheritance Hierarchy</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		//Person[] objs = persons();</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		Person john = new Person("John", "john@email.com", "password");</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		// print with title</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		System.out.println("Person Class Test");</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">		System.out.println(john.toString());</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">	}</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">}</span>
+<span class="ansi-red-intense-fg ansi-bold">Person is not abstract and does not override abstract method compareTo(Person) in java.lang.Comparable</span>
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
