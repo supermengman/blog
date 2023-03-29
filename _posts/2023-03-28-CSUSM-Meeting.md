@@ -7,7 +7,7 @@ comments: true
 title: CSUSM Interest Meeting
 ---
 
-# CSUSM Extra Credit
+# CSUSM Interest Meeting
 
 - two recent graduates (applied physics and smth)
 
@@ -46,22 +46,6 @@ title: CSUSM Interest Meeting
 
 ## contact
 
-Physics:
-* Dr. Stephen sui sta lOrcausmien
-4 Chemistry and ibiachemistrgr
-© Dr. Sajith Jayasinghe, sravarimorssummeny
-~ Biotechnology:
-+ Dr. Moorthy Palank), mmdlank Orsumeri
-% Biological Sciences:
-& Dr. MatthewEscobar, amengabar@resusmearta
-Math:
-& Dr. Amber Puha, amultra(@resumm edu
-• Computer Sciente:
-& Dr. Ali Ahmadinia, antimadima@oresisomead
-« Software Engineering
-% Dr. Simon Fan, sfar@rosusmidi
-~ Electrical Engineering
-4 Dr. Reza KamaliSsarovestam.ntkcameal(@nesur
 
 # Clubs
 
@@ -108,3 +92,7 @@ Math:
 # Upcoming events
 
 - mostly for admitted students, but there is Cougar Blue Day
+
+# Reflection
+
+As this the first time I've actually been to a college meeting at school, it was truly a beneficial experience. The information they gave about applying to college was helpful not only to apply for CSU, but also for college in general. For example, I didn't know that you had to apply for scholarships separately, and that subsidized loans were a much better choice than unsubsidized. With such helpful life advice, I can't help but be extremely thankful for their time and effort. Specifically about San Marcos, I also realized that they had many STEM programs and focuses on curriculum that larger schools can't do. With clubs such as cybersecurity club and robotics club, they piqued my interest. Now, CSUSM is definitely a school I would consider applying to. The small campus, the research oppurtunities, and internship oppurtunities are all things that I would love to experience. Overall, I am very grateful for the time they took to come to our school and give us such helpful information.
