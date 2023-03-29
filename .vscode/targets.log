@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar 28 18:13:08 2023
+# Make data base, printed on Wed Mar 29 10:38:23 2023
 
 # Variables
 
@@ -17,7 +15,10 @@ make: *** No rule to make target 'all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up
+define WSLENV
+ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+
+endef
 # default
 .SHELLFLAGS := -c
 # automatic
@@ -33,9 +34,9 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /home/mengman/.vscode-server/bin/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/node
+_ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
-STARSHIP_SESSION_KEY = 1872213399261523
+STARSHIP_SESSION_KEY = 4265108956031520
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -51,7 +52,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-f24bd52e-78c9-459b-ae39-21ca0a55aafa.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-581ea9e0-a778-4afd-8f13-85bfba2481ae.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -65,9 +66,11 @@ PWD = /home/mengman/vscode/blog
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/6881_interop
+WSL_INTEROP = /run/WSL/8_interop
 # environment
 PULSE_SERVER = unix:/mnt/wslg/PulseServer
+# environment
+WT_SESSION = 53af9e64-d430-4913-b57f-7c3ae78b2660
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -87,7 +90,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 0
+SHLVL = 1
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -95,7 +98,7 @@ USER = mengman
 # makefile
 .DEFAULT_GOAL := help
 # environment
-NAME = Andrew-work
+NAME = Code
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -116,10 +119,14 @@ MFLAGS = -pqrR
 *D = $(patsubst %/,%,$(dir $*))
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
 # automatic
 +F = $(notdir $+)
 # environment
 VSCODE_HANDLES_SIGPIPE = true
+# environment
+WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
 # default
 MAKEFILES := 
 # automatic
@@ -147,7 +154,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 STARSHIP_SHELL = zsh
 # variable set hash-table stats:
-# Load=67/1024=7%, Rehash=0, Collisions=7/92=8%
+# Load=70/1024=7%, Rehash=0, Collisions=7/95=7%
 
 # Pattern-specific Variable Values
 
@@ -269,6 +276,9 @@ convert: .FORCE
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 29):
 	docker-compose up converter
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 
 .FORCE:
 #  Implicit rule search has not been done.
@@ -286,12 +296,11 @@ convert: .FORCE
 # No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 52 / storage = 551 B / avg = 10 B
- 
 # current buf: size = 8162 B / used = 551 B / count = 52 / avg = 10 B
 
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Tue Mar 28 18:13:09 2023
+# Finished Make data base on Wed Mar 29 10:38:23 2023
 
  
