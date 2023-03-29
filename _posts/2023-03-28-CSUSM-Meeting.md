@@ -44,9 +44,6 @@ title: CSUSM Interest Meeting
 - constantly changing curriculum to adapt 
 - can also transition classes without falling behind
 
-## contact
-
-
 # Clubs
 
 - Cybersecurity, robotics, 3D printing, Society of Physics Students, etc
