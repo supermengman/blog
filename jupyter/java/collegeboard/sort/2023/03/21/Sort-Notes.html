@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      11 min read
     
 </span></p>
 
@@ -332,6 +332,7 @@ window.onload = wrap_img;
             <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
         <span class="k">else</span> <span class="p">{</span>  <span class="c1">// nodes in queue</span>
             <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span> <span class="c1">// current tail points to new tail</span>
+            <span class="n">tail</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">);</span>
             <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>  <span class="c1">// update tail</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -395,6 +396,14 @@ window.onload = wrap_img;
 <span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">==</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Changes the head</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHead</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
     <span class="p">}</span>
     
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
@@ -539,28 +548,31 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">SelectionSorter</span><span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Sorter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">SelectionSorter</span><span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="kd">extends</span> <span class="n">Sorter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="nf">SelectionSorter</span><span class="p">()</span> <span class="p">{</span>
       <span class="kd">super</span><span class="p">(</span><span class="s">"Selection Sort"</span><span class="p">);</span>
   <span class="p">}</span>
   
-  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">sort</span> <span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="kt">int</span> <span class="n">lowest_ind</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-          <span class="n">T</span> <span class="n">lowest_val</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-          <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-              <span class="k">if</span> <span class="p">(</span><span class="n">lowest_val</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                  <span class="n">lowest_ind</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-                  <span class="n">lowest_val</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
-              <span class="p">}</span>
+  <span class="kd">public</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">sort</span> <span class="p">(</span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="na">getHead</span><span class="p">();</span>
+      <span class="k">while</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">lowest</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+          <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current2</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
+          <span class="k">while</span> <span class="p">(</span><span class="n">current2</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">lowest</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">current2</span><span class="p">.</span><span class="na">getData</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">lowest</span> <span class="o">=</span> <span class="n">current2</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">current2</span> <span class="o">=</span> <span class="n">current2</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
           <span class="p">}</span>
           
-          <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">lowest_ind</span><span class="p">);</span>
-          <span class="n">list</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">lowest_ind</span><span class="p">,</span> <span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
-          <span class="n">list</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">temp</span><span class="p">);</span>
-          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">list</span><span class="p">);</span>
+          <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">lowest</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+          <span class="n">lowest</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">());</span>
+          <span class="n">current</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">q</span><span class="p">);</span>
+
+          <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
       <span class="p">}</span>
-      <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">q</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -592,22 +604,38 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">InsertionSorter</span><span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Sorter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">InsertionSorter</span><span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="kd">extends</span> <span class="n">Sorter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="nf">InsertionSorter</span><span class="p">()</span> <span class="p">{</span>
       <span class="kd">super</span><span class="p">(</span><span class="s">"Insertion Sort"</span><span class="p">);</span>
   <span class="p">}</span>
   
-  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">sort</span> <span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="kt">int</span> <span class="n">ind</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-          <span class="n">T</span> <span class="n">val</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-          <span class="k">while</span> <span class="p">(</span><span class="n">ind</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ind</span><span class="p">).</span><span class="na">compareTo</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-              <span class="n">ind</span><span class="o">--</span><span class="p">;</span>
-          <span class="p">}</span>
-          <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
-          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">list</span><span class="p">);</span>
+  <span class="kd">public</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">sort</span> <span class="p">(</span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="na">getHead</span><span class="p">().</span><span class="na">getNext</span><span class="p">();</span>
+
+      <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
+        <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">compared</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">getData</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">compared</span> <span class="o">=</span> <span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">compared</span> <span class="o">!=</span> <span class="n">current</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span>
+
+            <span class="n">current</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">compared</span><span class="p">);</span>
+            <span class="n">current</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+            <span class="n">compared</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="na">setHead</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">q</span><span class="p">);</span>
       <span class="p">}</span>
-      <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">q</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -639,46 +667,46 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">MergeSorter</span><span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Sorter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="kd">public</span> <span class="nf">MergeSorter</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kd">super</span><span class="p">(</span><span class="s">"Merge Sort"</span><span class="p">);</span>
-  <span class="p">}</span>
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// class MergeSorter&lt;T extends Comparable&gt; extends Sorter&lt;T&gt; {</span>
+<span class="c1">//   public MergeSorter() {</span>
+<span class="c1">//       super("Merge Sort");</span>
+<span class="c1">//   }</span>
   
-  <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">sort</span> <span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="c1">//   public List&lt;T&gt; sort (List&lt;T&gt; list) {</span>
+<span class="c1">//       return merge(list, 0, list.size()-1);</span>
+<span class="c1">//   }</span>
   
-  <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">merge</span> <span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-          <span class="n">l</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">start</span><span class="p">));</span>
-          <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">first</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">start</span><span class="o">+</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-      <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">second</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">start</span><span class="o">+</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
+<span class="c1">//   private List&lt;T&gt; merge (List&lt;T&gt; list, int start, int end) {</span>
+<span class="c1">//       if (start == end) {</span>
+<span class="c1">//           List&lt;T&gt; l = new ArrayList&lt;&gt;();</span>
+<span class="c1">//           l.add(list.get(start));</span>
+<span class="c1">//           return l;</span>
+<span class="c1">//       }</span>
+<span class="c1">//       List&lt;T&gt; first = merge(list, start, start+(end-start)/2);</span>
+<span class="c1">//       List&lt;T&gt; second = merge(list, start+(end-start)/2+1, end);</span>
       
-      <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">zipped</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
-      <span class="kt">int</span> <span class="n">index1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="kt">int</span> <span class="n">index2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="k">while</span> <span class="p">(</span><span class="n">index1</span> <span class="o">&lt;</span> <span class="n">first</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">||</span> <span class="n">index2</span> <span class="o">&lt;</span> <span class="n">second</span><span class="p">.</span><span class="na">size</span><span class="p">())</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">index1</span> <span class="o">==</span> <span class="n">first</span><span class="p">.</span><span class="na">size</span><span class="p">())</span> <span class="p">{</span>
-              <span class="n">zipped</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">second</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">index2</span><span class="p">));</span>
-              <span class="n">index2</span><span class="o">++</span><span class="p">;</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">index2</span> <span class="o">==</span> <span class="n">second</span><span class="p">.</span><span class="na">size</span><span class="p">())</span> <span class="p">{</span>
-              <span class="n">zipped</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">index1</span><span class="p">));</span>
-              <span class="n">index1</span><span class="o">++</span><span class="p">;</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">index1</span><span class="p">).</span><span class="na">compareTo</span><span class="p">(</span><span class="n">second</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">index2</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-              <span class="n">zipped</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">index1</span><span class="p">));</span>
-              <span class="n">index1</span><span class="o">++</span><span class="p">;</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-              <span class="n">zipped</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">second</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">index2</span><span class="p">));</span>
-              <span class="n">index2</span><span class="o">++</span><span class="p">;</span>
-          <span class="p">}</span>
-      <span class="p">}</span>
-      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">zipped</span><span class="p">);</span>
-      <span class="k">return</span> <span class="n">zipped</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="c1">//       List&lt;T&gt; zipped = new ArrayList&lt;T&gt;();</span>
+<span class="c1">//       int index1 = 0;</span>
+<span class="c1">//       int index2 = 0;</span>
+<span class="c1">//       while (index1 &lt; first.size() || index2 &lt; second.size()) {</span>
+<span class="c1">//           if (index1 == first.size()) {</span>
+<span class="c1">//               zipped.add(second.get(index2));</span>
+<span class="c1">//               index2++;</span>
+<span class="c1">//           } else if (index2 == second.size()) {</span>
+<span class="c1">//               zipped.add(first.get(index1));</span>
+<span class="c1">//               index1++;</span>
+<span class="c1">//           } else if (first.get(index1).compareTo(second.get(index2)) &lt; 0) {</span>
+<span class="c1">//               zipped.add(first.get(index1));</span>
+<span class="c1">//               index1++;</span>
+<span class="c1">//           } else {</span>
+<span class="c1">//               zipped.add(second.get(index2));</span>
+<span class="c1">//               index2++;</span>
+<span class="c1">//           }</span>
+<span class="c1">//       }</span>
+<span class="c1">//       System.out.println("Intermediate: " + zipped);</span>
+<span class="c1">//       return zipped;</span>
+<span class="c1">//   }</span>
+<span class="c1">// }</span>
 </pre></div>
 
     </div>
@@ -820,9 +848,9 @@ Compare John to Mary
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortTester</span> <span class="p">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">List</span><span class="o">&lt;</span><span class="n">Sorter</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">sorters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Sorter</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="p">();</span>
-    <span class="c1">//   sorters.add(new InsertionSorter&lt;&gt;());</span>
+      <span class="n">sorters</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">InsertionSorter</span><span class="o">&lt;&gt;</span><span class="p">());</span>
       <span class="n">sorters</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">BubbleSorter</span><span class="o">&lt;&gt;</span><span class="p">());</span>
-    <span class="c1">//   sorters.add(new SelectionSorter&lt;&gt;());</span>
+      <span class="n">sorters</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">SelectionSorter</span><span class="o">&lt;&gt;</span><span class="p">());</span>
     <span class="c1">//   sorters.add(new MergeSorter&lt;&gt;());</span>
       
       <span class="k">for</span> <span class="p">(</span><span class="n">Sorter</span> <span class="n">i</span> <span class="p">:</span> <span class="n">sorters</span><span class="p">)</span> <span class="p">{</span>
@@ -851,9 +879,21 @@ Compare John to Mary
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Bubble Sort
+<pre>Insertion Sort
+Intermediate: count: 5, data: 1 10 3 2 5 
+Intermediate: count: 5, data: 1 3 10 2 5 
+Intermediate: count: 5, data: 1 2 3 10 5 
+Intermediate: count: 5, data: 1 2 3 5 10 
+count: 5, data: 1 2 3 5 10 
+Bubble Sort
 Intermediate: count: 5, data: 1 3 2 5 10 
 Intermediate: count: 5, data: 1 2 3 5 10 
+Intermediate: count: 5, data: 1 2 3 5 10 
+count: 5, data: 1 2 3 5 10 
+Selection Sort
+Intermediate: count: 5, data: 1 10 3 2 5 
+Intermediate: count: 5, data: 1 2 3 10 5 
+Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
 </pre>
