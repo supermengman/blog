@@ -466,6 +466,7 @@ window.onload = wrap_img;
   <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">startTime</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">endTime</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">operations</span><span class="p">;</span>
   
   <span class="kd">public</span> <span class="nf">Sorter</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
@@ -487,6 +488,14 @@ window.onload = wrap_img;
 
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getElapsedTime</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">endTime</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="na">startTime</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getOperations</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">operations</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">incrementOperations</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">operations</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -535,8 +544,10 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
             <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">getData</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">getData</span><span class="p">();</span>
                 <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">setData</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">());</span>
+                <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
                 <span class="n">current</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
                 <span class="n">swapped</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
             <span class="p">}</span>
             <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
           <span class="p">}</span>
@@ -604,7 +615,10 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
           
           <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">lowest</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
           <span class="n">lowest</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">());</span>
+          <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
           <span class="n">current</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+          <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+          
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">q</span><span class="p">);</span>
 
           <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
@@ -661,15 +675,20 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
         <span class="p">}</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">compared</span> <span class="o">!=</span> <span class="n">current</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">());</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">());</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
 
             <span class="n">current</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">compared</span><span class="p">);</span>
-            <span class="n">current</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
-            <span class="n">compared</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="na">setHead</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+            <span class="n">current</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="n">compared</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="na">setHead</span><span class="p">(</span><span class="n">current</span><span class="p">);</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
         <span class="p">}</span>
 
         <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
@@ -730,15 +749,19 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
     <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">firstQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()</span> <span class="o">||</span> <span class="o">!</span><span class="n">secondQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">peek</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">mergedQ</span><span class="p">;</span>
@@ -753,6 +776,7 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
     <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">i</span> <span class="p">:</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">)</span> <span class="n">firstQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
       <span class="k">else</span> <span class="n">secondQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+      <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
       <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -798,6 +822,9 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">q</span><span class="p">));</span>
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Elapsed time: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getElapsedTime</span><span class="p">()</span> <span class="o">+</span> <span class="s">"ns"</span><span class="p">);</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Operations: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getOperations</span><span class="p">());</span>
+
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
       <span class="p">}</span> 
 
       <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
@@ -824,27 +851,35 @@ Intermediate: count: 5, data: 1 3 10 2 5
 Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 242200ns
+Elapsed time: 852400ns
+Operations: 28
+
 Bubble Sort
 Intermediate: count: 5, data: 1 3 2 5 10 
 Intermediate: count: 5, data: 1 2 3 5 10 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 185800ns
+Elapsed time: 784100ns
+Operations: 10
+
 Selection Sort
 Intermediate: count: 5, data: 1 10 3 2 5 
 Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 287000ns
+Elapsed time: 697800ns
+Operations: 8
+
 Merge Sort
 Intermediate: count: 2, data: 1 10 
 Intermediate: count: 2, data: 2 5 
 Intermediate: count: 3, data: 2 3 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 249200ns
+Elapsed time: 259300ns
+Operations: 24
+
 
 </pre>
 </div>
@@ -1039,14 +1074,14 @@ Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Pa
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
-Elapsed time: 601700ns
+Elapsed time: 539800ns
 Bubble Sort
 Intermediate: count: 6, data: { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 Intermediate: count: 6, data: { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
-Elapsed time: 412900ns
+Elapsed time: 372600ns
 Selection Sort
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
@@ -1054,7 +1089,7 @@ Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Pa
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } 
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
-Elapsed time: 457500ns
+Elapsed time: 334900ns
 Merge Sort
 Intermediate: count: 2, data: { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } 
 Intermediate: count: 3, data: { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } 
@@ -1062,7 +1097,7 @@ Intermediate: count: 2, data: { "Name": "Frank", "Email": "uniqlo@mail.com", "Pa
 Intermediate: count: 3, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 Intermediate: count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
 count: 6, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } { "Name": "John", "Email": "john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } 
-Elapsed time: 308700ns
+Elapsed time: 397001ns
 
 </pre>
 </div>
