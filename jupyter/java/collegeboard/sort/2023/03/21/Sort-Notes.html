@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      41 min read
+      20 min read
     
 </span></p>
 
@@ -465,9 +465,9 @@ window.onload = wrap_img;
 
 <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Sorter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">startTime</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">endTime</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">operations</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="n">startTime</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="n">endTime</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="n">operations</span><span class="p">;</span>
   
   <span class="kd">public</span> <span class="nf">Sorter</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
@@ -484,18 +484,18 @@ window.onload = wrap_img;
   <span class="p">}</span>
 
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="na">startTime</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">startTime</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
   <span class="p">}</span>
 
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stop</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="na">endTime</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">endTime</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
   <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getElapsedTime</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">getElapsedTime</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">endTime</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="na">startTime</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getOperations</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">getOperations</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">operations</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -864,7 +864,7 @@ Intermediate: count: 5, data: 1 3 10 2 5
 Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 3955700ns
+Elapsed time: 709600ns
 Operations: 33
 
 Bubble Sort
@@ -872,7 +872,7 @@ Intermediate: count: 5, data: 1 3 2 5 10
 Intermediate: count: 5, data: 1 2 3 5 10 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 2317200ns
+Elapsed time: 542500ns
 Operations: 22
 
 Selection Sort
@@ -881,7 +881,7 @@ Intermediate: count: 5, data: 1 2 3 10 5
 Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 3056200ns
+Elapsed time: 443900ns
 Operations: 18
 
 Merge Sort
@@ -890,7 +890,7 @@ Intermediate: count: 2, data: 2 5
 Intermediate: count: 3, data: 2 3 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 3178900ns
+Elapsed time: 200700ns
 Operations: 24
 
 
@@ -1088,14 +1088,14 @@ Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Pas
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 3451700ns
+Elapsed time: 2143500ns
 Operations: 25
 Bubble Sort
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 1886000ns
+Elapsed time: 477900ns
 Operations: 23
 Selection Sort
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
@@ -1104,7 +1104,7 @@ Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Pas
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 7354300ns
+Elapsed time: 642500ns
 Operations: 25
 Merge Sort
 Intermediate: count: 2, data: { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } 
@@ -1113,7 +1113,7 @@ Intermediate: count: 2, data: { "Name": "Zoe", "Email": "bruh@gmail.com", "Passw
 Intermediate: count: 3, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 1814000ns
+Elapsed time: 400300ns
 Operations: 32
 
 </pre>
@@ -1142,30 +1142,74 @@ Operations: 32
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortTester</span> <span class="p">{</span>
+<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Analytics</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">times</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">ops</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addTime</span> <span class="p">(</span><span class="kt">long</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">times</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getAvgTime</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">times</span><span class="p">);</span>
+        <span class="kt">long</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">times</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">tot</span> <span class="o">+=</span> <span class="n">times</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">tot</span><span class="o">/</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">cnt</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addOps</span> <span class="p">(</span><span class="kt">long</span> <span class="n">op</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ops</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getAvgOps</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">ops</span><span class="p">);</span>
+        <span class="kt">long</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">ops</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">tot</span> <span class="o">+=</span> <span class="n">ops</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">tot</span><span class="o">/</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">cnt</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortTester</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">List</span><span class="o">&lt;</span><span class="n">Sorter</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">sorters</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Sorter</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="p">();</span>
         <span class="n">sorters</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">InsertionSorter</span><span class="o">&lt;&gt;</span><span class="p">());</span>
         <span class="n">sorters</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">BubbleSorter</span><span class="o">&lt;&gt;</span><span class="p">());</span>
         <span class="n">sorters</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">SelectionSorter</span><span class="o">&lt;&gt;</span><span class="p">());</span>
         <span class="n">sorters</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">MergeSorter</span><span class="o">&lt;&gt;</span><span class="p">());</span>
-        <span class="n">Integer</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="mi">1000</span><span class="o">]</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">1000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">());</span>
-        <span class="p">}</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">Sorter</span> <span class="n">i</span> <span class="p">:</span> <span class="n">sorters</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-            <span class="n">q</span><span class="p">.</span><span class="na">addList</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="kc">false</span><span class="p">));</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Elapsed time: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getElapsedTime</span><span class="p">()</span> <span class="o">+</span> <span class="s">"ns"</span><span class="p">);</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Operations: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getOperations</span><span class="p">());</span>
-  
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="p">}</span> 
-  
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
         
+        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Analytics</span><span class="o">&gt;</span> <span class="n">analytics</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Sorter</span> <span class="n">i</span> <span class="p">:</span> <span class="n">sorters</span><span class="p">)</span> <span class="n">analytics</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span> <span class="k">new</span> <span class="n">Analytics</span><span class="p">());</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">12</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Integer</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="mi">5000</span><span class="o">]</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">5000</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="mi">10000</span> <span class="o">*</span> <span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">());</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">Sorter</span> <span class="n">s</span> <span class="p">:</span> <span class="n">sorters</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+                <span class="n">q</span><span class="p">.</span><span class="na">addList</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+                <span class="n">s</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">addTime</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getElapsedTime</span><span class="p">());</span>
+                <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">addOps</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getOperations</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">Sorter</span> <span class="n">i</span> <span class="p">:</span> <span class="n">sorters</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Average Time (High/Low excluded): "</span> <span class="o">+</span> <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">getAvgTime</span><span class="p">()</span> <span class="o">+</span> <span class="s">"ns"</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Average Operations (High/Low excluded): "</span> <span class="o">+</span> <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">getAvgOps</span><span class="p">());</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
   
@@ -1183,25 +1227,20 @@ Operations: 32
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Insertion Sort
-count: 1000, data: 0 0 0 1 3 3 4 5 6 7 9 9 10 11 12 15 17 17 17 17 19 20 21 23 25 27 27 31 31 35 37 38 39 42 43 44 44 45 46 48 49 51 53 53 54 56 57 59 59 60 63 64 64 64 67 69 69 70 70 70 72 72 72 74 74 76 77 77 79 79 80 83 85 86 87 87 88 90 93 93 94 94 95 96 97 98 99 99 100 101 102 105 105 106 107 107 107 107 107 110 111 114 114 116 118 118 120 120 121 123 125 125 128 130 130 131 131 131 133 136 137 137 139 140 142 143 143 143 144 144 144 145 146 148 149 149 149 150 151 152 152 152 152 154 154 154 154 158 161 162 164 170 170 171 171 171 173 174 174 175 176 176 177 178 178 178 179 179 181 181 181 181 181 182 185 185 186 186 186 187 188 189 190 191 191 193 193 194 196 196 196 198 200 201 202 202 202 202 204 206 206 206 207 207 208 208 209 210 211 211 212 213 214 214 214 215 217 219 220 221 221 224 225 226 229 230 232 232 234 234 235 235 236 237 238 239 239 240 243 243 244 246 248 249 249 249 251 253 256 259 259 261 262 262 262 262 263 264 265 268 268 268 269 270 271 272 272 272 273 273 277 277 278 278 280 280 281 284 284 285 285 286 287 290 291 292 294 294 296 298 299 300 301 301 303 305 306 307 308 308 309 313 313 313 315 315 316 316 317 320 320 321 322 323 324 325 325 325 327 327 327 328 332 333 335 335 335 336 337 337 338 339 340 341 342 343 344 345 349 350 350 357 358 359 360 361 362 363 363 365 365 366 369 370 371 374 375 378 378 379 379 380 381 382 383 385 386 387 388 388 388 389 389 390 390 395 395 395 396 396 397 400 403 404 406 406 407 407 407 407 408 408 408 408 410 411 412 412 412 412 414 414 414 415 416 418 418 419 422 423 424 425 425 426 427 427 427 430 432 432 432 433 433 434 434 434 434 434 436 436 437 439 440 440 442 442 442 443 448 449 449 449 450 450 450 451 453 454 457 458 458 458 459 460 460 460 463 463 465 467 467 467 468 472 473 473 474 474 475 475 480 480 482 483 483 483 483 484 484 485 486 487 487 489 490 492 492 493 494 494 495 496 497 498 500 504 504 505 505 506 509 511 511 511 512 512 512 513 514 515 517 517 517 517 518 520 520 520 521 521 521 522 523 523 525 527 527 528 528 528 533 534 536 536 538 538 539 541 541 541 542 542 543 544 545 547 548 549 550 551 552 552 552 554 556 557 559 560 560 560 560 561 562 563 565 566 567 568 569 569 569 569 570 571 571 572 576 577 577 577 578 579 579 581 581 582 584 586 587 588 589 589 590 591 591 592 593 593 594 595 595 595 596 600 601 601 604 605 606 607 607 608 608 609 609 609 610 610 611 612 613 613 614 614 615 615 616 617 618 618 618 618 621 622 625 627 628 628 628 634 634 635 636 637 640 641 642 642 644 645 645 645 646 646 647 647 647 647 649 650 651 653 654 656 656 657 658 658 658 658 659 659 660 661 662 662 665 665 666 667 668 668 669 669 670 670 672 672 672 672 674 675 675 681 682 682 683 684 687 687 687 688 688 688 689 693 693 694 697 697 699 700 700 700 701 701 704 705 706 707 707 708 709 709 710 711 712 712 712 714 715 716 719 719 720 720 721 721 725 727 728 728 729 731 732 736 739 739 740 743 743 743 744 744 744 744 744 745 747 749 750 752 754 755 755 756 757 762 762 762 763 763 765 765 768 769 771 773 773 773 775 775 776 777 783 785 787 787 787 787 788 788 789 789 790 791 793 793 793 793 794 794 796 797 798 799 800 804 805 806 806 807 808 809 809 809 809 811 813 815 815 815 818 819 819 820 821 822 824 826 826 828 829 829 829 830 831 833 833 836 837 839 840 840 842 842 842 844 845 848 848 848 849 851 852 853 853 853 855 855 856 857 857 859 859 860 861 861 863 866 866 868 869 870 875 877 877 878 878 879 880 880 881 882 882 882 884 884 885 887 889 894 895 895 895 896 898 898 900 900 902 905 907 908 909 910 910 913 917 918 918 918 919 919 919 919 920 920 921 922 925 929 929 931 932 932 932 935 935 935 935 936 937 938 938 939 939 940 940 943 944 945 945 945 946 947 947 950 950 951 951 951 952 952 954 954 956 958 959 960 960 961 962 962 964 964 964 965 969 969 970 971 973 974 975 976 977 981 982 983 983 985 985 986 987 988 988 990 991 993 993 993 994 994 994 995 997 997 998 999 
-Elapsed time: 1163400ns
-Operations: 259536
+Average Time (High/Low excluded): 2.946995E7ns
+Average Operations (High/Low excluded): 4.09866804E7
 
 Bubble Sort
-count: 1000, data: 0 0 0 1 3 3 4 5 6 7 9 9 10 11 12 15 17 17 17 17 19 20 21 23 25 27 27 31 31 35 37 38 39 42 43 44 44 45 46 48 49 51 53 53 54 56 57 59 59 60 63 64 64 64 67 69 69 70 70 70 72 72 72 74 74 76 77 77 79 79 80 83 85 86 87 87 88 90 93 93 94 94 95 96 97 98 99 99 100 101 102 105 105 106 107 107 107 107 107 110 111 114 114 116 118 118 120 120 121 123 125 125 128 130 130 131 131 131 133 136 137 137 139 140 142 143 143 143 144 144 144 145 146 148 149 149 149 150 151 152 152 152 152 154 154 154 154 158 161 162 164 170 170 171 171 171 173 174 174 175 176 176 177 178 178 178 179 179 181 181 181 181 181 182 185 185 186 186 186 187 188 189 190 191 191 193 193 194 196 196 196 198 200 201 202 202 202 202 204 206 206 206 207 207 208 208 209 210 211 211 212 213 214 214 214 215 217 219 220 221 221 224 225 226 229 230 232 232 234 234 235 235 236 237 238 239 239 240 243 243 244 246 248 249 249 249 251 253 256 259 259 261 262 262 262 262 263 264 265 268 268 268 269 270 271 272 272 272 273 273 277 277 278 278 280 280 281 284 284 285 285 286 287 290 291 292 294 294 296 298 299 300 301 301 303 305 306 307 308 308 309 313 313 313 315 315 316 316 317 320 320 321 322 323 324 325 325 325 327 327 327 328 332 333 335 335 335 336 337 337 338 339 340 341 342 343 344 345 349 350 350 357 358 359 360 361 362 363 363 365 365 366 369 370 371 374 375 378 378 379 379 380 381 382 383 385 386 387 388 388 388 389 389 390 390 395 395 395 396 396 397 400 403 404 406 406 407 407 407 407 408 408 408 408 410 411 412 412 412 412 414 414 414 415 416 418 418 419 422 423 424 425 425 426 427 427 427 430 432 432 432 433 433 434 434 434 434 434 436 436 437 439 440 440 442 442 442 443 448 449 449 449 450 450 450 451 453 454 457 458 458 458 459 460 460 460 463 463 465 467 467 467 468 472 473 473 474 474 475 475 480 480 482 483 483 483 483 484 484 485 486 487 487 489 490 492 492 493 494 494 495 496 497 498 500 504 504 505 505 506 509 511 511 511 512 512 512 513 514 515 517 517 517 517 518 520 520 520 521 521 521 522 523 523 525 527 527 528 528 528 533 534 536 536 538 538 539 541 541 541 542 542 543 544 545 547 548 549 550 551 552 552 552 554 556 557 559 560 560 560 560 561 562 563 565 566 567 568 569 569 569 569 570 571 571 572 576 577 577 577 578 579 579 581 581 582 584 586 587 588 589 589 590 591 591 592 593 593 594 595 595 595 596 600 601 601 604 605 606 607 607 608 608 609 609 609 610 610 611 612 613 613 614 614 615 615 616 617 618 618 618 618 621 622 625 627 628 628 628 634 634 635 636 637 640 641 642 642 644 645 645 645 646 646 647 647 647 647 649 650 651 653 654 656 656 657 658 658 658 658 659 659 660 661 662 662 665 665 666 667 668 668 669 669 670 670 672 672 672 672 674 675 675 681 682 682 683 684 687 687 687 688 688 688 689 693 693 694 697 697 699 700 700 700 701 701 704 705 706 707 707 708 709 709 710 711 712 712 712 714 715 716 719 719 720 720 721 721 725 727 728 728 729 731 732 736 739 739 740 743 743 743 744 744 744 744 744 745 747 749 750 752 754 755 755 756 757 762 762 762 763 763 765 765 768 769 771 773 773 773 775 775 776 777 783 785 787 787 787 787 788 788 789 789 790 791 793 793 793 793 794 794 796 797 798 799 800 804 805 806 806 807 808 809 809 809 809 811 813 815 815 815 818 819 819 820 821 822 824 826 826 828 829 829 829 830 831 833 833 836 837 839 840 840 842 842 842 844 845 848 848 848 849 851 852 853 853 853 855 855 856 857 857 859 859 860 861 861 863 866 866 868 869 870 875 877 877 878 878 879 880 880 881 882 882 882 884 884 885 887 889 894 895 895 895 896 898 898 900 900 902 905 907 908 909 910 910 913 917 918 918 918 919 919 919 919 920 920 921 922 925 929 929 931 932 932 932 935 935 935 935 936 937 938 938 939 939 940 940 943 944 945 945 945 946 947 947 950 950 951 951 951 952 952 954 954 956 958 959 960 960 961 962 962 964 964 964 965 969 969 970 971 973 974 975 976 977 981 982 983 983 985 985 986 987 988 988 990 991 993 993 993 994 994 994 995 997 997 998 999 
-Elapsed time: 14782100ns
-Operations: 1454206
+Average Time (High/Low excluded): 1.7442082E8ns
+Average Operations (High/Low excluded): 2.415927679E8
 
 Selection Sort
-count: 1000, data: 0 0 0 1 3 3 4 5 6 7 9 9 10 11 12 15 17 17 17 17 19 20 21 23 25 27 27 31 31 35 37 38 39 42 43 44 44 45 46 48 49 51 53 53 54 56 57 59 59 60 63 64 64 64 67 69 69 70 70 70 72 72 72 74 74 76 77 77 79 79 80 83 85 86 87 87 88 90 93 93 94 94 95 96 97 98 99 99 100 101 102 105 105 106 107 107 107 107 107 110 111 114 114 116 118 118 120 120 121 123 125 125 128 130 130 131 131 131 133 136 137 137 139 140 142 143 143 143 144 144 144 145 146 148 149 149 149 150 151 152 152 152 152 154 154 154 154 158 161 162 164 170 170 171 171 171 173 174 174 175 176 176 177 178 178 178 179 179 181 181 181 181 181 182 185 185 186 186 186 187 188 189 190 191 191 193 193 194 196 196 196 198 200 201 202 202 202 202 204 206 206 206 207 207 208 208 209 210 211 211 212 213 214 214 214 215 217 219 220 221 221 224 225 226 229 230 232 232 234 234 235 235 236 237 238 239 239 240 243 243 244 246 248 249 249 249 251 253 256 259 259 261 262 262 262 262 263 264 265 268 268 268 269 270 271 272 272 272 273 273 277 277 278 278 280 280 281 284 284 285 285 286 287 290 291 292 294 294 296 298 299 300 301 301 303 305 306 307 308 308 309 313 313 313 315 315 316 316 317 320 320 321 322 323 324 325 325 325 327 327 327 328 332 333 335 335 335 336 337 337 338 339 340 341 342 343 344 345 349 350 350 357 358 359 360 361 362 363 363 365 365 366 369 370 371 374 375 378 378 379 379 380 381 382 383 385 386 387 388 388 388 389 389 390 390 395 395 395 396 396 397 400 403 404 406 406 407 407 407 407 408 408 408 408 410 411 412 412 412 412 414 414 414 415 416 418 418 419 422 423 424 425 425 426 427 427 427 430 432 432 432 433 433 434 434 434 434 434 436 436 437 439 440 440 442 442 442 443 448 449 449 449 450 450 450 451 453 454 457 458 458 458 459 460 460 460 463 463 465 467 467 467 468 472 473 473 474 474 475 475 480 480 482 483 483 483 483 484 484 485 486 487 487 489 490 492 492 493 494 494 495 496 497 498 500 504 504 505 505 506 509 511 511 511 512 512 512 513 514 515 517 517 517 517 518 520 520 520 521 521 521 522 523 523 525 527 527 528 528 528 533 534 536 536 538 538 539 541 541 541 542 542 543 544 545 547 548 549 550 551 552 552 552 554 556 557 559 560 560 560 560 561 562 563 565 566 567 568 569 569 569 569 570 571 571 572 576 577 577 577 578 579 579 581 581 582 584 586 587 588 589 589 590 591 591 592 593 593 594 595 595 595 596 600 601 601 604 605 606 607 607 608 608 609 609 609 610 610 611 612 613 613 614 614 615 615 616 617 618 618 618 618 621 622 625 627 628 628 628 634 634 635 636 637 640 641 642 642 644 645 645 645 646 646 647 647 647 647 649 650 651 653 654 656 656 657 658 658 658 658 659 659 660 661 662 662 665 665 666 667 668 668 669 669 670 670 672 672 672 672 674 675 675 681 682 682 683 684 687 687 687 688 688 688 689 693 693 694 697 697 699 700 700 700 701 701 704 705 706 707 707 708 709 709 710 711 712 712 712 714 715 716 719 719 720 720 721 721 725 727 728 728 729 731 732 736 739 739 740 743 743 743 744 744 744 744 744 745 747 749 750 752 754 755 755 756 757 762 762 762 763 763 765 765 768 769 771 773 773 773 775 775 776 777 783 785 787 787 787 787 788 788 789 789 790 791 793 793 793 793 794 794 796 797 798 799 800 804 805 806 806 807 808 809 809 809 809 811 813 815 815 815 818 819 819 820 821 822 824 826 826 828 829 829 829 830 831 833 833 836 837 839 840 840 842 842 842 844 845 848 848 848 849 851 852 853 853 853 855 855 856 857 857 859 859 860 861 861 863 866 866 868 869 870 875 877 877 878 878 879 880 880 881 882 882 882 884 884 885 887 889 894 895 895 895 896 898 898 900 900 902 905 907 908 909 910 910 913 917 918 918 918 919 919 919 919 920 920 921 922 925 929 929 931 932 932 932 935 935 935 935 936 937 938 938 939 939 940 940 943 944 945 945 945 946 947 947 950 950 951 951 951 952 952 954 954 956 958 959 960 960 961 962 962 964 964 964 965 969 969 970 971 973 974 975 976 977 981 982 983 983 985 985 986 987 988 988 990 991 993 993 993 994 994 994 995 997 997 998 999 
-Elapsed time: 3546900ns
-Operations: 501498
+Average Time (High/Low excluded): 5.40673E7ns
+Average Operations (High/Low excluded): 8.1298737E7
 
 Merge Sort
-count: 1000, data: 0 0 0 1 3 3 4 5 6 7 9 9 10 11 12 15 17 17 17 17 19 20 21 23 25 27 27 31 31 35 37 38 39 42 43 44 44 45 46 48 49 51 53 53 54 56 57 59 59 60 63 64 64 64 67 69 69 70 70 70 72 72 72 74 74 76 77 77 79 79 80 83 85 86 87 87 88 90 93 93 94 94 95 96 97 98 99 99 100 101 102 105 105 106 107 107 107 107 107 110 111 114 114 116 118 118 120 120 121 123 125 125 128 130 130 131 131 131 133 136 137 137 139 140 142 143 143 143 144 144 144 145 146 148 149 149 149 150 151 152 152 152 152 154 154 154 154 158 161 162 164 170 170 171 171 171 173 174 174 175 176 176 177 178 178 178 179 179 181 181 181 181 181 182 185 185 186 186 186 187 188 189 190 191 191 193 193 194 196 196 196 198 200 201 202 202 202 202 204 206 206 206 207 207 208 208 209 210 211 211 212 213 214 214 214 215 217 219 220 221 221 224 225 226 229 230 232 232 234 234 235 235 236 237 238 239 239 240 243 243 244 246 248 249 249 249 251 253 256 259 259 261 262 262 262 262 263 264 265 268 268 268 269 270 271 272 272 272 273 273 277 277 278 278 280 280 281 284 284 285 285 286 287 290 291 292 294 294 296 298 299 300 301 301 303 305 306 307 308 308 309 313 313 313 315 315 316 316 317 320 320 321 322 323 324 325 325 325 327 327 327 328 332 333 335 335 335 336 337 337 338 339 340 341 342 343 344 345 349 350 350 357 358 359 360 361 362 363 363 365 365 366 369 370 371 374 375 378 378 379 379 380 381 382 383 385 386 387 388 388 388 389 389 390 390 395 395 395 396 396 397 400 403 404 406 406 407 407 407 407 408 408 408 408 410 411 412 412 412 412 414 414 414 415 416 418 418 419 422 423 424 425 425 426 427 427 427 430 432 432 432 433 433 434 434 434 434 434 436 436 437 439 440 440 442 442 442 443 448 449 449 449 450 450 450 451 453 454 457 458 458 458 459 460 460 460 463 463 465 467 467 467 468 472 473 473 474 474 475 475 480 480 482 483 483 483 483 484 484 485 486 487 487 489 490 492 492 493 494 494 495 496 497 498 500 504 504 505 505 506 509 511 511 511 512 512 512 513 514 515 517 517 517 517 518 520 520 520 521 521 521 522 523 523 525 527 527 528 528 528 533 534 536 536 538 538 539 541 541 541 542 542 543 544 545 547 548 549 550 551 552 552 552 554 556 557 559 560 560 560 560 561 562 563 565 566 567 568 569 569 569 569 570 571 571 572 576 577 577 577 578 579 579 581 581 582 584 586 587 588 589 589 590 591 591 592 593 593 594 595 595 595 596 600 601 601 604 605 606 607 607 608 608 609 609 609 610 610 611 612 613 613 614 614 615 615 616 617 618 618 618 618 621 622 625 627 628 628 628 634 634 635 636 637 640 641 642 642 644 645 645 645 646 646 647 647 647 647 649 650 651 653 654 656 656 657 658 658 658 658 659 659 660 661 662 662 665 665 666 667 668 668 669 669 670 670 672 672 672 672 674 675 675 681 682 682 683 684 687 687 687 688 688 688 689 693 693 694 697 697 699 700 700 700 701 701 704 705 706 707 707 708 709 709 710 711 712 712 712 714 715 716 719 719 720 720 721 721 725 727 728 728 729 731 732 736 739 739 740 743 743 743 744 744 744 744 744 745 747 749 750 752 754 755 755 756 757 762 762 762 763 763 765 765 768 769 771 773 773 773 775 775 776 777 783 785 787 787 787 787 788 788 789 789 790 791 793 793 793 793 794 794 796 797 798 799 800 804 805 806 806 807 808 809 809 809 809 811 813 815 815 815 818 819 819 820 821 822 824 826 826 828 829 829 829 830 831 833 833 836 837 839 840 840 842 842 842 844 845 848 848 848 849 851 852 853 853 853 855 855 856 857 857 859 859 860 861 861 863 866 866 868 869 870 875 877 877 878 878 879 880 880 881 882 882 882 884 884 885 887 889 894 895 895 895 896 898 898 900 900 902 905 907 908 909 910 910 913 917 918 918 918 919 919 919 919 920 920 921 922 925 929 929 931 932 932 932 935 935 935 935 936 937 938 938 939 939 940 940 943 944 945 945 945 946 947 947 950 950 951 951 951 952 952 954 954 956 958 959 960 960 961 962 962 964 964 964 965 969 969 970 971 973 974 975 976 977 981 982 983 983 985 985 986 987 988 988 990 991 993 993 993 994 994 994 995 997 997 998 999 
-Elapsed time: 215500ns
-Operations: 19952
-
+Average Time (High/Low excluded): 178230.0ns
+Average Operations (High/Low excluded): 803504.0
 
 </pre>
 </div>
