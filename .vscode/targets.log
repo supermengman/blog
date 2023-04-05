@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  3 08:52:37 2023
+# Make data base, printed on Tue Apr  4 21:32:17 2023
 
 # Variables
 
@@ -36,7 +36,7 @@ VSCODE_NLS_CONFIG = {"locale":"en","osLocale":"en","availableLanguages":{}}
 # environment
 _ = /mnt/c/Users/andre/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
-STARSHIP_SESSION_KEY = 2448689071034622
+STARSHIP_SESSION_KEY = 1597816710142692
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -52,7 +52,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-5ba12832-e874-4304-9147-74884b6f2a25.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-d70b4b42-1d53-4029-ae85-ae1b09001a29.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -70,7 +70,7 @@ WSL_INTEROP = /run/WSL/8_interop
 # environment
 PULSE_SERVER = unix:/mnt/wslg/PulseServer
 # environment
-WT_SESSION = 65dcd5b1-cbd7-4010-acfb-0443cfa83d97
+WT_SESSION = 5cd0fd39-5056-4b6d-a4bd-b6758592f083
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -102,7 +102,7 @@ NAME = Code
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/andre/.vscode/extensions/ms-vscode-remote.remote-wsl-0.76.1
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/andre/.vscode/extensions/ms-vscode-remote.remote-wsl-0.77.0
 # default
 MAKE_COMMAND := make
 # environment
@@ -275,10 +275,10 @@ convert: .FORCE
 #  recipe to execute (from 'Makefile', line 29):
 	docker-compose up converter
 
-.FORCE:
  
 make: *** No rule to make target 'all'.  Stop.
 
+.FORCE:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -299,6 +299,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 78 / hit rate = 33%
 # hash-table stats:
 # Load=52/8192=1%, Rehash=0, Collisions=1/78=1%
-# Finished Make data base on Mon Apr  3 08:52:37 2023
+# Finished Make data base on Tue Apr  4 21:32:17 2023
 
  
