@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      21 min read
     
 </span></p>
 
@@ -468,6 +468,8 @@ window.onload = wrap_img;
   <span class="kt">long</span> <span class="n">startTime</span><span class="p">;</span>
   <span class="kt">long</span> <span class="n">endTime</span><span class="p">;</span>
   <span class="kt">long</span> <span class="n">operations</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="n">compares</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="n">swaps</span><span class="p">;</span>
   
   <span class="kd">public</span> <span class="nf">Sorter</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
@@ -497,6 +499,22 @@ window.onload = wrap_img;
 
     <span class="kd">public</span> <span class="kt">long</span> <span class="nf">getOperations</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">operations</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">getCompares</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">compares</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">getSwaps</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">swaps</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">incrementCompares</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">compares</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">incrementSwaps</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">swaps</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">incrementOperations</span><span class="p">()</span> <span class="p">{</span>
@@ -549,12 +567,11 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
             <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">getData</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">getData</span><span class="p">();</span>
                 <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">setData</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">());</span>
-                <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
                 <span class="n">current</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
                 <span class="n">swapped</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-                <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+                <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
             <span class="p">}</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementCompares</span><span class="p">();</span>
             <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
           <span class="p">}</span>
           <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">q</span><span class="p">);</span>
@@ -616,15 +633,14 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
             <span class="k">if</span> <span class="p">(</span><span class="n">lowest</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">current2</span><span class="p">.</span><span class="na">getData</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">lowest</span> <span class="o">=</span> <span class="n">current2</span><span class="p">;</span>
             <span class="p">}</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementCompares</span><span class="p">();</span>
             <span class="n">current2</span> <span class="o">=</span> <span class="n">current2</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
           <span class="p">}</span>
           
           <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">lowest</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
           <span class="n">lowest</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">());</span>
-          <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
           <span class="n">current</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
-          <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+          <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
           
           <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Intermediate: "</span> <span class="o">+</span> <span class="n">q</span><span class="p">);</span>
 
@@ -679,24 +695,23 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
         <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">compared</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
         <span class="k">while</span> <span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">getData</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">compared</span> <span class="o">=</span> <span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">();</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementCompares</span><span class="p">();</span>
         <span class="p">}</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">compared</span> <span class="o">!=</span> <span class="n">current</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">());</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">());</span> 
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">().</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span>
 
             <span class="n">current</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">compared</span><span class="p">);</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
 
             <span class="n">current</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">());</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="n">compared</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">().</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span> 
             <span class="n">compared</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="na">setHead</span><span class="p">(</span><span class="n">current</span><span class="p">);</span> <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">getPrevious</span><span class="p">()</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="na">setHead</span><span class="p">(</span><span class="n">current</span><span class="p">);</span> 
         <span class="p">}</span>
 
         <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
@@ -762,19 +777,21 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
     <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">firstQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()</span> <span class="o">||</span> <span class="o">!</span><span class="n">secondQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">peek</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">firstQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementCompares</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="p">{</span>
             <span class="n">mergedQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">secondQ</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
-            <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">incrementCompares</span><span class="p">();</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">mergedQ</span><span class="p">;</span>
@@ -789,7 +806,7 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
     <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">i</span> <span class="p">:</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">)</span> <span class="n">firstQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
       <span class="k">else</span> <span class="n">secondQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-      <span class="kd">super</span><span class="p">.</span><span class="na">incrementOperations</span><span class="p">();</span>
+      <span class="kd">super</span><span class="p">.</span><span class="na">incrementSwaps</span><span class="p">();</span>
       <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -835,7 +852,8 @@ shown above is a rudimentary example of the steps that bubble sort takes to sort
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">q</span><span class="p">));</span>
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Elapsed time: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getElapsedTime</span><span class="p">()</span> <span class="o">+</span> <span class="s">"ns"</span><span class="p">);</span>
-          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Operations: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getOperations</span><span class="p">());</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of compares: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getCompares</span><span class="p">());</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of swaps: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getSwaps</span><span class="p">());</span>
 
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
       <span class="p">}</span> 
@@ -864,16 +882,18 @@ Intermediate: count: 5, data: 1 3 10 2 5
 Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 709600ns
-Operations: 33
+Elapsed time: 11055601ns
+Number of compares: 5
+Number of swaps: 4
 
 Bubble Sort
 Intermediate: count: 5, data: 1 3 2 5 10 
 Intermediate: count: 5, data: 1 2 3 5 10 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 542500ns
-Operations: 22
+Elapsed time: 3147400ns
+Number of compares: 12
+Number of swaps: 5
 
 Selection Sort
 Intermediate: count: 5, data: 1 10 3 2 5 
@@ -881,8 +901,9 @@ Intermediate: count: 5, data: 1 2 3 10 5
 Intermediate: count: 5, data: 1 2 3 10 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 443900ns
-Operations: 18
+Elapsed time: 6820900ns
+Number of compares: 10
+Number of swaps: 4
 
 Merge Sort
 Intermediate: count: 2, data: 1 10 
@@ -890,8 +911,9 @@ Intermediate: count: 2, data: 2 5
 Intermediate: count: 3, data: 2 3 5 
 Intermediate: count: 5, data: 1 2 3 5 10 
 count: 5, data: 1 2 3 5 10 
-Elapsed time: 200700ns
-Operations: 24
+Elapsed time: 4145300ns
+Number of compares: 8
+Number of swaps: 24
 
 
 </pre>
@@ -1060,7 +1082,8 @@ Compare John to Mary: email
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">q</span><span class="p">));</span>
           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Elapsed time: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getElapsedTime</span><span class="p">()</span> <span class="o">+</span> <span class="s">"ns"</span><span class="p">);</span>
-          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Operations: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getOperations</span><span class="p">());</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of compares: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getCompares</span><span class="p">());</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of swaps: "</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="na">getSwaps</span><span class="p">());</span>
       <span class="p">}</span> 
 
       <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
@@ -1088,15 +1111,17 @@ Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Pas
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 2143500ns
-Operations: 25
+Elapsed time: 3394400ns
+Number of compares: 4
+Number of swaps: 3
 Bubble Sort
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 477900ns
-Operations: 23
+Elapsed time: 2381200ns
+Number of compares: 15
+Number of swaps: 4
 Selection Sort
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
@@ -1104,8 +1129,9 @@ Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Pas
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 642500ns
-Operations: 25
+Elapsed time: 15101701ns
+Number of compares: 15
+Number of swaps: 5
 Merge Sort
 Intermediate: count: 2, data: { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } 
 Intermediate: count: 3, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } 
@@ -1113,8 +1139,9 @@ Intermediate: count: 2, data: { "Name": "Zoe", "Email": "bruh@gmail.com", "Passw
 Intermediate: count: 3, data: { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 Intermediate: count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
 count: 6, data: { "Name": "John", "Email": "1john@email.com", "Password": "password" } { "Name": "Alice", "Email": "alice@email.com", "Password": "dfsefa" } { "Name": "Bob", "Email": "bob@email.com", "Password": "password3" } { "Name": "Zoe", "Email": "bruh@gmail.com", "Password": "deawea" } { "Name": "Mary", "Email": "mary@email.com", "Password": "password2" } { "Name": "Frank", "Email": "uniqlo@mail.com", "Password": "ewaksjd" } 
-Elapsed time: 400300ns
-Operations: 32
+Elapsed time: 2462400ns
+Number of compares: 9
+Number of swaps: 32
 
 </pre>
 </div>
@@ -1145,6 +1172,8 @@ Operations: 32
 <div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Analytics</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">times</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
     <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">ops</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">compares</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">swaps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addTime</span> <span class="p">(</span><span class="kt">long</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">times</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
@@ -1166,12 +1195,44 @@ Operations: 32
         <span class="n">ops</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
     <span class="p">}</span>
 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addCompares</span> <span class="p">(</span><span class="kt">long</span> <span class="n">comp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">compares</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">comp</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addSwaps</span> <span class="p">(</span><span class="kt">long</span> <span class="n">swap</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">swaps</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">swap</span><span class="p">);</span>
+    <span class="p">}</span>
+
     <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getAvgOps</span> <span class="p">()</span> <span class="p">{</span>
         <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">ops</span><span class="p">);</span>
         <span class="kt">long</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="kt">long</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">ops</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">tot</span> <span class="o">+=</span> <span class="n">ops</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">tot</span><span class="o">/</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">cnt</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getAvgCompares</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">compares</span><span class="p">);</span>
+        <span class="kt">long</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">compares</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">tot</span> <span class="o">+=</span> <span class="n">compares</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">tot</span><span class="o">/</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">cnt</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getAvgSwaps</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">swaps</span><span class="p">);</span>
+        <span class="kt">long</span> <span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">swaps</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">tot</span> <span class="o">+=</span> <span class="n">swaps</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
             <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -1200,14 +1261,16 @@ Operations: 32
                 <span class="n">q</span><span class="p">.</span><span class="na">addList</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
                 <span class="n">s</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
                 <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">addTime</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getElapsedTime</span><span class="p">());</span>
-                <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">addOps</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getOperations</span><span class="p">());</span>
+                <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">addCompares</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getCompares</span><span class="p">());</span>
+                <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">addSwaps</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">getSwaps</span><span class="p">());</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="k">for</span> <span class="p">(</span><span class="n">Sorter</span> <span class="n">i</span> <span class="p">:</span> <span class="n">sorters</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Average Time (High/Low excluded): "</span> <span class="o">+</span> <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">getAvgTime</span><span class="p">()</span> <span class="o">+</span> <span class="s">"ns"</span><span class="p">);</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Average Operations (High/Low excluded): "</span> <span class="o">+</span> <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">getAvgOps</span><span class="p">());</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Average Compares (High/Low excluded): "</span> <span class="o">+</span> <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">getAvgCompares</span><span class="p">());</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Average Swaps (High/Low excluded): "</span> <span class="o">+</span> <span class="n">analytics</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="na">getName</span><span class="p">()).</span><span class="na">getAvgSwaps</span><span class="p">());</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -1227,20 +1290,24 @@ Operations: 32
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Insertion Sort
-Average Time (High/Low excluded): 2.946995E7ns
-Average Operations (High/Low excluded): 4.09866804E7
+Average Time (High/Low excluded): 6.11971925E7ns
+Average Compares (High/Low excluded): 4.07269303E7
+Average Swaps (High/Low excluded): 32433.6
 
 Bubble Sort
-Average Time (High/Low excluded): 1.7442082E8ns
-Average Operations (High/Low excluded): 2.415927679E8
+Average Time (High/Low excluded): 2.742120609E8ns
+Average Compares (High/Low excluded): 1.592111514E8
+Average Swaps (High/Low excluded): 4.07269303E7
 
 Selection Sort
-Average Time (High/Low excluded): 5.40673E7ns
-Average Operations (High/Low excluded): 8.1298737E7
+Average Time (High/Low excluded): 7.7595993E7ns
+Average Compares (High/Low excluded): 8.123375E7
+Average Swaps (High/Low excluded): 32493.5
 
 Merge Sort
-Average Time (High/Low excluded): 178230.0ns
-Average Operations (High/Low excluded): 803504.0
+Average Time (High/Low excluded): 491460.0ns
+Average Compares (High/Low excluded): 359009.9
+Average Swaps (High/Low excluded): 803504.0
 
 </pre>
 </div>
